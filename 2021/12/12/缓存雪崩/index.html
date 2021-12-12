@@ -458,13 +458,13 @@
                 <h2 id="简述缓存雪崩"><a href="#简述缓存雪崩" class="headerlink" title="简述缓存雪崩"></a>简述缓存雪崩</h2><p>缓存雪崩，即：缓存中的数据大批量过期，缓存数据同时失效，此时用户发过来的数据请求就全打到数据库上，查询数据多一点，数据库可能直接宕机，从而形成一系列连锁反应，造成整个系统崩溃。</p>
 <p>雪崩问题在国外叫做：stampeding herd（奔逃的野牛），指的是cache crash后，流量会像奔逃的野牛一样，打向后端。</p>
 <p><em><strong>下图是访问正常走缓存的情形：</strong></em></p>
-<p><img src="D:\blog\source_posts\缓存雪崩\缓存雪崩1.jpg" alt="缓存雪崩1"></p>
+<p> <strong><img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A91.jpg" class title="This is an test image"></strong> </p>
 <p><em><strong>下图是缓存失效的情形：</strong></em> </p>
-<p><img src="D:\blog\source_posts\缓存雪崩\缓存雪崩2.jpg" alt="缓存雪崩2"></p>
+<p> <strong><img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A92.jpg" class title="This is an test image"></strong> </p>
 <h3 id="以下分别从MySQL的角度和Redis的角度来分析这个问题："><a href="#以下分别从MySQL的角度和Redis的角度来分析这个问题：" class="headerlink" title="以下分别从MySQL的角度和Redis的角度来分析这个问题："></a><strong>以下分别从MySQL的角度和Redis的角度来分析这个问题：</strong></h3><p><strong>从MySQL的角度出发</strong></p>
 <p>无论是对很多键（key）的并发查询（缓存雪崩），还是一次性对同一个键的很多次并发查询（缓存击穿，下篇文章），MySQL的解决方法都是简单粗暴：强行减少请求量。</p>
 <p>如何减少请求量呢？<strong>答案是：Synchronized，同步锁。</strong>如下左图所示，没有加锁时，线程可以并发读取数据库；右图中加锁了，线程只能同步访问数据库，等一个线程执行完并释放锁，其他线程才可以竞争这把锁。这样一来，数据库的压力瞬间就降下来了。</p>
-<p><img src="D:\blog\source_posts\缓存雪崩\缓存雪崩3.jpg" alt="缓存雪崩3"></p>
+<p> <strong><img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A93.jpg" class title="This is an test image"></strong> </p>
 <p>这个解决方法带来的问题也很明显：用户体验卡顿。通过牺牲用户体验来保证数据库不宕机。 </p>
 <pre><code class="java">// 模拟加锁排队
 public object GetProductListNew() &#123;
