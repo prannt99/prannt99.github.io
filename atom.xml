@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>My Blog</title>
+  
+  <subtitle>大雪纷飞</subtitle>
+  <link href="https://prannt99.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://prannt99.github.io/"/>
+  <updated>2021-12-12T05:40:30.847Z</updated>
+  <id>https://prannt99.github.io/</id>
+  
+  <author>
+    <name>Prannt</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://prannt99.github.io/2022/12/12/hello-world/"/>
+    <id>https://prannt99.github.io/2022/12/12/hello-world/</id>
+    <published>2022-12-11T16:00:00.000Z</published>
+    <updated>2021-12-12T05:40:30.847Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="example" scheme="https://prannt99.github.io/categories/example/"/>
+    
+    
+    <category term="example" scheme="https://prannt99.github.io/tags/example/"/>
+    
+    <category term="github" scheme="https://prannt99.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>缓存雪崩</title>
+    <link href="https://prannt99.github.io/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/"/>
+    <id>https://prannt99.github.io/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/</id>
+    <published>2021-12-12T02:08:29.000Z</published>
+    <updated>2021-12-12T07:05:36.935Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简述缓存雪崩&quot;&gt;&lt;a href=&quot;#简述缓存雪崩&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="https://prannt99.github.io/categories/Redis/"/>
+    
+    
+    <category term="Redis" scheme="https://prannt99.github.io/tags/Redis/"/>
+    
+  </entry>
+  
+</feed>
