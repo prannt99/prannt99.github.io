@@ -450,6 +450,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -457,14 +460,39 @@
             <div id="articleContent">
                 <h2 id="简述缓存雪崩"><a href="#简述缓存雪崩" class="headerlink" title="简述缓存雪崩"></a>简述缓存雪崩</h2><p>缓存雪崩，即：缓存中的数据大批量过期，缓存数据同时失效，此时用户发过来的数据请求就全打到数据库上，查询数据多一点，数据库可能直接宕机，从而形成一系列连锁反应，造成整个系统崩溃。</p>
 <p>雪崩问题在国外叫做：stampeding herd（奔逃的野牛），指的是cache crash后，流量会像奔逃的野牛一样，打向后端。</p>
-<p> <strong><img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A91.jpg" class title="访问正常走缓存的情形"></strong> </p>
-<p> <strong><img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A92.jpg" class title="缓存失效的情形"></strong> </p>
+ <img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A91.jpg" class title="访问正常走缓存的情形">
+
+ <img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A92.jpg" class title="缓存失效的情形">
+
 <h3 id="以下分别从MySQL的角度和Redis的角度来分析这个问题："><a href="#以下分别从MySQL的角度和Redis的角度来分析这个问题：" class="headerlink" title="以下分别从MySQL的角度和Redis的角度来分析这个问题："></a><strong>以下分别从MySQL的角度和Redis的角度来分析这个问题：</strong></h3><p><strong>从MySQL的角度出发</strong></p>
 <p>无论是对很多键（key）的并发查询（缓存雪崩），还是一次性对同一个键的很多次并发查询（缓存击穿，下篇文章），MySQL的解决方法都是简单粗暴：强行减少请求量。</p>
 <p>如何减少请求量呢？<strong>答案是：Synchronized，同步锁。</strong>如下左图所示，没有加锁时，线程可以并发读取数据库；右图中加锁了，线程只能同步访问数据库，等一个线程执行完并释放锁，其他线程才可以竞争这把锁。这样一来，数据库的压力瞬间就降下来了。</p>
-<p> <strong><img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A93.jpg" class title="同步锁"></strong> </p>
+ <img src="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A93.jpg" class title="同步锁"> 
+
 <p>这个解决方法带来的问题也很明显：用户体验卡顿。通过牺牲用户体验来保证数据库不宕机。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模拟加锁排队</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> object <span class="title">GetProductListNew</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cacheTime = <span class="number">30</span>;</span><br><span class="line">    String cacheKey = <span class="string">&quot;product_list&quot;</span>;</span><br><span class="line">    String lockKey = cacheKey;</span><br><span class="line"></span><br><span class="line">    String cacheValue = CacheHelper.get(cacheKey);</span><br><span class="line">    <span class="keyword">if</span> (cacheValue != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> cacheValue;  <span class="comment">// 返回缓存中的数据</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  <span class="comment">// 直接访问数据库</span></span><br><span class="line">        <span class="keyword">synchronized</span>(lockKey) &#123;  <span class="comment">// 同步锁</span></span><br><span class="line">            cacheValue = CacheHelper.get(cacheKey);</span><br><span class="line">            <span class="keyword">if</span> (cacheValue != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> cacheValue;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="comment">// sql查询数据</span></span><br><span class="line">                cacheValue = GetProductListFromDB(); </span><br><span class="line">                CacheHelper.Add(cacheKey, cacheValue, cacheTime);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cacheValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 模拟加锁排队</span>
+<span class="token keyword">public</span> object <span class="token class-name">GetProductListNew</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> cacheTime <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> cacheKey <span class="token operator">=</span> <span class="token string">"product_list"</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> lockKey <span class="token operator">=</span> cacheKey<span class="token punctuation">;</span>
+
+    <span class="token class-name">String</span> cacheValue <span class="token operator">=</span> <span class="token class-name">CacheHelper</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>cacheKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>cacheValue <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> cacheValue<span class="token punctuation">;</span>  <span class="token comment">// 返回缓存中的数据</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 直接访问数据库</span>
+        <span class="token keyword">synchronized</span><span class="token punctuation">(</span>lockKey<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  <span class="token comment">// 同步锁</span>
+            cacheValue <span class="token operator">=</span> <span class="token class-name">CacheHelper</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>cacheKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>cacheValue <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">return</span> cacheValue<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+              <span class="token comment">// sql查询数据</span>
+                cacheValue <span class="token operator">=</span> <span class="token class-name">GetProductListFromDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                <span class="token class-name">CacheHelper<span class="token punctuation">.</span>Add</span><span class="token punctuation">(</span>cacheKey<span class="token punctuation">,</span> cacheValue<span class="token punctuation">,</span> cacheTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> cacheValue<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>相对于缓存击穿的情形，对缓存雪崩采取这种策略，效果并不会这么给力。原因也很简单，此时很多客户端的访问请求，不单单是基于一个键，并发量的减少不会像缓存击穿这么明显。 </p>
 <p>2.<strong>从Redis的角度出发</strong></p>
@@ -472,7 +500,28 @@
 <li>设置热点数据不过期</li>
 <li>设置随机过期时间，避免缓存在同一时间大批失效。换句话，就是让缓存失效时间均匀一点。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模拟设置随机过期时间</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> object <span class="title">GetProductListNew</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cacheTime = <span class="number">30</span>;</span><br><span class="line">    String cacheKey = <span class="string">&quot;product_list&quot;</span>;</span><br><span class="line">    <span class="comment">// 缓存标记：记录缓存数据是否过期</span></span><br><span class="line">    String cacheSign = cacheKey + <span class="string">&quot;_sign&quot;</span>;</span><br><span class="line">    String sign = CacheHelper.Get(cacheSign);</span><br><span class="line">    <span class="comment">// 获取缓存值</span></span><br><span class="line">    String cacheValue = CacheHelper.Get(cacheKey);</span><br><span class="line">    <span class="keyword">if</span> (sign != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> cacheValue;   <span class="comment">// 未过期，直接返回</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        CacheHelper.Add(cacheSign, <span class="string">&quot;1&quot;</span>, cacheTime);</span><br><span class="line">        ThreadPool.QueueUserWorkItem((arg) -&gt; &#123;</span><br><span class="line">            <span class="comment">// sql查询数据</span></span><br><span class="line">            cacheValue = GetProductListFromDB(); </span><br><span class="line">          <span class="comment">// 日期设为缓存时间的2倍，用于脏读</span></span><br><span class="line">          CacheHelper.Add(cacheKey, cacheValue, cacheTime * <span class="number">2</span>);                 </span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> cacheValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 模拟设置随机过期时间</span>
+<span class="token keyword">public</span> object <span class="token class-name">GetProductListNew</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> cacheTime <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> cacheKey <span class="token operator">=</span> <span class="token string">"product_list"</span><span class="token punctuation">;</span>
+    <span class="token comment">// 缓存标记：记录缓存数据是否过期</span>
+    <span class="token class-name">String</span> cacheSign <span class="token operator">=</span> cacheKey <span class="token operator">+</span> <span class="token string">"_sign"</span><span class="token punctuation">;</span>
+    <span class="token class-name">String</span> sign <span class="token operator">=</span> <span class="token class-name">CacheHelper<span class="token punctuation">.</span>Get</span><span class="token punctuation">(</span>cacheSign<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 获取缓存值</span>
+    <span class="token class-name">String</span> cacheValue <span class="token operator">=</span> <span class="token class-name">CacheHelper<span class="token punctuation">.</span>Get</span><span class="token punctuation">(</span>cacheKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>sign <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> cacheValue<span class="token punctuation">;</span>   <span class="token comment">// 未过期，直接返回</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">CacheHelper<span class="token punctuation">.</span>Add</span><span class="token punctuation">(</span>cacheSign<span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">,</span> cacheTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">ThreadPool<span class="token punctuation">.</span>QueueUserWorkItem</span><span class="token punctuation">(</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// sql查询数据</span>
+            cacheValue <span class="token operator">=</span> <span class="token class-name">GetProductListFromDB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+          <span class="token comment">// 日期设为缓存时间的2倍，用于脏读</span>
+          <span class="token class-name">CacheHelper<span class="token punctuation">.</span>Add</span><span class="token punctuation">(</span>cacheKey<span class="token punctuation">,</span> cacheValue<span class="token punctuation">,</span> cacheTime <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cacheValue<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="如果我们一开始就没缓存怎么办？"><a href="#如果我们一开始就没缓存怎么办？" class="headerlink" title="如果我们一开始就没缓存怎么办？"></a><strong>如果我们一开始就没缓存怎么办？</strong></h3><p>在项目发布伊始，数据库中存满了数据，缓存却是空的。如果此时系统上线，请求又多，那就是妥妥的雪崩。甚至可以说，雪崩是这种情况下的必然事件。</p>
 <p>那么这种情况应该怎么处理呢？这里得引入一个名词：<strong>灰度发布。</strong></p>
