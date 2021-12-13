@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>My Blog</title>
+  
+  <subtitle>大雪纷飞</subtitle>
+  <link href="https://prannt99.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://prannt99.github.io/"/>
+  <updated>2021-12-13T11:10:56.958Z</updated>
+  <id>https://prannt99.github.io/</id>
+  
+  <author>
+    <name>Prannt</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TypeScript声明文件</title>
+    <link href="https://prannt99.github.io/2021/12/12/%E6%B5%8B%E8%AF%95/"/>
+    <id>https://prannt99.github.io/2021/12/12/%E6%B5%8B%E8%AF%95/</id>
+    <published>2021-12-12T02:08:29.000Z</published>
+    <updated>2021-12-13T11:10:56.958Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;测试&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    <category term="TypeScript" scheme="https://prannt99.github.io/categories/TypeScript/"/>
+    
+    
+    <category term="TypeScript" scheme="https://prannt99.github.io/tags/TypeScript/"/>
+    
+  </entry>
+  
+</feed>
