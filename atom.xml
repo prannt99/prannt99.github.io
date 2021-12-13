@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-13T16:38:11.224Z</updated>
+  <updated>2021-12-13T17:02:02.473Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -21,14 +21,15 @@
     <link href="https://prannt99.github.io/posts/a68f.html"/>
     <id>https://prannt99.github.io/posts/a68f.html</id>
     <published>2021-12-13T14:50:23.000Z</published>
-    <updated>2021-12-13T16:38:11.224Z</updated>
+    <updated>2021-12-13T17:02:02.473Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;谷粒学院项目用到的所有依赖。由于依赖过多，因此专门写一篇资源博客记录&quot;&gt;&lt;a href=&quot;#谷粒学院项目用到的所有依赖。由于依赖过多，因此专门写一篇资源博客记录&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;p&gt;谷粒学院项目用到的所有依赖。由于依赖过多，因此专门写一篇资源博客记录&lt;/p&gt;
+&lt;h2 id=&quot;父工程（guli-parent）：&quot;&gt;&lt;a href=&quot;#父工程（guli-parent）：&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -46,14 +47,15 @@
     <link href="https://prannt99.github.io/posts/a1b9.html"/>
     <id>https://prannt99.github.io/posts/a1b9.html</id>
     <published>2021-12-13T14:42:17.000Z</published>
-    <updated>2021-12-13T16:38:11.222Z</updated>
+    <updated>2021-12-13T17:01:10.385Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;谷粒学院项目用到的所有Sql语句，由于要建的表、插入的示例数据过多，因此专门写一篇资源博客记录&quot;&gt;&lt;a href=&quot;#谷粒学院项目用到的所有Sql语句，由于要建的表、插入的示例数据过多，因此专门写一篇资源博客记录&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;p&gt;谷粒学院项目用到的所有Sql语句，由于要建的表、插入的示例数据过多，因此专门写一篇资源博客记录&lt;/p&gt;
+&lt;h2 id=&quot;edu-teacher表&quot;&gt;&lt;a href=&quot;#edu-teacher表&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -71,7 +73,7 @@
     <link href="https://prannt99.github.io/posts/39c7.html"/>
     <id>https://prannt99.github.io/posts/39c7.html</id>
     <published>2021-12-13T14:10:29.000Z</published>
-    <updated>2021-12-13T16:55:36.344Z</updated>
+    <updated>2021-12-13T17:12:25.446Z</updated>
     
     
       

@@ -599,7 +599,7 @@
 <li>配置 <dependencyManagement> 锁定依赖的版本（父工程的pom.xml只是对版本的依赖做了定义，并没有用。真正的使用是在子模块中）</dependencyManagement></li>
 <li>删除父工程的src目录。</li>
 </ul>
-<p>父工程的pom.xml全部内容见：</p>
+<p>父工程的pom.xml全部内容见：<a href="https://prannt99.github.io/posts/a68f.html">pom.xml</a></p>
 </li>
 <li><p><strong>子模块</strong></p>
 <p>在父工程guli-parent下面创建子模块service（删除src目录），pom.xml见：</p>
@@ -622,7 +622,7 @@
 <span class="token comment"># mybatis日志</span>
 <span class="token attr-name">mybatis-plus.configuration.log-impl</span><span class="token punctuation">=</span><span class="token attr-value">org.apache.ibatis.logging.stdout.StdOutImpl</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>生成相关代码</p>
-<p><a href="https://prannt99.github.io/2021/12/12/1-%E5%A4%8D%E4%B9%A0Mybatis-Plus-MP/">1-复习Mybatis-Plus</a>专门讲了Mybatis-Plus(MP)的使用，就是因为使用MP可以大大简化开发效率，重复、固定的代码不需要再手写了。</p>
+<p><a href="https://prannt99.github.io/posts/c87f.html">1-复习Mybatis-Plus</a>专门讲了Mybatis-Plus(MP)的使用，就是因为使用MP可以大大简化开发效率，重复、固定的代码不需要再手写了。</p>
 <p>根据edu_teacher表，使用MP代码生成器生成entity层、controller层、service层、mapper层的骨架代码，代码生成器不要求会写，仅要求会改。 </p>
 <p>官网：<a target="_blank" rel="noopener" href="https://mp.baomidou.com/guide/generator.html">苞米豆</a></p>
 <p>代码生成器的作用：和MP的逆向工程差不多，根据表生成代码。</p>
@@ -705,7 +705,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="三、集成测试工具Swagger"><a href="#三、集成测试工具Swagger" class="headerlink" title="三、集成测试工具Swagger"></a>三、集成测试工具Swagger</h3><p><strong>浏览器仅支持post和get提交，不支持delete提交</strong>，需要借助工具进行测试（swagger、postman等）</p>
+<h3 id="三、集成测试工具Swagger"><a href="#三、集成测试工具Swagger" class="headerlink" title="三、集成测试工具Swagger"></a>三、集成测试工具Swagger</h3><p><u><strong>浏览器仅支持post和get提交，不支持delete提交</strong></u>，因此需要借助工具进行测试（swagger、postman等）</p>
 <p>本项目全部、统一采用swagger进行测试。</p>
 <p>下面先引入swagger：</p>
 <p>在父工程（guli_parent）下创建common模块，该模块中包含公共的方法、依赖、工具类等。</p>
@@ -783,8 +783,9 @@
 <span class="token attr-name">spring.jackson.time-zone</span><span class="token punctuation">=</span><span class="token attr-value">GMT+8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="五、统一返回数据格式"><a href="#五、统一返回数据格式" class="headerlink" title="五、统一返回数据格式"></a>五、统一返回数据格式</h3><p>之前在controller中写返回值时，要不写的是String，要不就是自定义的其他类，这样做会使得开发缺乏标准（既没有统一的返回值类型，也没有统一的状态码），所以在此先统一返回的数据格式(R)，今后项目中所有controller层的返回值均采用此格式。定义： </p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==R.ok():成功（状态码：20000）==</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==R.error():失败（状态码：20001）==</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>成功（状态码：<span class="token number">20000</span>）
+<span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>失败（状态码：<span class="token number">20001</span>）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>例如：</p>
 <img src="/posts/39c7/4.jpg" class title="统一数据返回格式">
 
@@ -797,7 +798,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>在common模块中定义统一返回结果模块common_utils，</strong>创建R和ResultCode，定义返回数据的状态码和返回值类型，</p>
-<img src="/posts/39c7/5.jpg" class title="R:自定义的返回值&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ResultCode: 状态码">
+<img src="/posts/39c7/5.jpg" class title="R:自定义的返回值 ResultCode: 状态码">
 
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ResultCode</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">Integer</span> SUCCESS <span class="token operator">=</span> <span class="token number">20000</span><span class="token punctuation">;</span>    <span class="token comment">// 操作成功</span>
