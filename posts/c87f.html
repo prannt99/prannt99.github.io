@@ -679,7 +679,7 @@
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/12/12/1-%E5%A4%8D%E4%B9%A0Mybatis-Plus-MP/1.jpg" class title="查询出所有数据"></li>
+<img src="/posts/undefined/1.jpg" class title="查询出所有数据"></li>
 <li><h5 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// mp实现添加操作</span>
 <span class="token annotation punctuation">@Test</span>
 <span class="token keyword">void</span> <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -699,7 +699,7 @@
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/12/12/1-%E5%A4%8D%E4%B9%A0Mybatis-Plus-MP/2.jpg" class title="修改数据"></li>
+<img src="/posts/undefined/2.jpg" class title="修改数据"></li>
 <li><h5 id="测试乐观锁"><a href="#测试乐观锁" class="headerlink" title="测试乐观锁"></a>测试乐观锁</h5><ul>
 <li><h6 id="在实体类的字段上添加注解"><a href="#在实体类的字段上添加注解" class="headerlink" title="在实体类的字段上添加注解"></a>在实体类的字段上添加注解</h6><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Version</span>
 <span class="token annotation punctuation">@TableField</span><span class="token punctuation">(</span>fill <span class="token operator">=</span> <span class="token class-name">FieldFill</span><span class="token punctuation">.</span>INSERT<span class="token punctuation">)</span>
@@ -737,7 +737,7 @@
     userMapper<span class="token punctuation">.</span><span class="token function">updateById</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">// 每修改一次，version +1，因为我已经修改3次了，所以version为3</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><h6 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h6><img src="/2021/12/12/1-%E5%A4%8D%E4%B9%A0Mybatis-Plus-MP/3.jpg" class title="测试乐观锁"></li>
+<li><h6 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h6><img src="/posts/undefined/3.jpg" class title="测试乐观锁"></li>
 </ul>
 </li>
 <li><h5 id="多个id批量删除（用的不多）"><a href="#多个id批量删除（用的不多）" class="headerlink" title="多个id批量删除（用的不多）"></a>多个id批量删除（用的不多）</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
@@ -747,7 +747,7 @@
     <span class="token comment">// 因为数据库中只有id = 1的记录，所以只返回一条记录 </span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/12/12/1-%E5%A4%8D%E4%B9%A0Mybatis-Plus-MP/4.jpg" class title="多个id批量删除"></li>
+<img src="/posts/undefined/4.jpg" class title="多个id批量删除"></li>
 <li><h5 id="分页查询（用的多）"><a href="#分页查询（用的多）" class="headerlink" title="分页查询（用的多）"></a>分页查询（用的多）</h5><ul>
 <li><h6 id="配置分页插件"><a href="#配置分页插件" class="headerlink" title="配置分页插件"></a>配置分页插件</h6><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
 <span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span><span class="token string">"com.atguigu.mpdemo1010.mapper"</span><span class="token punctuation">)</span>   
@@ -801,7 +801,7 @@
     <span class="token keyword">int</span> res <span class="token operator">=</span> userMapper<span class="token punctuation">.</span><span class="token function">deleteBatchIds</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><h6 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h6><img src="/2021/12/12/1-%E5%A4%8D%E4%B9%A0Mybatis-Plus-MP/4.jpg" class title="多个id批量删除"></li>
+<li><h6 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h6><img src="/posts/undefined/4.jpg" class title="多个id批量删除"></li>
 </ul>
 </li>
 <li><h5 id="复杂条件查询"><a href="#复杂条件查询" class="headerlink" title="复杂条件查询"></a>复杂条件查询</h5><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// MybatisPlus实现复杂条件查询</span>
@@ -889,7 +889,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://prannt99.github.io/2021/12/12/1-%E5%A4%8D%E4%B9%A0Mybatis-Plus-MP/">https://prannt99.github.io/2021/12/12/1-%E5%A4%8D%E4%B9%A0Mybatis-Plus-MP/</a>
+                    <a href="https://prannt99.github.io/posts/c87f.html">https://prannt99.github.io/posts/c87f.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1435,7 +1435,7 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/12/13/2-%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3/">
+                <a href="/posts/39c7.html">
                     <div class="card-image">
                         
                         <img src="https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/0.68ew0fkz7qio.jpg" class="responsive-img" alt="2-讲师管理模块后端接口">
@@ -1446,7 +1446,7 @@ new Valine({
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            谷粒学院第二天，
+                            谷粒学院第二天，一些准备工作和后端接口
                         
                     </div>
                     <div class="publish-info">
@@ -1491,7 +1491,7 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/12/%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/">
+                <a href="/posts/1d38.html">
                     <div class="card-image">
                         
                         
@@ -1730,7 +1730,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">6.3k</span>
+                        class="white-color">9.9k</span>
             
             
             
