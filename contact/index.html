@@ -308,8 +308,7 @@
 
 </header>
 
-    <link rel="stylesheet" type="text/css" href="/css/detail/contact.css">
-<div class="bg-cover pd-header about-cover">
+    <div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -356,19 +355,39 @@
 
     </div>
 </div>
+
 <main class="content">
     <div id="contact" class="container chip-container">
-        <div class="card swbk">
-			<div class="card-content">
-				<div class="tag-title center-align">
-					<i class="fas fa-comments"></i>
-					留言板
-				</div>
-			</div>
-		</div>
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <i class="fas fa-comments"></i>&nbsp;&nbsp;留言板
+                </div>
+<script>$.get("https://v1.hitokoto.cn?c=i&c=j&c=d&c=h",function(data,status){if(status=='success'){$('#poem').html(data.hitokoto);if(data.from_who!=null){$('#info').html(data.from_who+" · "+"《 "+data.from+" 》");}else{$('#info').html(data.from);}}else{$('#poem').html("获取出错啦");}});</script>
+    <!-- 加入网易云音乐热门评论，实时更新 -->
+    <div class="poem-wrap">
+        <div class="poem-border poem-left">
+        </div>
+        <div class="poem-border poem-right">
+        </div>
+        <h1>一言</h1>
+        <p id="poem"></p>
+        <p id="info"></p>
+    </div>
+                <h2 id="畅所欲言"><a href="#畅所欲言" class="headerlink" title="畅所欲言"></a>畅所欲言</h2>
+            </div>
+        </div>
         <div class="card">
             
-            	<style>
+
+            
+
+            
+
+            
+
+            
+            <style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -691,6 +710,11 @@ new Valine({
 
 
             
+			
+			
+
+            
+
         </div>
     </div>
 </main>
