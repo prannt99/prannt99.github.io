@@ -155,29 +155,4 @@
     
   </entry>
   
-  <entry>
-    <title>點雲測試文檔</title>
-    <link href="https://prannt99.github.io/posts/717e.html"/>
-    <id>https://prannt99.github.io/posts/717e.html</id>
-    <published>2021-12-12T02:08:29.000Z</published>
-    <updated>2021-12-14T07:52:34.557Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;strong&gt;4.如何将文章归类到这个新建的菜单下面呢？&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt; 如果你想在这个新建的菜单favorite下面实现文章的归类，而不是只显示单一的index.md中的内容，那么你需要做以下修改：&lt;/p&gt;
-&lt;p&gt;4.1</summary>
-        
-      
-    
-    
-    
-    <category term="pointcloud" scheme="https://prannt99.github.io/categories/pointcloud/"/>
-    
-    
-  </entry>
-  
 </feed>
