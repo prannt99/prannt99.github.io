@@ -135,6 +135,31 @@
     </entry>
     
     
+    
+    <entry>
+      <title>點雲測試文檔</title>
+      <link href="/posts/717e.html"/>
+      <url>/posts/717e.html</url>
+      
+        <content type="html"><![CDATA[<p><strong>4.如何将文章归类到这个新建的菜单下面呢？</strong></p><p> 如果你想在这个新建的菜单favorite下面实现文章的归类，而不是只显示单一的index.md中的内容，那么你需要做以下修改：</p><p>4.1 回到第2步，编辑主题下的_config.yml, 找到menu将新添加的菜单favorite修改为：</p><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 不做文章归类新建菜单 favorite - page: favorite    directory: favorite&#x2F;    icon: fa-star&#x2F;&#x2F; 做文章归类新建菜单 favorite  - page: favorite    directory: categories&#x2F;favorite    icon: fa-star<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> pointcloud </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 點雲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
