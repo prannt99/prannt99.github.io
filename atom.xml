@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-13T17:18:19.498Z</updated>
+  <updated>2021-12-14T09:07:54.562Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>室内点云</title>
+    <link href="https://prannt99.github.io/posts/37ed.html"/>
+    <id>https://prannt99.github.io/posts/37ed.html</id>
+    <published>2021-12-14T09:06:29.000Z</published>
+    <updated>2021-12-14T09:07:54.562Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;水水水水水水啊啊啊啊啊&lt;/p&gt;
+&lt;p&gt;删掉&lt;/p&gt;
+&lt;p&gt;fd&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    <category term="pointcloud" scheme="https://prannt99.github.io/categories/pointcloud/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>谷粒学院——pom.xml（更新中）</title>
