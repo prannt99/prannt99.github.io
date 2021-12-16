@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-13T17:18:19.498Z</updated>
+  <updated>2021-12-16T09:35:20.590Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>3-Vue基本知识</title>
+    <link href="https://prannt99.github.io/posts/54da.html"/>
+    <id>https://prannt99.github.io/posts/54da.html</id>
+    <published>2021-12-16T08:32:25.000Z</published>
+    <updated>2021-12-16T09:35:20.590Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;本项目的前端使用VSCode编译器&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;VSCode的使用&quot;&gt;&lt;a href=&quot;#VSCode的使用&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="谷粒学院项目" scheme="https://prannt99.github.io/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+    <category term="Vue" scheme="https://prannt99.github.io/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>谷粒学院——pom.xml（更新中）</title>
@@ -127,38 +153,6 @@
     <category term="MyBatis-Plus" scheme="https://prannt99.github.io/tags/MyBatis-Plus/"/>
     
     <category term="MySql" scheme="https://prannt99.github.io/tags/MySql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TypeScript声明文件</title>
-    <link href="https://prannt99.github.io/posts/54da.html"/>
-    <id>https://prannt99.github.io/posts/54da.html</id>
-    <published>2021-12-12T02:08:29.000Z</published>
-    <updated>2021-12-16T07:58:59.771Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;本项目的前端使用VSCode编译器&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;VSCode的使用&lt;/strong&gt;：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;在本地创建空文件夹&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;使用VSCode打开空文件夹&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;把文件夹保存为工作</summary>
-        
-      
-    
-    
-    
-    <category term="TypeScript" scheme="https://prannt99.github.io/categories/TypeScript/"/>
-    
-    
-    <category term="TypeScript" scheme="https://prannt99.github.io/tags/TypeScript/"/>
     
   </entry>
   
