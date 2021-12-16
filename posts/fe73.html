@@ -363,6 +363,7 @@
     }
 
     .toc-widget {
+		background-color: pink;
         width: 345px;
         padding-left: 20px;
         background-color: rgb(255, 255, 255,0.5);
@@ -384,7 +385,8 @@
     }
 
 	#toc-content {
-		margin-bottom: 20px;
+		height: calc(100vh - 300px);
+        overflow: scroll;
 	}
 
     #toc-content ol {
@@ -512,9 +514,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <center><strong>本文基于JDK 7</strong></center>
----
-
+                <p><strong>本文基于JDK 7</strong></p>
+<hr>
 <h2 id="HashMap用法"><a href="#HashMap用法" class="headerlink" title="HashMap用法"></a>HashMap用法</h2><h3 id="常用API"><a href="#常用API" class="headerlink" title="常用API"></a>常用API</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">V</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token class-name">Object</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 获得指定键的值</span>
 <span class="token class-name">V</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">K</span> key<span class="token punctuation">,</span> <span class="token class-name">V</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 添加键值对</span>
 <span class="token keyword">void</span> <span class="token function">putAll</span><span class="token punctuation">(</span><span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">K</span><span class="token punctuation">,</span> <span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">V</span><span class="token punctuation">></span></span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 将指定Map中的键值对 复制到 此Map中</span>
