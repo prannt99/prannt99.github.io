@@ -1261,6 +1261,11 @@
         left: unset;
         visibility: visible;
     }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+      width: 32%;
+      border-bottom: 1px dashed #dedede;
+    }
 </style>
 
 <div class="card valine-card" data-aos="fade-up">
@@ -1275,18 +1280,23 @@
 <script src="/libs/valine/av-min.js"></script>
 <script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
+let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+//这里要换行
 new Valine({
         el: '#vcomments',
+        enableQQ: true,
+        boolean: true,
         appId: 'qpA2w07me41utCDIJNrGwfSO-gzGzoHsz',
         appKey: 'vcjkzsL7qIo8lHItafNbRpev',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
         visitor: 'true' === 'true',
         avatar: 'monsterid',
         pageSize: '10',
         lang: 'zh-cn',
         placeholder: '留下你的足迹...',
-        enableQQ: true,
+        requiredFields: ['nick','mail'], //设置必填项
+        // 设置Bilibili表情包地址
         emojiCDN: '//i0.hdslb.com/bfs/emote/', 
         // 表情title和图片映射
         emojiMaps: {
@@ -1340,13 +1350,33 @@ new Valine({
         "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
         "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
         "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
-        },
-        requiredFields: ['nick','mail'], //设置必填项
+            // ... 更多表情
+        }
+
     });
 
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('vsubmit')) {
+            const email = document.querySelector('input[type=email]');
+            const nick = document.querySelector('input[name=nick]');
+            const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            if (!email.value || !nick.value || !reg.test(email.value)) {
+                const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                const vmark = document.querySelector('.vmark');
+                vmark.innerHTML = str;
+                vmark.style.display = 'block';
+
+                e.stopPropagation();
+
+                setTimeout(function() {
+                    vmark.style.display = 'none';
+                    vmark.innerHTML = '';
+                }, 2500);
+            }
+        }
+        }, true);
 </script>
 
-<!--酷Q推送-->
 
 
     
