@@ -353,7 +353,7 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/0.1clpz25y5acg.jpg)');
+    $('.bg-cover').css('background-image', 'url(https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/6.7ccrbrkhexkw.jpg)');
 </script>
 
 
@@ -431,10 +431,14 @@
     }
 
     #vcomments img {
-        max-width: 100%;
         height: auto;
         cursor: pointer;
     }
+	
+	.v[data-class=v] .vinput {
+     padding: 0px 0px;
+    }
+
 
     #vcomments ol li {
         list-style-type: decimal;
@@ -652,7 +656,7 @@
 <script src="/libs/valine/av-min.js"></script>
 <script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+let metaPlaceholder = [{"nick":"昵称/QQ号(必填)"},{"mail":"邮箱(必填)"},{"link":"网址(https://)"}] ;
 //这里要换行
 new Valine({
         el: '#vcomments',
@@ -748,6 +752,13 @@ new Valine({
         }
         }, true);
 </script>
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
+
 
 
 
@@ -832,7 +843,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">9.8k</span>
+                        class="white-color">11.3k</span>
             
             
             

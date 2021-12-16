@@ -131,6 +131,38 @@
   </entry>
   
   <entry>
+    <title>TypeScript声明文件</title>
+    <link href="https://prannt99.github.io/posts/54da.html"/>
+    <id>https://prannt99.github.io/posts/54da.html</id>
+    <published>2021-12-12T02:08:29.000Z</published>
+    <updated>2021-12-16T07:58:59.771Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本项目的前端使用VSCode编译器&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VSCode的使用&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在本地创建空文件夹&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用VSCode打开空文件夹&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;把文件夹保存为工作</summary>
+        
+      
+    
+    
+    
+    <category term="TypeScript" scheme="https://prannt99.github.io/categories/TypeScript/"/>
+    
+    
+    <category term="TypeScript" scheme="https://prannt99.github.io/tags/TypeScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>缓存雪崩</title>
     <link href="https://prannt99.github.io/posts/1d38.html"/>
     <id>https://prannt99.github.io/posts/1d38.html</id>
