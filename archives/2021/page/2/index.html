@@ -737,7 +737,6 @@
 
 <div class="progress-bar"></div>
 
-<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/sakura.js"></script>
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -935,3 +934,10 @@ $(function () {
     })
 </script>
 
+<script type="text/javascript">
+//只在桌面版网页启用特效
+var windowWidth = $(window).width();
+if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+}
+</script>

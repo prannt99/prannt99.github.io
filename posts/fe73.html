@@ -367,7 +367,7 @@
         padding-left: 20px;
         background-color: rgb(255, 255, 255,0.5);
         border-radius: 10px;
-        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .9), 0 5px 15px rgba(0, 0, 0, .9), 0 2px 5px -5px rgba(0, 0, 0, .9) !important;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .5), 0 5px 15px rgba(0, 0, 0, .5), 0 2px 5px -5px rgba(0, 0, 0, .5) !important;
     }
 
 
@@ -2224,7 +2224,6 @@ new Valine({
 
 <div class="progress-bar"></div>
 
-<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/sakura.js"></script>
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -2422,3 +2421,10 @@ $(function () {
     })
 </script>
 
+<script type="text/javascript">
+//只在桌面版网页启用特效
+var windowWidth = $(window).width();
+if (windowWidth > 768) {
+    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+}
+</script>
