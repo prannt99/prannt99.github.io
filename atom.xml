@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-17T11:14:20.136Z</updated>
+  <updated>2021-12-17T12:53:03.549Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试官：在浏览器上输入URL后发生了什么？</title>
+    <link href="https://prannt99.github.io/posts/6ea7.html"/>
+    <id>https://prannt99.github.io/posts/6ea7.html</id>
+    <published>2021-12-17T11:38:50.000Z</published>
+    <updated>2021-12-17T12:53:03.549Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;&lt;strong&gt;只要问到计算机网络，除了三次握手四次挥手、OSI模型、HTTP外，这也是一个超高频的面试题&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;如果是简答（面试官不追问），那么背诵以下内容即可：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;</summary>
+        
+      
+    
+    
+    
+    <category term="网络编程" scheme="https://prannt99.github.io/categories/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+    
+    <category term="计网" scheme="https://prannt99.github.io/tags/%E8%AE%A1%E7%BD%91/"/>
+    
+    <category term="面试" scheme="https://prannt99.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring注解</title>
