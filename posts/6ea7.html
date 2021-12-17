@@ -376,6 +376,7 @@
         font-size: 1.5rem;
         font-weight: bold;
         line-height: 1.5rem;
+		color: rgba(0,0,255,0.7) !important;
     }
 
     .toc-widget ol {
@@ -538,7 +539,7 @@
 <img src="/posts/6ea7/1.jpg" class title="DNS根据域名查询IP地址的过程">
 
 <h3 id="二、建立TCP连接（三次握手）"><a href="#二、建立TCP连接（三次握手）" class="headerlink" title="二、建立TCP连接（三次握手）"></a>二、建立TCP连接（三次握手）</h3><p>浏览器终于得到了IP以后，向服务器发送TCP连接，TCP连接经过三次握手。 三次握手的具体过程见：<a href="TDOD">三次握手</a></p>
-<h3 id="三、浏览器发送HTTP请求"><a href="#三、浏览器发送HTTP请求" class="headerlink" title="三、浏览器发送HTTP请求"></a>三、浏览器发送HTTP请求</h3><p>TCP连接建立后，浏览器利用HTTP／HTTPS协议向服务器发送请求报文，请求方式为GET。服务器收到请求报文之后对其进行响应：根据请求信息获得相应的响应内容。 例如访问<a target="_blank" rel="noopener" href="http://www.baidu.com.其本质是在建立起的tcp连接中,按照http协议标准发送一个索要网页的请求./">www.baidu.com。其本质是在建立起的TCP连接中，按照HTTP协议标准发送一个索要网页的请求。</a> </p>
+<h3 id="三、浏览器发送HTTP请求"><a href="#三、浏览器发送HTTP请求" class="headerlink" title="三、浏览器发送HTTP请求"></a>三、浏览器发送HTTP请求</h3><p>TCP连接建立后，浏览器利用HTTP／HTTPS协议向服务器发送请求报文，请求方式为GET。服务器收到请求报文之后对其进行响应：根据请求信息获得相应的响应内容。 例如访问<code>www.baidu.com</code>。其本质是在建立起的TCP连接中，按照HTTP协议标准发送一个索要网页的请求。 </p>
 <p>这个GET请求包含了主机（Host）、用户代理（User-Agent，用户代理就是自己的浏览器）、Connection（连接属性）中的keep-alive表示浏览器告诉对方服务器在传输完现在请求的内容后不要断开连接，不断开的话下次继续连接速度就很快了。可能还会有Cookies，Cookies保存了用户的登陆信息，一般保存的是用户的JSESSIONID，在每次向服务器发送请求的时候会重复发送给服务器。</p>
 <img src="/posts/6ea7/2.jpg" class title="浏览器向服务器发送请求">
 
