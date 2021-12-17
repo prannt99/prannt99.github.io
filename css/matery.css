@@ -866,6 +866,7 @@ header .go-back i {
     height: 65px;
     max-height: 65px;
     font-size: 20px;
+	font-family: "华文行楷","华文行楷_STXingkai";
     color: hsla(0, 0%, 100%, .78) !important;
 }
 
