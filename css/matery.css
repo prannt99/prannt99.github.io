@@ -867,7 +867,7 @@ header .go-back i {
     max-height: 65px;
     font-size: 25px;
 	font-family: "隶书","隶书_LiSu";
-    color: rgba(219,69,32,0.7) !important;
+    color: rgba(247,193,115,0.25) !important;
 }
 
 .recommend .post-card .read-more {
@@ -2007,7 +2007,7 @@ p.search-result-summary{
 }
 
 .center-caption {
-    color: #7F95D1;
+    color: #C04851;
     padding: 5px;
     border-bottom: 1px solid #d9d9d9;
 }
