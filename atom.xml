@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-17T07:37:45.389Z</updated>
+  <updated>2021-12-17T09:24:54.595Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring注解</title>
+    <link href="https://prannt99.github.io/posts/1517.html"/>
+    <id>https://prannt99.github.io/posts/1517.html</id>
+    <published>2021-12-17T07:39:28.000Z</published>
+    <updated>2021-12-17T09:24:54.595Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;center&gt;&lt;h2&gt;组件添加&lt;/h2&gt;&lt;/center&gt;
+
+&lt;h3 id=&quot;Configuration-Bean&quot;&gt;&lt;a href=&quot;#Configuration-Bean&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://prannt99.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Spring" scheme="https://prannt99.github.io/tags/Spring/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解HashMap(JDK 7)</title>
@@ -190,7 +217,7 @@
     <link href="https://prannt99.github.io/posts/1d38.html"/>
     <id>https://prannt99.github.io/posts/1d38.html</id>
     <published>2021-12-12T02:08:29.000Z</published>
-    <updated>2021-12-13T17:41:49.509Z</updated>
+    <updated>2021-12-17T09:25:14.895Z</updated>
     
     
       

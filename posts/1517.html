@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="谷粒学院——sql（更新中）, Java,MySql,Redis,Spring,React,Vue.js等">
+    <meta name="keywords" content="Spring注解, Java,MySql,Redis,Spring,React,Vue.js等">
     <meta name="description" content="专注于Java开发，分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>谷粒学院——sql（更新中） | Pranntの博客</title>
+    <title>Spring注解 | Pranntの博客</title>
 
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/guixinchn/image/blog/favicon.png">
 
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/2.1vt1cavxuudc.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/src=http---www.budarts.com-upload-art_mid-d0706c926e004bdaaa6e13db62465d93.jpg&refer=http---www.budarts.6yzyjbah35hc.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">谷粒学院——sql（更新中）</h1>
+                    <h1 class="description center-align post-title">Spring注解</h1>
                 </div>
             </div>
         </div>
@@ -445,8 +445,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MySql/">
-                                <span class="chip bg-color">MySql</span>
+                            <a href="/tags/Spring/">
+                                <span class="chip bg-color">Spring</span>
                             </a>
                         
                     </div>
@@ -457,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                谷粒学院项目
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
                             </a>
                         
                     </div>
@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-13
+                    2021-12-17
                 </div>
                 
 
@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    782
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    3 分
                 </div>
                 
 
@@ -509,42 +509,152 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>谷粒学院项目用到的所有sql语句，由于要建的表、插入的示例数据过多，因此专门写一篇资源博客记录。</strong></p>
-<hr>
-<h3 id="edu-teacher表"><a href="#edu-teacher表" class="headerlink" title="edu_teacher表"></a>edu_teacher表</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span><span class="token punctuation">;</span>
-<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token punctuation">(</span>
-  <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">char</span><span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'讲师ID'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>name<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'讲师姓名'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>intro<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">''</span> <span class="token keyword">COMMENT</span> <span class="token string">'讲师简介'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>career<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'讲师资历,一句话说明讲师'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span><span class="token keyword">level</span><span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'头衔 1高级讲师 2首席讲师'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>avatar<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'讲师头像'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>sort<span class="token punctuation">`</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'0'</span> <span class="token keyword">COMMENT</span> <span class="token string">'排序'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>is_deleted<span class="token punctuation">`</span> <span class="token keyword">tinyint</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'0'</span> <span class="token keyword">COMMENT</span> <span class="token string">'逻辑删除 1（true）已删除， 0（false）未删除'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>gmt_create<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'创建时间'</span><span class="token punctuation">,</span>
-  <span class="token punctuation">`</span>gmt_modified<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'更新时间'</span><span class="token punctuation">,</span>
-  <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token keyword">UNIQUE</span> <span class="token keyword">KEY</span> <span class="token punctuation">`</span>uk_name<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>name<span class="token punctuation">`</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8mb4 <span class="token keyword">COMMENT</span><span class="token operator">=</span><span class="token string">'讲师'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <center><h2>组件添加</h2></center>
 
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'张三'</span><span class="token punctuation">,</span> <span class="token string">'近年主持国家自然科学基金（6项）、江苏省重大科技成果转化项目（5项）、江苏省产学研前瞻性联合研究项目（3项）、省工业科技支撑、省高技术、省自然科学基金等省部级及其企业的主要科研项目40多个，多个项目在企业成功转化，产生了较好的经济、社会和环境效益。积极开展产学研科技合作，并与省内16家企业建立了江苏省研究生工作站，其中6家为江苏省优秀研究生工作站'</span><span class="token punctuation">,</span> <span class="token string">'高级'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'https://guli-file-190513.oss-cn-beijing.aliyuncs.com/avatar/default.jpg'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2019-10-30 14:18:46'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-12 13:36:36'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1189389726308478977'</span><span class="token punctuation">,</span> <span class="token string">'晴天'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师简介'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师资历'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'https://online-teach-file.oss-cn-beijing.aliyuncs.com/teacher/2019/10/30/de47ee9b-7fec-43c5-8173-13c5f7f689b2.png'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2019-10-30 11:53:03'</span><span class="token punctuation">,</span> <span class="token string">'2019-10-30 11:53:03'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1189390295668469762'</span><span class="token punctuation">,</span> <span class="token string">'李刚'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师简介'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2019-10-30 11:55:19'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-12 13:37:52'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1189426437876985857'</span><span class="token punctuation">,</span> <span class="token string">'王二'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师简介'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2019-10-30 14:18:56'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-12 13:37:35'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1189426464967995393'</span><span class="token punctuation">,</span> <span class="token string">'王五'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师简介'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2019-10-30 14:19:02'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-12 13:37:18'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1192249914833055746'</span><span class="token punctuation">,</span> <span class="token string">'李四'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师简介'</span><span class="token punctuation">,</span> <span class="token string">'高级讲师'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-07 09:18:25'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-12 13:37:01'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1192327476087115778'</span><span class="token punctuation">,</span> <span class="token string">'1222-12-12'</span><span class="token punctuation">,</span> <span class="token string">'1111'</span><span class="token punctuation">,</span> <span class="token string">'11'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-07 14:26:37'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-11 16:26:26'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1195337453429129218'</span><span class="token punctuation">,</span> <span class="token string">'test333'</span><span class="token punctuation">,</span> <span class="token string">'sdfsdf'</span><span class="token punctuation">,</span> <span class="token string">'sdfdf'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2019-11-15 21:47:12'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-04 23:45:31'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1289906631454273538'</span><span class="token punctuation">,</span> <span class="token string">'hahaha'</span><span class="token punctuation">,</span> <span class="token string">'string'</span><span class="token punctuation">,</span> <span class="token string">'string'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-02 20:51:21'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-02 21:07:03'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1290646470801776642'</span><span class="token punctuation">,</span> <span class="token string">'张武'</span><span class="token punctuation">,</span> <span class="token string">'我很好'</span><span class="token punctuation">,</span> <span class="token string">'一般'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-04 21:51:12'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-04 21:51:12'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1290647121648709633'</span><span class="token punctuation">,</span> <span class="token string">'王麻子'</span><span class="token punctuation">,</span> <span class="token string">'理工教授'</span><span class="token punctuation">,</span> <span class="token string">'理工'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'https://online-teach-file.oss-cn-beijing.aliyuncs.com/teacher/2019/11/08/e44a2e92-2421-4ea3-bb49-46f2ec96ef88.png'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-04 21:53:48'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-04 21:53:48'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1290670160830558210'</span><span class="token punctuation">,</span> <span class="token string">'哈嘿嘿'</span><span class="token punctuation">,</span> <span class="token string">'qqqq'</span><span class="token punctuation">,</span> <span class="token string">'是是是'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/74e33ab5bf8d46848cb5df9943a02c56file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-04 23:25:20'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-05 15:16:24'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1290907563440754690'</span><span class="token punctuation">,</span> <span class="token string">'测试头像上传'</span><span class="token punctuation">,</span> <span class="token string">'222'</span><span class="token punctuation">,</span> <span class="token string">'222'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/25f411209c8b44b9b003482b6265c3c9file.png'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-05 15:08:42'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-05 15:08:42'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1292097031057219585'</span><span class="token punctuation">,</span> <span class="token string">'龙洋'</span><span class="token punctuation">,</span> <span class="token string">'男，曾任重庆市城管委员会会长、重庆工商大学融智学院保安一把手。'</span><span class="token punctuation">,</span> <span class="token string">'重庆工商大学融智学院保安'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/08/ceacfa9cbe504bc8a9291d9bbe40e236file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-08 21:55:13'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-08 21:55:13'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'1294175384794947586'</span><span class="token punctuation">,</span> <span class="token string">'廖大姐'</span><span class="token punctuation">,</span> <span class="token string">'重庆大学研究生、本科生，现在任职鱼洞街道清洁卫生'</span><span class="token punctuation">,</span> <span class="token string">'重庆大学研究生'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/14/3d66cd734fa44cf988dcb88a2c11785bfile.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-14 15:33:51'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-14 15:33:51'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'周杰伦'</span><span class="token punctuation">,</span> <span class="token string">'著名歌星，擅长音乐制作'</span><span class="token punctuation">,</span> <span class="token string">'重庆交通大学'</span><span class="token punctuation">,</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'https://guli-file-190513.oss-cn-beijing.aliyuncs.com/avatar/default.jpg'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-02 16:54:17'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-02 16:54:21'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'66'</span><span class="token punctuation">,</span> <span class="token string">'廖晓悦'</span><span class="token punctuation">,</span> <span class="token string">'清华大学经济学博士后，曾任中央银行行长、清华大学经管学院院长。'</span><span class="token punctuation">,</span> <span class="token string">'清华大学'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/08/80ec96616b0344ffbc5e9d9fe4e03914file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-03 16:44:36'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-08 21:51:10'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>edu_teacher<span class="token punctuation">`</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'999'</span><span class="token punctuation">,</span> <span class="token string">'热巴'</span><span class="token punctuation">,</span> <span class="token string">'高级影星简介'</span><span class="token punctuation">,</span> <span class="token string">'北京大学'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'http://edu-longyang.oss-cn-beijing.aliyuncs.com/2020/08/05/74e33ab5bf8d46848cb5df9943a02c56file.png'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'2020-07-27 17:18:04'</span><span class="token punctuation">,</span> <span class="token string">'2020-08-04 17:18:08'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Configuration-Bean"><a href="#Configuration-Bean" class="headerlink" title="@Configuration+@Bean"></a>@Configuration+@Bean</h3><h4 id="xml文件的方式："><a href="#xml文件的方式：" class="headerlink" title="xml文件的方式："></a>xml文件的方式：</h4><ol>
+<li><p>实体类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * @Description 实体类
+ * @Date 2021/12/17 15:50
+ * @Created Prannt
+ */</span>
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> nickName<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>bean1.xml配置文件</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
+       <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+       <span class="token attr-name"><span class="token namespace">xmlns:</span>context</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/context<span class="token punctuation">"</span></span>
+       <span class="token attr-name"><span class="token namespace">xmlns:</span>aop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/aop<span class="token punctuation">"</span></span>
+       <span class="token attr-name"><span class="token namespace">xmlns:</span>tx</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/tx<span class="token punctuation">"</span></span>
+       <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">context:</span>component-scan</span> <span class="token attr-name">base-package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.pan.entity<span class="token punctuation">"</span></span> <span class="token attr-name">use-default-filters</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">context:</span>component-scan</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>person<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.pan.entity.Person<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>age<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>18<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zhangsan<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ApplicationContext</span> context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ClassPathXmlApplicationContext</span><span class="token punctuation">(</span><span class="token string">"bean1.xml"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Person</span> bean <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">)</span> context<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>输出</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Person</span><span class="token punctuation">(</span>name<span class="token operator">=</span>zhangsan<span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">,</span> nickName<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h4 id="注解的方式："><a href="#注解的方式：" class="headerlink" title="注解的方式："></a>注解的方式：</h4><ol>
+<li><p>实体类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> nickName<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>配置类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 配置类 == 配置文件</span>
+<span class="token annotation punctuation">@Configuration</span>  <span class="token comment">// 告诉Spring这是一个配置类</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainConfig</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">//给容器中注册一个Bean;类型为返回值的类型，id默认是用方法名作为id(就是bean的名字)，在这里就是person</span>
+    <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"person"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Person</span> <span class="token function">person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"李四"</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token string">"二狗"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ApplicationContext</span> context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AnnotationConfigApplicationContext</span><span class="token punctuation">(</span><span class="token class-name">MainConfig</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Person</span> bean <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">,</span><span class="token class-name">Person</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>输出</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Person</span><span class="token punctuation">(</span>name<span class="token operator">=</span>李四<span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> nickName<span class="token operator">=</span>二狗<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="ComponentScans"><a href="#ComponentScans" class="headerlink" title="@ComponentScans"></a>@ComponentScans</h3><ol>
+<li><p>实体类（同上）</p>
+</li>
+<li><p>指定包扫描规则</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyTypeFilter</span> <span class="token keyword">implements</span> <span class="token class-name">TypeFilter</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * metadataReader：读取到的当前正在扫描的类的信息
+     * metadataReaderFactory:可以获取到其他任何类信息的
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">match</span><span class="token punctuation">(</span><span class="token class-name">MetadataReader</span> metadataReader<span class="token punctuation">,</span> <span class="token class-name">MetadataReaderFactory</span> metadataReaderFactory<span class="token punctuation">)</span>
+            <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//获取当前类注解的信息</span>
+        <span class="token class-name">AnnotationMetadata</span> annotationMetadata <span class="token operator">=</span> metadataReader<span class="token punctuation">.</span><span class="token function">getAnnotationMetadata</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//获取当前正在扫描的类的类信息</span>
+        <span class="token class-name">ClassMetadata</span> classMetadata <span class="token operator">=</span> metadataReader<span class="token punctuation">.</span><span class="token function">getClassMetadata</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//获取当前类资源（类的路径）</span>
+        <span class="token class-name">Resource</span> resource <span class="token operator">=</span> metadataReader<span class="token punctuation">.</span><span class="token function">getResource</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">String</span> className <span class="token operator">=</span> classMetadata<span class="token punctuation">.</span><span class="token function">getClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"--->"</span><span class="token operator">+</span>className<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>className<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"er"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>配置类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 配置类 == 配置文件</span>
+<span class="token annotation punctuation">@Configuration</span>  <span class="token comment">// 告诉Spring这是一个配置类</span>
+<span class="token annotation punctuation">@ComponentScans</span><span class="token punctuation">(</span>value <span class="token operator">=</span>
+                        <span class="token punctuation">&#123;</span><span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"com.pan"</span><span class="token punctuation">,</span>includeFilters <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+                                <span class="token comment">// @Filter(type=FilterType.ANNOTATION,classes=&#123;Controller.class&#125;),</span>
+                                <span class="token comment">// @ComponentScan.Filter(type=FilterType.ASSIGNABLE_TYPE,classes=&#123;BookService.class&#125;),</span>
+                                <span class="token annotation punctuation">@ComponentScan.Filter</span><span class="token punctuation">(</span>type<span class="token operator">=</span> <span class="token class-name">FilterType</span><span class="token punctuation">.</span>CUSTOM<span class="token punctuation">,</span>classes<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token class-name">MyTypeFilter</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+                                useDefaultFilters <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token comment">// @ComponentScan  value:指定要扫描的包</span>
+<span class="token comment">// excludeFilters = Filter[] ：指定扫描的时候按照什么规则排除那些组件</span>
+<span class="token comment">// includeFilters = Filter[] ：指定扫描的时候只需要包含哪些组件</span>
+<span class="token comment">// FilterType.ANNOTATION：按照注解</span>
+<span class="token comment">// FilterType.ASSIGNABLE_TYPE：按照给定的类型；</span>
+<span class="token comment">// FilterType.ASPECTJ：使用ASPECTJ表达式</span>
+<span class="token comment">// FilterType.REGEX：使用正则指定</span>
+<span class="token comment">// FilterType.CUSTOM：使用自定义规则</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainConfig2</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//给容器中注册一个Bean;类型为返回值的类型，id默认是用方法名作为id</span>
+    <span class="token annotation punctuation">@Bean</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">Person</span> <span class="token function">person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"王五"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span><span class="token string">"三狗"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>测试类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">ApplicationContext</span> context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AnnotationConfigApplicationContext</span><span class="token punctuation">(</span><span class="token class-name">MainConfig2</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Person</span> bean <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"person"</span><span class="token punctuation">,</span><span class="token class-name">Person</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>输出</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">--</span><span class="token operator">-></span><span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>pan<span class="token punctuation">.</span>entity<span class="token punctuation">.</span></span>Person</span>
+<span class="token class-name">Person</span><span class="token punctuation">(</span>name<span class="token operator">=</span>王五<span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> nickName<span class="token operator">=</span>三狗<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="Scope"><a href="#Scope" class="headerlink" title="@Scope"></a>@Scope</h3><center><h2>生命周期</h2></center>
+
+
+
+<center><h2>属性赋值</h2></center>
+
+
+
+<center><h2>自动装配</h2></center>
 
 
                 
@@ -572,7 +682,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://prannt99.github.io/posts/a1b9.html">https://prannt99.github.io/posts/a1b9.html</a>
+                    <a href="https://prannt99.github.io/posts/1517.html">https://prannt99.github.io/posts/1517.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,8 +720,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MySql/">
-                                    <span class="chip bg-color">MySql</span>
+                                <a href="/tags/Spring/">
+                                    <span class="chip bg-color">Spring</span>
                                 </a>
                             
                         </div>
@@ -1147,45 +1257,47 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/a68f.html">
+                <a href="/posts/1517.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/3.52itbmxasccg.jpg" class="responsive-img" alt="谷粒学院——pom.xml（更新中）">
+                        <img src="https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/src=http---www.budarts.com-upload-art_mid-d0706c926e004bdaaa6e13db62465d93.jpg&refer=http---www.budarts.6yzyjbah35hc.jpg" class="responsive-img" alt="Spring注解">
                         
-                        <span class="card-title">谷粒学院——pom.xml（更新中）</span>
+                        <span class="card-title">Spring注解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            谷粒学院项目用到的所有依赖
+                            Spring常用注解解析
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    谷粒学院项目
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Maven/">
-                        <span class="chip bg-color">Maven</span>
+                    <a href="/tags/Spring/">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>
@@ -1199,30 +1311,30 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/39c7.html">
+                <a href="/posts/fe73.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/0.68ew0fkz7qio.jpg" class="responsive-img" alt="2-讲师管理模块后端接口">
+                        <img src="https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/src=http---i0.hdslb.com-bfs-article-d5af28f1bc08726d2e0421d1031e9c6a39a55a3d.jpg&refer=http---i0.hdslb.79e7yg7dr2tc.jpg" class="responsive-img" alt="深入理解HashMap(JDK 7)">
                         
-                        <span class="card-title">2-讲师管理模块后端接口</span>
+                        <span class="card-title">深入理解HashMap(JDK 7)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            谷粒学院第二天，一些准备工作和后端接口
+                            HashMap底层原理(JDK 7)
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    谷粒学院项目
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
@@ -1236,12 +1348,8 @@ new Valine({
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/MyBatis-Plus/">
-                        <span class="chip bg-color">MyBatis-Plus</span>
-                    </a>
-                    
-                    <a href="/tags/MySql/">
-                        <span class="chip bg-color">MySql</span>
+                    <a href="/tags/%E5%AE%B9%E5%99%A8/">
+                        <span class="chip bg-color">容器</span>
                     </a>
                     
                 </div>

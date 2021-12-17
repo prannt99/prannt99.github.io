@@ -12,10 +12,10 @@ function Sakura(x, y, s, r, fn) {
 }
 Sakura.prototype.draw = function (cxt) {
     cxt.save();
-    var xc = 10 * this.s / 6;
+    var xc = 5 * this.s / 8;
     cxt.translate(this.x, this.y);
     cxt.rotate(this.r);
-    cxt.drawImage(img, 0, 0, 10 * this.s, 10 * this.s)
+    cxt.drawImage(img, 0, 0, 5 * this.s, 5 * this.s)
     cxt.restore();
 }
 Sakura.prototype.update = function () {
@@ -73,7 +73,7 @@ function getRandom(option) {
             ret = Math.random();
             break;
         case 'r':
-            ret = Math.random() * 6;
+            ret = Math.random() * 4;
             break;
         case 'fnx':
             random = -0.5 + Math.random() * 1;
@@ -82,13 +82,13 @@ function getRandom(option) {
             };
             break;
         case 'fny':
-            random = 1.5 + Math.random() * 0.7
+            random = 1.5 + Math.random() * 0.5
             ret = function (x, y) {
                 return y + random;
             };
             break;
         case 'fnr':
-            random = Math.random() * 0.03;
+            random = Math.random() * 0.08;
             ret = function (r) {
                 return r + random;
             };
