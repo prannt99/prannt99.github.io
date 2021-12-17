@@ -12,10 +12,10 @@ function Sakura(x, y, s, r, fn) {
 }
 Sakura.prototype.draw = function (cxt) {
     cxt.save();
-    var xc = 2 * this.s / 12;
+    var xc = 1 * this.s / 4;
     cxt.translate(this.x, this.y);
     cxt.rotate(this.r);
-    cxt.drawImage(img, 0, 0, 2 * this.s, 2 * this.s)
+    cxt.drawImage(img, 0, 0, 1 * this.s, 1 * this.s)
     cxt.restore();
 }
 Sakura.prototype.update = function () {
@@ -24,7 +24,7 @@ Sakura.prototype.update = function () {
     this.r = this.fn.r(this.r);
     if (this.x > window.innerWidth || this.x < 0 || this.y > window.innerHeight || this.y < 0) {
         this.r = getRandom('fnr');
-        if (Math.random() > 0.7) {
+        if (Math.random() > 0.25) {
             this.x = getRandom('x');
             this.y = 0;
             this.s = getRandom('s');
@@ -73,22 +73,22 @@ function getRandom(option) {
             ret = Math.random();
             break;
         case 'r':
-            ret = Math.random() * 2;
+            ret = Math.random() * 1;
             break;
         case 'fnx':
-            random = -0.5 + Math.random() * 1;
+            random = -0.2 + Math.random() * 1;
             ret = function (x, y) {
-                return x + 0.5 * random - 1.7;
+                return x + 0.2 * random - 0.7;
             };
             break;
         case 'fny':
-            random = 1.5 + Math.random() * 0.5
+            random = 0.2 + Math.random() * 0.2
             ret = function (x, y) {
                 return y + random;
             };
             break;
         case 'fnr':
-            random = Math.random() * 0.08;
+            random = Math.random() * 0.02;
             ret = function (r) {
                 return r + random;
             };
@@ -110,7 +110,7 @@ function startSakura() {
     document.getElementsByTagName('body')[0].appendChild(canvas);
     cxt = canvas.getContext('2d');
     var sakuraList = new SakuraList();
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 8; i++) {
         var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny;
         randomX = getRandom('x');
         randomY = getRandom('y');
