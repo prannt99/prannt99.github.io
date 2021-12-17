@@ -865,9 +865,9 @@ header .go-back i {
     max-width: 500px;
     height: 65px;
     max-height: 65px;
-    font-size: 20px;
+    font-size: 25px;
 	font-family: "隶书","隶书_LiSu";
-    color: rgba(0,0,255,0.7) !important;
+    color: rgba(243,123,29,0.7) !important;
 }
 
 .recommend .post-card .read-more {
