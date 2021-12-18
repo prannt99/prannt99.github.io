@@ -735,6 +735,7 @@ header .go-back i {
 .dream {
     margin-top: 20px;
     margin-bottom: 40px;
+    
 }
 
 .dream .title,
@@ -743,11 +744,14 @@ header .go-back i {
     margin-bottom: 20px;
     font-size: 2rem;
     font-weight: 700;
+    color: #000;
 }
 
 .dream .text {
     opacity: .6;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #000;
 }
 
 .music-player,
