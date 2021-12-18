@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-18T09:45:29.572Z</updated>
+  <updated>2021-12-18T10:37:11.264Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://prannt99.github.io/posts/7e46.html"/>
     <id>https://prannt99.github.io/posts/7e46.html</id>
     <published>2021-12-18T09:42:28.000Z</published>
-    <updated>2021-12-18T09:45:29.572Z</updated>
+    <updated>2021-12-18T10:37:11.264Z</updated>
     
     
       
@@ -78,17 +78,14 @@
     <link href="https://prannt99.github.io/posts/1517.html"/>
     <id>https://prannt99.github.io/posts/1517.html</id>
     <published>2021-12-17T07:39:28.000Z</published>
-    <updated>2021-12-17T11:14:20.136Z</updated>
+    <updated>2021-12-18T10:35:20.585Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;center&gt;&lt;h2&gt;组件添加&lt;/h2&gt;&lt;/center&gt;
-### @Configuration+@Bean
-
-&lt;h4 id=&quot;xml文件的方式：&quot;&gt;&lt;a href=&quot;#xml文件的方式：&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;组件添加&quot;&gt;&lt;a href=&quot;#组件添加&quot; class=&quot;headerlink&quot; title=&quot;组件添加&quot;&gt;&lt;/a&gt;组件添加&lt;/h2&gt;&lt;h3 id=&quot;Configuration-Bean&quot;&gt;&lt;a href=&quot;#Configuration-Bean&quot;</summary>
         
       
     
