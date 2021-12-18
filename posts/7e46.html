@@ -404,7 +404,6 @@
     }
 
     #toc-content .toc-link::before {
-		color: #1e131d;
         background-color: transparent;
         max-height: 25px;
 
@@ -429,6 +428,7 @@
     #floating-toc-btn .btn-floating {
         width: 48px;
         height: 48px;
+		bottom: 120px;
     }
 
     #floating-toc-btn .btn-floating i {
@@ -717,7 +717,7 @@
 </ul>
 </li>
 <li><h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><p>内连接：查询两张表有关联的数据</p>
- <img src="/posts/undefined/2.jpg" class title="内连接演示">
+ <img src="/posts/7e46/2.jpg" class title="内连接演示">
 
 <p>如上图，有两个表格，第一个表格记录前端、后端和运维三个大方向，第二个表格记录Java、vue、MySQL三门课。Java隶属于后端范畴，所以在第二个表格的最后一列写2，vue类似，MySQL没有隶属关系，所以写null。所以内连接仅能查出来两条数据，运维的数据查不出来</p>
 <ul>
@@ -750,7 +750,7 @@
 
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname <span class="token keyword">FROM</span> dept d <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> emp e <span class="token keyword">ON</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
- <img src="/posts/undefined/1.jpg" class title="左连接查询结果"></li>
+ <img src="/posts/7e46/1.jpg" class title="左连接查询结果"></li>
 <li><p>右外连接（右连接）</p>
 <p>右边的表查出所有数据，左边的表只查出有关联的数据（右边表：不管MySQL能不能关联数据，都必须查询出所有数据，左边表：仅查询出前端和后端的数据）</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">ON</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
@@ -759,7 +759,7 @@
 
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname <span class="token keyword">FROM</span> emp e <span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> dept d <span class="token keyword">ON</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
- <img src="/posts/undefined/3.jpg" class title="右连接查询结果">
+ <img src="/posts/7e46/3.jpg" class title="右连接查询结果">
 
 <p>结论：外连接的查询结果条数一定是 &gt;= 内连接的查询结果条数</p>
 </li>
@@ -771,11 +771,11 @@
 <li>全连接（几乎不用）</li>
 </ul>
 <p>图解内连接、左连接、右连接</p>
- <img src="/posts/undefined/4.jpg" class title="内连接">
+ <img src="/posts/7e46/4.jpg" class title="内连接">
 
- <img src="/posts/undefined/5.jpg" class title="左连接">
+ <img src="/posts/7e46/5.jpg" class title="左连接">
 
- <img src="/posts/undefined/6.jpg" class title="右连接"></li>
+ <img src="/posts/7e46/6.jpg" class title="右连接"></li>
 </ol>
 <h2 id="五、事务（transaction）"><a href="#五、事务（transaction）" class="headerlink" title="五、事务（transaction）"></a>五、事务（transaction）</h2><ol>
 <li><h3 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h3><p>一个事务是一个完整的业务逻辑，不可再分、最小的工作单元。要么同时成功，要么同时失败。</p>
@@ -833,7 +833,7 @@
 </ul>
 </li>
 </ul>
- <img src="/posts/undefined/7.jpg" class title="事务的隔离级别">
+ <img src="/posts/7e46/7.jpg" class title="事务的隔离级别">
 
 <p><strong>注意：</strong>不可重复读的和幻读很容易混淆，<strong>不可重复读侧重于修改，幻读侧重于新增或删除</strong>。解决不可重复读的问题只需锁住满足条件就行，解决幻读需要锁表</p>
 <p>查看事务的隔离级别：</p>
