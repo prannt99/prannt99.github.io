@@ -1341,7 +1341,7 @@ thead {
 
 .chip-container .chip-active {
     color: #FFF !important;
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%) !important;
+    background: linear-gradient(to bottom right, #FF5E3A 0%, #B0C4DE 100%) !important;
     box-shadow: 2px 5px 10px #aaa !important;
 }
 
@@ -1951,7 +1951,7 @@ p.search-result-summary{
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
+    background: linear-gradient(to bottom right, #FF5E3A 0%, #B0C4DE 100%);
     width: 48px;
     height: 48px;
 }
