@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-18T11:04:23.826Z</updated>
+  <updated>2021-12-18T12:07:51.166Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多线程与并发基础</title>
+    <link href="https://prannt99.github.io/posts/b449.html"/>
+    <id>https://prannt99.github.io/posts/b449.html</id>
+    <published>2021-12-18T11:13:28.000Z</published>
+    <updated>2021-12-18T12:07:51.166Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;进程(process) 概念：&lt;/strong&gt;程序的一次执行过程，或是正在运行的一个程序。 说明：进程作为资源分配的单位，系统在运行时会为每个进程分配不同的内存区域。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;线程(thread)</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://prannt99.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="多线程与并发" scheme="https://prannt99.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL基础篇</title>
