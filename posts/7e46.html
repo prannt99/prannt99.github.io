@@ -320,7 +320,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/u=2057230709,3834700344&fm=26&fmt=auto.5dm33jy2xaf4.webp')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -511,11 +511,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、基本命令"><a href="#一、基本命令" class="headerlink" title="一、基本命令"></a>一、基本命令</h2><ol>
-<li><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token keyword">database</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="列出所有数据库"><a href="#列出所有数据库" class="headerlink" title="列出所有数据库"></a>列出所有数据库</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="使用指定数据库"><a href="#使用指定数据库" class="headerlink" title="使用指定数据库"></a>使用指定数据库</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">USE</span> <span class="token keyword">database</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> t_user<span class="token punctuation">(</span>
+                <h3 id="一、基本命令"><a href="#一、基本命令" class="headerlink" title="一、基本命令"></a>一、基本命令</h3><ol>
+<li><h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a><strong>创建数据库</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token keyword">database</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="列出所有数据库"><a href="#列出所有数据库" class="headerlink" title="列出所有数据库"></a><strong>列出所有数据库</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="使用指定数据库"><a href="#使用指定数据库" class="headerlink" title="使用指定数据库"></a><strong>使用指定数据库</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">USE</span> <span class="token keyword">database</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a><strong>创建表</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> t_user<span class="token punctuation">(</span>
     id <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span> <span class="token keyword">COMMENT</span><span class="token string">'id'</span><span class="token punctuation">,</span>
     name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span><span class="token string">'姓名 非空'</span><span class="token punctuation">,</span>
     gender <span class="token keyword">CHAR</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">DEFAULT</span> <span class="token string">'男'</span> <span class="token keyword">COMMENT</span><span class="token string">'学生性别'</span><span class="token punctuation">,</span>
@@ -523,18 +523,18 @@
     age <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'年龄'</span><span class="token punctuation">,</span>
     email <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">COMMENT</span> <span class="token string">'邮箱'</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><h3 id="展示表结构"><a href="#展示表结构" class="headerlink" title="展示表结构"></a>展示表结构</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DESC</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="查看数据库中有哪些表"><a href="#查看数据库中有哪些表" class="headerlink" title="查看数据库中有哪些表"></a>查看数据库中有哪些表</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SHOW</span> <span class="token keyword">tables</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="查看数据库版本号"><a href="#查看数据库版本号" class="headerlink" title="查看数据库版本号"></a>查看数据库版本号</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> version<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="终止一条命令的输入"><a href="#终止一条命令的输入" class="headerlink" title="终止一条命令的输入"></a>终止一条命令的输入</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">\c<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="查看表中的所有数据"><a href="#查看表中的所有数据" class="headerlink" title="查看表中的所有数据"></a>查看表中的所有数据</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t_user <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> t_user <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> t_user<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">UPDATE</span> t_user <span class="token keyword">SET</span> name <span class="token operator">=</span> <span class="token string">''</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="展示表结构"><a href="#展示表结构" class="headerlink" title="展示表结构"></a><strong>展示表结构</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DESC</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="查看数据库中有哪些表"><a href="#查看数据库中有哪些表" class="headerlink" title="查看数据库中有哪些表"></a><strong>查看数据库中有哪些表</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SHOW</span> <span class="token keyword">tables</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="查看数据库版本号"><a href="#查看数据库版本号" class="headerlink" title="查看数据库版本号"></a><strong>查看数据库版本号</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> version<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="终止一条命令的输入"><a href="#终止一条命令的输入" class="headerlink" title="终止一条命令的输入"></a><strong>终止一条命令的输入</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">\c<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="查看表中的所有数据"><a href="#查看表中的所有数据" class="headerlink" title="查看表中的所有数据"></a><strong>查看表中的所有数据</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token keyword">table</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a><strong>插入操作</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t_user <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a><strong>删除数据</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">DELETE</span> <span class="token keyword">FROM</span> t_user <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a><strong>删除表</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> t_user<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><h4 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a><strong>修改数据</strong></h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">UPDATE</span> t_user <span class="token keyword">SET</span> name <span class="token operator">=</span> <span class="token string">''</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
-<h2 id="二、约束"><a href="#二、约束" class="headerlink" title="二、约束"></a>二、约束</h2><ol>
-<li><h3 id="主键约束（Primary-Key）"><a href="#主键约束（Primary-Key）" class="headerlink" title="主键约束（Primary Key）"></a>主键约束（Primary Key）</h3><ul>
+<h3 id="二、约束"><a href="#二、约束" class="headerlink" title="二、约束"></a>二、约束</h3><ol>
+<li><h4 id="主键约束（Primary-Key）"><a href="#主键约束（Primary-Key）" class="headerlink" title="主键约束（Primary Key）"></a><strong>主键约束（Primary Key）</strong></h4><ul>
 <li><p>什么是主键？</p>
 <p>能够唯一确定表中的一条记录。通过给某个字段添加该约束，就可以使得该字段不重复且不为空（not null + unique）。 </p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> t_user <span class="token punctuation">(</span>
@@ -556,14 +556,14 @@
 </li>
 </ul>
 </li>
-<li><h3 id="自增约束（AUTO-INCREMENT）"><a href="#自增约束（AUTO-INCREMENT）" class="headerlink" title="自增约束（AUTO_INCREMENT）"></a>自增约束（AUTO_INCREMENT）</h3><p>自增约束一般<strong>与主键搭配使用</strong></p>
+<li><h4 id="自增约束（AUTO-INCREMENT）"><a href="#自增约束（AUTO-INCREMENT）" class="headerlink" title="自增约束（AUTO_INCREMENT）"></a><strong>自增约束（AUTO_INCREMENT）</strong></h4><p>自增约束一般<strong>与主键搭配使用</strong></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> t_user <span class="token punctuation">(</span>
 	id <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
 	name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> t_user <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 插入成功，自动生成id</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><h3 id="唯一约束（unique）"><a href="#唯一约束（unique）" class="headerlink" title="唯一约束（unique）"></a>唯一约束（unique）</h3><p>约束修饰的字段不可以重复，但是可以为NULL</p>
+<li><h4 id="唯一约束（unique）"><a href="#唯一约束（unique）" class="headerlink" title="唯一约束（unique）"></a><strong>唯一约束（unique）</strong></h4><p>约束修饰的字段不可以重复，但是可以为NULL</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> t_user <span class="token punctuation">(</span>
 	id <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> AUTO_INCREAMENT <span class="token keyword">UNIQUE</span><span class="token punctuation">,</span>	<span class="token comment">// 列级约束</span>
 	name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
@@ -580,18 +580,18 @@
 <p><strong>A：</strong>需要给多个字段联合起来添加某一个约束的时候，需要使用表级约束。</p>
 <p><strong>注意：</strong>在MySQL中，如果一个字段同时被not null和unique约束的话，该字段自动变成主键字段</p>
 </li>
-<li><h3 id="非空约束（not-null）"><a href="#非空约束（not-null）" class="headerlink" title="非空约束（not null）"></a>非空约束（not null）</h3><p>约束的字段不能为NULL</p>
+<li><h4 id="非空约束（not-null）"><a href="#非空约束（not-null）" class="headerlink" title="非空约束（not null）"></a><strong>非空约束（not null）</strong></h4><p>约束的字段不能为NULL</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> t_user <span class="token punctuation">(</span>
 	id <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
 	name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><h3 id="默认约束（Default-Key）"><a href="#默认约束（Default-Key）" class="headerlink" title="默认约束（Default Key）"></a>默认约束（Default Key）</h3><p>如果插入字段时没有传值，就会<strong>使用默认值</strong></p>
+<li><h4 id="默认约束（Default-Key）"><a href="#默认约束（Default-Key）" class="headerlink" title="默认约束（Default Key）"></a><strong>默认约束（Default Key）</strong></h4><p>如果插入字段时没有传值，就会<strong>使用默认值</strong></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> t_user <span class="token punctuation">(</span>
 	id <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token number">10</span><span class="token punctuation">,</span>	
 	name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     gender <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token string">'女'</span>	<span class="token comment">// 默认性别为女</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><h3 id="外键约束（Foreign-Key）"><a href="#外键约束（Foreign-Key）" class="headerlink" title="外键约束（Foreign Key）"></a>外键约束（Foreign Key）</h3><p>业务背景：设计数据库表，描述班级和学生信息</p>
+<li><h4 id="外键约束（Foreign-Key）"><a href="#外键约束（Foreign-Key）" class="headerlink" title="外键约束（Foreign Key）"></a><strong>外键约束（Foreign Key）</strong></h4><p>业务背景：设计数据库表，描述班级和学生信息</p>
 <p>第一种方案：班级和学生存储在一张表中</p>
 <table>
 <thead>
@@ -671,10 +671,10 @@
 <li>子表中的外键引用父表中的某个字段，被引用的这个字段必须是主键吗？    —不一定，但至少具有unique约束</li>
 </ul>
 </li>
-<li><h3 id="检查约束（MySQL不支持）"><a href="#检查约束（MySQL不支持）" class="headerlink" title="检查约束（MySQL不支持）"></a>检查约束（MySQL不支持）</h3></li>
+<li><h4 id="检查约束（MySQL不支持）"><a href="#检查约束（MySQL不支持）" class="headerlink" title="检查约束（MySQL不支持）"></a><strong>检查约束（MySQL不支持）</strong></h4></li>
 </ol>
-<h2 id="三、数据库的三大范式"><a href="#三、数据库的三大范式" class="headerlink" title="三、数据库的三大范式"></a>三、数据库的三大范式</h2><ol>
-<li><h3 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h3><p>要求任何一张表必须有主键，每一个字段原子性不可再分。</p>
+<h3 id="三、数据库的三大范式"><a href="#三、数据库的三大范式" class="headerlink" title="三、数据库的三大范式"></a>三、数据库的三大范式</h3><ol>
+<li><h4 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a><strong>第一范式</strong></h4><p>要求任何一张表必须有主键，每一个字段原子性不可再分。</p>
 <p>第一范式（最核心、最重要的范式，所有表的设计都需要满足）</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> student<span class="token punctuation">(</span>
 	id <span class="token keyword">INT</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> AUTO_INCRAEMENT<span class="token punctuation">,</span>
@@ -684,7 +684,7 @@
 	area <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 	street: <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
 <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><h3 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h3><p>满足第一范式的条件下，第二范式要求：<strong>除主键外的每一列，都必须完全依赖于主键</strong></p>
+<li><h4 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a><strong>第二范式</strong></h4><p>满足第一范式的条件下，第二范式要求：<strong>除主键外的每一列，都必须完全依赖于主键</strong></p>
 <p>不满足第二范式的例子</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">order</span><span class="token punctuation">(</span>
 	product_id <span class="token keyword">INT</span><span class="token punctuation">,</span>
@@ -696,7 +696,7 @@
 
 <p>此处product_name只依赖于product_id，customer_name只依赖于customer_id，是完全依赖 </p>
 </li>
-<li><h3 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h3><p>建立在第二范式的基础之上，要求所有非主键字段完全依赖主键，不要产生传递依赖。</p>
+<li><h4 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a><strong>第三范式</strong></h4><p>建立在第二范式的基础之上，要求所有非主键字段完全依赖主键，不要产生传递依赖。</p>
 <p>不满足第三范式的例子 </p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">order</span><span class="token punctuation">(</span>
 	id <span class="token keyword">INT</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>
@@ -708,16 +708,16 @@
 <p>此处customer_phone又依赖于customer_id，存在传递依赖关系，不满足第三范式 </p>
 </li>
 </ol>
-<h2 id="四、连接查询"><a href="#四、连接查询" class="headerlink" title="四、连接查询"></a>四、连接查询</h2><ol>
-<li><h3 id="什么是连接查询？"><a href="#什么是连接查询？" class="headerlink" title="什么是连接查询？"></a>什么是连接查询？</h3><ul>
+<h3 id="四、连接查询"><a href="#四、连接查询" class="headerlink" title="四、连接查询"></a>四、连接查询</h3><ol>
+<li><h4 id="什么是连接查询？"><a href="#什么是连接查询？" class="headerlink" title="什么是连接查询？"></a><strong>什么是连接查询？</strong></h4><ul>
 <li><p>从一张表中单独查询，称为单表查询。</p>
 </li>
 <li><p>emp表和dept表联合起来查询数据，从emp表中取员工名字，从dept表中取部门名字，这种跨表查询，多张表联合起来查询数据称为连接查询。</p>
 </li>
 </ul>
 </li>
-<li><h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><p>内连接：查询两张表有关联的数据</p>
- <img src="/posts/undefined/2.jpg" class title="内连接演示">
+<li><h4 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a><strong>内连接</strong></h4><p>内连接：查询两张表有关联的数据</p>
+ <img src="/posts/7e46/2.jpg" class title="内连接演示">
 
 <p>如上图，有两个表格，第一个表格记录前端、后端和运维三个大方向，第二个表格记录Java、vue、MySQL三门课。Java隶属于后端范畴，所以在第二个表格的最后一列写2，vue类似，MySQL没有隶属关系，所以写null。所以内连接仅能查出来两条数据，运维的数据查不出来</p>
 <ul>
@@ -741,7 +741,7 @@
 </ul>
 <p><strong>内连接的特点：完全能够匹配上这个条件的数据查询出来</strong></p>
 </li>
-<li><h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><ul>
+<li><h4 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a><strong>外连接</strong></h4><ul>
 <li><p>左外连接（左连接）</p>
 <p>左边的表查出所有数据，右边的表只查出有关联的数据（左边表：不管运维能不能关联数据，都必须查询出所有数据，右边表：仅查询出Java和vue的数据）</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">ON</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
@@ -750,7 +750,7 @@
 
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname <span class="token keyword">FROM</span> dept d <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> emp e <span class="token keyword">ON</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
- <img src="/posts/undefined/1.jpg" class title="左连接查询结果"></li>
+ <img src="/posts/7e46/1.jpg" class title="左连接查询结果"></li>
 <li><p>右外连接（右连接）</p>
 <p>右边的表查出所有数据，左边的表只查出有关联的数据（右边表：不管MySQL能不能关联数据，都必须查询出所有数据，左边表：仅查询出前端和后端的数据）</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">ON</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
@@ -759,7 +759,7 @@
 
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> e<span class="token punctuation">.</span>ename<span class="token punctuation">,</span> d<span class="token punctuation">.</span>dname <span class="token keyword">FROM</span> emp e <span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> dept d <span class="token keyword">ON</span> e<span class="token punctuation">.</span>deptno <span class="token operator">=</span> d<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
- <img src="/posts/undefined/3.jpg" class title="右连接查询结果">
+ <img src="/posts/7e46/3.jpg" class title="右连接查询结果">
 
 <p>结论：外连接的查询结果条数一定是 &gt;= 内连接的查询结果条数</p>
 </li>
@@ -771,18 +771,18 @@
 <li>全连接（几乎不用）</li>
 </ul>
 <p>图解内连接、左连接、右连接</p>
- <img src="/posts/undefined/4.jpg" class title="内连接">
+ <img src="/posts/7e46/4.jpg" class title="内连接">
 
- <img src="/posts/undefined/5.jpg" class title="左连接">
+ <img src="/posts/7e46/5.jpg" class title="左连接">
 
- <img src="/posts/undefined/6.jpg" class title="右连接"></li>
+ <img src="/posts/7e46/6.jpg" class title="右连接"></li>
 </ol>
-<h2 id="五、事务（transaction）"><a href="#五、事务（transaction）" class="headerlink" title="五、事务（transaction）"></a>五、事务（transaction）</h2><ol>
-<li><h3 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h3><p>一个事务是一个完整的业务逻辑，不可再分、最小的工作单元。要么同时成功，要么同时失败。</p>
+<h3 id="五、事务（transaction）"><a href="#五、事务（transaction）" class="headerlink" title="五、事务（transaction）"></a>五、事务（transaction）</h3><ol>
+<li><h4 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a><strong>什么是事务</strong></h4><p>一个事务是一个完整的业务逻辑，不可再分、最小的工作单元。要么同时成功，要么同时失败。</p>
 <p>本质上：一个事务就是多条DML语句同时成功或同时失败。</p>
 <p>只有DML语句（insert、delete、update）才有事务，其他语句和事务无关。</p>
 </li>
-<li><h3 id="事务是如何实现的？"><a href="#事务是如何实现的？" class="headerlink" title="事务是如何实现的？"></a>事务是如何实现的？</h3><p>在事务的执行过程中，每一条DML语句的操作都会记录在”事务性活动的日志文件”中</p>
+<li><h4 id="事务是如何实现的？"><a href="#事务是如何实现的？" class="headerlink" title="事务是如何实现的？"></a><strong>事务是如何实现的？</strong></h4><p>在事务的执行过程中，每一条DML语句的操作都会记录在”事务性活动的日志文件”中</p>
 <p>在事务的执行过程中，可以提交事务，也可以回滚事务</p>
 <ul>
 <li>提交事务：清空事务性活动的日志文件，将数据全部持久化到数据库的表中。提交事务标志着事务的结束，并且是一种全部成功的结束。</li>
@@ -792,17 +792,17 @@
 <p>什么是自动提交？— 每执一条DML语句提交一次</p>
 <p>将MYSQL的自动提交机制关闭掉：<code>start transaction</code>;或<code>Set autocommit = 0 </code>    </p>
 </li>
-<li><h3 id="怎么提交事务？怎么回滚事务？"><a href="#怎么提交事务？怎么回滚事务？" class="headerlink" title="怎么提交事务？怎么回滚事务？"></a>怎么提交事务？怎么回滚事务？</h3><p>提交事务：<code>commit语句</code></p>
+<li><h4 id="怎么提交事务？怎么回滚事务？"><a href="#怎么提交事务？怎么回滚事务？" class="headerlink" title="怎么提交事务？怎么回滚事务？"></a><strong>怎么提交事务？怎么回滚事务？</strong></h4><p>提交事务：<code>commit语句</code></p>
 <p>回滚事务：<code>rollback语句</code>（回滚只能回滚到上一次的提交点）</p>
 </li>
-<li><h3 id="四大特征：ACID"><a href="#四大特征：ACID" class="headerlink" title="四大特征：ACID"></a>四大特征：ACID</h3><ul>
+<li><h4 id="四大特征：ACID"><a href="#四大特征：ACID" class="headerlink" title="四大特征：ACID"></a><strong>四大特征：ACID</strong></h4><ul>
 <li>原子性：事务是最小的单位，<strong>不可再分</strong></li>
 <li>一致性：同一事务中的sql语句<strong>要么同时成功，要么同时失败</strong></li>
 <li>隔离性：事务1和事务2之间具有隔离性，教室A和教室B之间有一道墙，这道墙就是隔离性。</li>
 <li>持久性：事物<strong>一旦结束</strong>（commit），就<strong>不可返回</strong>（rollback）。事务最终结束的一个保障。事务提交，就相当于将没有保存到硬盘上的数据保存到硬盘上。</li>
 </ul>
 </li>
-<li><h3 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h3><ul>
+<li><h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a><strong>事务的隔离级别</strong></h4><ul>
 <li>读未提交（read uncomitted）：最低的隔离级别<ul>
 <li>事务A可以读取到事务B未提交的数据</li>
 <li>这种隔离级别存在的问题就是：脏读（dirty read）</li>
@@ -833,7 +833,7 @@
 </ul>
 </li>
 </ul>
- <img src="/posts/undefined/7.jpg" class title="事务的隔离级别">
+ <img src="/posts/7e46/7.jpg" class title="事务的隔离级别">
 
 <p><strong>注意：</strong>不可重复读的和幻读很容易混淆，<strong>不可重复读侧重于修改，幻读侧重于新增或删除</strong>。解决不可重复读的问题只需锁住满足条件就行，解决幻读需要锁表</p>
 <p>查看事务的隔离级别：</p>
@@ -843,7 +843,7 @@
 <span class="token comment">// 版本 8.0</span>
 <span class="token keyword">SELECT</span> @<span class="token variable">@global.transaction_isolation</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
-<h2 id="六、存储引擎"><a href="#六、存储引擎" class="headerlink" title="六、存储引擎"></a>六、存储引擎</h2><p><strong>见这篇文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yjclsx/article/details/81911027">MySQL存储引擎</a></strong></p>
+<h3 id="六、存储引擎"><a href="#六、存储引擎" class="headerlink" title="六、存储引擎"></a>六、存储引擎</h3><p><strong>见这篇文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yjclsx/article/details/81911027">MySQL存储引擎</a></strong></p>
 
                 
             </div>
@@ -1453,8 +1453,7 @@ new Valine({
                 <a href="/posts/7e46.html">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="MySQL基础篇">
+                        <img src="https://cdn.jsdelivr.net/gh/prannt99/blogpicture@master/u=2057230709,3834700344&fm=26&fmt=auto.5dm33jy2xaf4.webp" class="responsive-img" alt="MySQL基础篇">
                         
                         <span class="card-title">MySQL基础篇</span>
                     </div>
