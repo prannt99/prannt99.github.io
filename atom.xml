@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-19T15:10:20.336Z</updated>
+  <updated>2021-12-19T16:01:49.560Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>难以归类的算法题</title>
+    <link href="https://prannt99.github.io/posts/32ba.html"/>
+    <id>https://prannt99.github.io/posts/32ba.html</id>
+    <published>2021-12-19T15:49:36.000Z</published>
+    <updated>2021-12-19T16:01:49.560Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、整数反转&quot;&gt;&lt;a href=&quot;#一、整数反转&quot; class=&quot;headerlink&quot; title=&quot;一、整数反转&quot;&gt;&lt;/a&gt;一、整数反转&lt;/h3&gt;&lt;h4 id=&quot;LC-07&quot;&gt;&lt;a href=&quot;#LC-07&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://prannt99.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="LeetCode" scheme="https://prannt99.github.io/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>链表</title>
@@ -99,7 +124,7 @@
     <link href="https://prannt99.github.io/posts/36c8.html"/>
     <id>https://prannt99.github.io/posts/36c8.html</id>
     <published>2021-12-19T12:19:36.000Z</published>
-    <updated>2021-12-19T15:02:22.509Z</updated>
+    <updated>2021-12-19T15:50:49.467Z</updated>
     
     
       
