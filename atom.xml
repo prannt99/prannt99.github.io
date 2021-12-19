@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-19T16:02:10.203Z</updated>
+  <updated>2021-12-19T17:44:41.832Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1 设计模式之设计思想</title>
+    <link href="https://prannt99.github.io/posts/3788.html"/>
+    <id>https://prannt99.github.io/posts/3788.html</id>
+    <published>2021-12-19T17:43:25.000Z</published>
+    <updated>2021-12-19T17:44:41.832Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;基于接口而非实现编程&lt;/p&gt;
+&lt;div class=&quot;note info&quot;&gt;本文是设计模式系列文章的第一篇，主要介绍设计模式的思想。该系列会持续更新，不断优化文章内容。&lt;/div&gt; 
+
+&lt;h3 id=&quot;一、基于接口而非实现编程&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://prannt99.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="设计模式" scheme="https://prannt99.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>难以归类的算法题</title>
@@ -262,7 +290,7 @@
     <link href="https://prannt99.github.io/posts/1517.html"/>
     <id>https://prannt99.github.io/posts/1517.html</id>
     <published>2021-12-17T07:39:28.000Z</published>
-    <updated>2021-12-18T18:21:46.761Z</updated>
+    <updated>2021-12-19T16:10:32.795Z</updated>
     
     
       
