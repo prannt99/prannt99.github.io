@@ -850,7 +850,7 @@ header .go-back i {
 .recommend .post-card .post-categories .category {
     padding: 0 8px;
     color: hsla(0, 0%, 100%, .7) !important;
-    font-size: .75rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
