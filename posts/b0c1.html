@@ -481,7 +481,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13.4k
+                    13.5k
                 </div>
                 
 
@@ -511,7 +511,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <div class="note info">经典设计原则包括，SOLID、KISS、YAGNI、DRY、LOD 等。这些设计原则从字面上理解都不难，但真的用到项目中的时候，你会发现<strong>看懂</strong>和<strong>会用</strong>是两回事，而<strong>用好</strong>更是难上加难。</div> 
+                <div class="note info">经典设计原则包括，SOLID、KISS、YAGNI、DRY、LOD 等。这些设计原则从字面上理解都不难，但真的用到项目中的时候，你会发现<strong>看懂</strong>和<strong>会用</strong>是两回事，而<strong>用好</strong>更是难上加难。<br>
+本文主要涉及：SRP、OCP、LSP、ISP原则</div> 
+
 
 
 <h3 id="一、单一职责原则（SRP）"><a href="#一、单一职责原则（SRP）" class="headerlink" title="一、单一职责原则（SRP）"></a><strong>一、单一职责原则（SRP）</strong></h3><p>文章的开头提到了<code>SOLID原则</code>，实际上，<code>SOLID原则</code>并非单纯的 1 个原则，而是由 5 个设计原则组成的，它们分别是：<code>单一职责原则</code>、<code>开闭原则</code>、<code>里式替换原则</code>、<code>接口隔离原则</code>和<code>依赖反转原则</code>，依次对应 SOLID 中的 S、O、L、I、D 这 5 个英文字母。以下介绍第一个原则：单一职责原则。 </p>
@@ -840,19 +842,15 @@
 </ol>
 <h4 id="修改代码意味着违背开闭原则吗？"><a href="#修改代码意味着违背开闭原则吗？" class="headerlink" title="修改代码意味着违背开闭原则吗？"></a><strong>修改代码意味着违背开闭原则吗？</strong></h4><p>看了上面重构之后的代码，可能还会有疑问：在添加新的告警逻辑的时候，尽管改动二（添加新的 handler 类）是基于扩展而非修改的方式来完成的，但改动一、三、四貌似不是基于扩展而是基于修改的方式来完成的，那改动一、三、四不就违背了开闭原则吗？ </p>
 <div class="note info no-icon"><strong>先分析改动一：</strong>往 ApiStatInfo 类中添加新的属性 timeoutCount。</div> 
+1. 实际上，不仅往 ApiStatInfo 类中添加了属性，还添加了对应的 getter/setter 方法。那这个问题就转化为：给类中添加新的属性和方法，算作`修改`还是`扩展`？
+2. 再回忆一下开闭原则的定义：软件实体（模块、类、方法等）应该“对扩展开放、对修改关闭”。从定义中可以看出，开闭原则可以应用在不同粒度的代码中，可以是模块，也可以类，还可以是方法（及其属性）。同样一个代码改动，在粗代码粒度下，被认定为“修改”，在细代码粒度下，又可以被认定为“扩展”。比如，改动一，添加属性和方法相当于修改类，在类这个层面，这个代码改动可以被认定为“修改”；但这个代码改动并没有修改已有的属性和方法，在方法（及其属性）这一层面，它又可以被认定为“扩展”。
+3. 实际上，也没必要纠结某个代码改动是“修改”还是“扩展”，更没必要太纠结它是否违反“开闭原则”。回到这条原则的设计初衷：只要它没有破坏原有的代码的正常运行，没有破坏原有的单元测试，就可以说这是一个合格的代码改动。
 
-<ol>
-<li>实际上，不仅往 ApiStatInfo 类中添加了属性，还添加了对应的 getter/setter 方法。那这个问题就转化为：给类中添加新的属性和方法，算作<code>修改</code>还是<code>扩展</code>？</li>
-<li>再回忆一下开闭原则的定义：软件实体（模块、类、方法等）应该“对扩展开放、对修改关闭”。从定义中可以看出，开闭原则可以应用在不同粒度的代码中，可以是模块，也可以类，还可以是方法（及其属性）。同样一个代码改动，在粗代码粒度下，被认定为“修改”，在细代码粒度下，又可以被认定为“扩展”。比如，改动一，添加属性和方法相当于修改类，在类这个层面，这个代码改动可以被认定为“修改”；但这个代码改动并没有修改已有的属性和方法，在方法（及其属性）这一层面，它又可以被认定为“扩展”。</li>
-<li>实际上，也没必要纠结某个代码改动是“修改”还是“扩展”，更没必要太纠结它是否违反“开闭原则”。回到这条原则的设计初衷：只要它没有破坏原有的代码的正常运行，没有破坏原有的单元测试，就可以说这是一个合格的代码改动。</li>
-</ol>
 <div class="note info no-icon"><strong>再分析改动三和改动四：</strong>在 ApplicationContext 类的 initializeBeans() 方法中，往 alert 对象中注册新的 timeoutAlertHandler；在使用 Alert 类的时候，需要给 check() 函数的入参 apiStatInfo 对象设置 timeoutCount 的值。</div> 
+1. 这两处改动都是在方法内部进行的，不管从哪个层面（模块、类、方法）来讲，都不能算是“扩展”，而是地地道道的“修改”。不过，有些修改是在所难免的，是可以被接受的。为什么这么说呢？
+2. 在重构之后的 Alert 代码中，核心逻辑集中在 Alert 类及其各个 handler 中，在添加新的告警逻辑时，Alert 类完全不需要修改，而只需要扩展一个新 handler 类。如果把 Alert 类及各个 handler 类合起来看作一个“模块”，那模块本身在添加新的功能的时候，完全满足开闭原则。
+3. 而且，添加一个新功能，不可能任何模块、类、方法的代码都不“修改”。类需要创建、组装、并且做一些初始化操作，才能构建成可运行的的程序，这部分代码的修改是在所难免的。我们要做的是尽量让修改操作更集中、更少、更上层，尽量让最核心、最复杂的那部分逻辑代码满足开闭原则。
 
-<ol>
-<li>这两处改动都是在方法内部进行的，不管从哪个层面（模块、类、方法）来讲，都不能算是“扩展”，而是地地道道的“修改”。不过，有些修改是在所难免的，是可以被接受的。为什么这么说呢？</li>
-<li>在重构之后的 Alert 代码中，核心逻辑集中在 Alert 类及其各个 handler 中，在添加新的告警逻辑时，Alert 类完全不需要修改，而只需要扩展一个新 handler 类。如果把 Alert 类及各个 handler 类合起来看作一个“模块”，那模块本身在添加新的功能的时候，完全满足开闭原则。</li>
-<li>而且，添加一个新功能，不可能任何模块、类、方法的代码都不“修改”。类需要创建、组装、并且做一些初始化操作，才能构建成可运行的的程序，这部分代码的修改是在所难免的。我们要做的是尽量让修改操作更集中、更少、更上层，尽量让最核心、最复杂的那部分逻辑代码满足开闭原则。</li>
-</ol>
 <h4 id="如何做到“对扩展开放、修改关闭”？"><a href="#如何做到“对扩展开放、修改关闭”？" class="headerlink" title="如何做到“对扩展开放、修改关闭”？"></a><strong>如何做到“对扩展开放、修改关闭”？</strong></h4><ol>
 <li>在刚刚的例子中，通过引入一组 handler 的方式来实现支持开闭原则。如果没有太多复杂代码的设计和开发经验，可能会有这样的疑问：这样的代码设计思路如何才能想到？</li>
 <li>先给出结论，之所以能想到，靠的就是理论知识和实战经验，这些需要慢慢学习和积累。对于如何做到“对扩展开放、修改关闭”，也有一些指导思想和具体的方法论。</li>
@@ -1963,29 +1961,28 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/b0c1.html">
+                <a href="/posts/9bc0.html">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/prannt/blogphoto/raw/master/img/21.jpg" class="responsive-img" alt="2 设计模式之设计原则（1）">
+                        <img src="https://gitee.com/prannt/blogphoto/raw/master/img/22.jpg" class="responsive-img" alt="2 设计模式之设计原则（2）">
                         
-                        <span class="card-title">2 设计模式之设计原则（1）</span>
+                        <span class="card-title">2 设计模式之设计原则（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            万字长文讲解设计模式的设计原则
+                            万字长文讲解DIP、DRY、迪米特法则
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1998,7 +1995,6 @@ new Valine({
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -2255,7 +2251,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">58.1k</span>
+                        class="white-color">70.8k</span>
             
             
             
