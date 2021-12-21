@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-21T12:23:07.507Z</updated>
+  <updated>2021-12-21T13:20:24.449Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://prannt99.github.io/posts/9bc0.html"/>
     <id>https://prannt99.github.io/posts/9bc0.html</id>
     <published>2021-12-21T06:26:47.000Z</published>
-    <updated>2021-12-21T12:23:07.507Z</updated>
+    <updated>2021-12-21T13:20:24.449Z</updated>
     
     
       
@@ -29,14 +29,15 @@
         
         
     <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文主要涉及：DIP、DRY、迪米特法则&lt;/div&gt; 
+### 依赖反转原则（DIP）
 
-&lt;h3 id=&quot;依赖反转原则（DIP）&quot;&gt;&lt;a href=&quot;#依赖反转原则（DIP）&quot; class=&quot;headerlink&quot;</summary>
+&lt;p&gt;关于 SOLID</summary>
         
       
     
     
     
-    <category term="后端" scheme="https://prannt99.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    <category term="设计模式" scheme="https://prannt99.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
     <category term="设计模式" scheme="https://prannt99.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
@@ -48,7 +49,7 @@
     <link href="https://prannt99.github.io/posts/b0c1.html"/>
     <id>https://prannt99.github.io/posts/b0c1.html</id>
     <published>2021-12-20T11:04:25.000Z</published>
-    <updated>2021-12-21T12:14:29.932Z</updated>
+    <updated>2021-12-21T13:20:14.347Z</updated>
     
     
       
@@ -61,7 +62,7 @@
     
     
     
-    <category term="后端" scheme="https://prannt99.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    <category term="设计模式" scheme="https://prannt99.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
     <category term="设计模式" scheme="https://prannt99.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
@@ -73,7 +74,7 @@
     <link href="https://prannt99.github.io/posts/3788.html"/>
     <id>https://prannt99.github.io/posts/3788.html</id>
     <published>2021-12-19T17:43:25.000Z</published>
-    <updated>2021-12-20T11:19:21.692Z</updated>
+    <updated>2021-12-21T13:19:57.446Z</updated>
     
     
       
@@ -83,14 +84,13 @@
     <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文是设计模式系列文章的第一篇，主要介绍设计模式的思想。该系列会持续更新，不断优化文章内容。&lt;/div&gt; 
 
 
-
 &lt;h3 id=&quot;一、基于接口而非实现编程&quot;&gt;&lt;a href=&quot;#一、基于接口而非实现编程&quot;</summary>
         
       
     
     
     
-    <category term="后端" scheme="https://prannt99.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    <category term="设计模式" scheme="https://prannt99.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
     <category term="设计模式" scheme="https://prannt99.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
@@ -152,7 +152,7 @@
     <link href="https://prannt99.github.io/posts/cccb.html"/>
     <id>https://prannt99.github.io/posts/cccb.html</id>
     <published>2021-12-19T14:10:29.000Z</published>
-    <updated>2021-12-20T10:59:11.533Z</updated>
+    <updated>2021-12-21T13:25:03.390Z</updated>
     
     
       
@@ -160,7 +160,6 @@
         
         
     <summary type="html">&lt;div class=&quot;note info&quot;&gt;不知不觉，hexo博客已经在风雨飘摇中运行一周了，回想这一周博客的维护经历，我觉得有必要专门写一篇文章记录一下博客优化的过程，以防我不小心搞崩了博客...&lt;/div&gt;
-
 
 
 
