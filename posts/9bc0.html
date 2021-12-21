@@ -513,8 +513,6 @@
             <div id="articleContent">
                 <div class="note info">本文主要涉及：DIP、DRY、迪米特法则</div> 
 
-
-
 <h3 id="依赖反转原则（DIP）"><a href="#依赖反转原则（DIP）" class="headerlink" title="依赖反转原则（DIP）"></a>依赖反转原则（DIP）</h3><p>关于 SOLID 原则，已经学过单一职责、开闭、里式替换、接口隔离这四个原则。接下来再学习最后一个原则：依赖反转原则。这个原则用起来比较简单，但概念理解起来比较难。比如，下面这几个问题：</p>
 <ul>
 <li>“依赖反转”这个概念指的是“谁跟谁”的“什么依赖”被反转了？“反转”两个字该如何理解？</li>
@@ -1073,16 +1071,20 @@
 <li><p>迪米特法则的英文翻译是：Law of Demeter，缩写是 LOD。单从这个名字上来看，完全猜不出这个原则讲的是什么。不过，它还有另外一个更加达意的名字，叫作最小知识原则，英文翻译为：The Least Knowledge Principle。</p>
 </li>
 <li><p>关于这个设计原则，先来看一下它最原汁原味的英文定义：</p>
-<div class="note info no-icon"><strong>Each unit should have only limited knowledge about other units: only units “closely” related to the current unit. Or: Each unit should only talk to its friends; Don’t talk to strangers.</strong></div>   </li>
+</li>
 </ol>
-<p>翻译之后：</p>
+<div class="note info no-icon"><strong>Each unit should have only limited knowledge about other units: only units “closely” related to the current unit. Or: Each unit should only talk to its friends; Don’t talk to strangers.</strong></div>   
+翻译之后：
+
 <div class="note info no-icon"><strong>每个模块（unit）只应该了解那些与它关系密切的模块（units: only units “closely” related to the current unit）的有限知识（knowledge）。或者说，每个模块只和自己的朋友“说话”（talk），不和陌生人“说话”（talk）。</strong></div>   
 大部分设计原则和思想都非常抽象，有各种各样的解读，要想灵活地应用到实际的开发中，需要有实战经验的积累。迪米特法则也不例外。注意，为了统一，把定义描述中的“模块”替换成了“类”。 
 
-<div class="note info no-icon"><strong>不该有直接依赖关系的类之间，不要有依赖；有依赖关系的类之间，尽量只依赖必要的接口（也就是定义中的“有限知识”）。从上面的描述中可以看出，迪米特法则包含前后两部分，这两部分讲的是两件事情，接下来用两个实战案例分别解读。</strong></div>   
-#### 理论解读与代码实战一
+<div class="note info no-icon"><strong>不该有直接依赖关系的类之间，不要有依赖；有依赖关系的类之间，尽量只依赖必要的接口（也就是定义中的“有限知识”）。从上面的描述中可以看出，迪米特法则包含前后两部分。</strong></div>   
 
-<ol>
+
+
+<p>这两部分讲的是两件事情，接下来用两个实战案例分别解读。</p>
+<h4 id="理论解读与代码实战一"><a href="#理论解读与代码实战一" class="headerlink" title="理论解读与代码实战一"></a>理论解读与代码实战一</h4><ol>
 <li><p>先看这条原则中的前半部分，<strong>“不该有直接依赖关系的类之间，不要有依赖”</strong>。</p>
 </li>
 <li><p>这个例子实现了简化版的搜索引擎爬取网页的功能。代码中包含三个主要的类。其中，<code>NetworkTransporter</code>类负责底层网络通信，根据请求获取数据；<code>HtmlDownloader</code>类用来通过 URL 获取网页；<code>Document</code>表示网页文档，后续的网页内容抽取、分词、索引都是以此为处理对象。具体的代码实现如下所示：</p>

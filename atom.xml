@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-21T12:04:36.905Z</updated>
+  <updated>2021-12-21T12:23:07.507Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://prannt99.github.io/posts/9bc0.html"/>
     <id>https://prannt99.github.io/posts/9bc0.html</id>
     <published>2021-12-21T06:26:47.000Z</published>
-    <updated>2021-12-21T12:04:36.905Z</updated>
+    <updated>2021-12-21T12:23:07.507Z</updated>
     
     
       
@@ -29,8 +29,6 @@
         
         
     <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文主要涉及：DIP、DRY、迪米特法则&lt;/div&gt; 
-
-
 
 &lt;h3 id=&quot;依赖反转原则（DIP）&quot;&gt;&lt;a href=&quot;#依赖反转原则（DIP）&quot; class=&quot;headerlink&quot;</summary>
         
