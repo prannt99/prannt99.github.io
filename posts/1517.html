@@ -481,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    18 分
                 </div>
                 
 
@@ -986,8 +986,171 @@ bean的类型：<span class="token keyword">class</span> <span class="token clas
 <span class="token comment">// 该方法一般用于在bean销毁之前释放资源或执行其他清理任务，如关闭数据库连接。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <div class="note danger"><strong>自JDK 9开始，@PostConstruct和@PreDestroy已被标注为@Deprecated，在JDK 11中已经被移除</strong></div>
+#### **BeanPostProcessor**
 
-<h4 id="BeanPostProcessor"><a href="#BeanPostProcessor" class="headerlink" title="BeanPostProcessor"></a><strong>BeanPostProcessor</strong></h4><h3 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h3><link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media="all">
+<p>BeanPostProcessor是Spring IOC容器给我们提供的一个扩展接口。接口声明如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">BeanPostProcessor</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// bean初始化方法调用前被调用</span>
+    <span class="token class-name">Object</span> <span class="token function">postProcessBeforeInitialization</span><span class="token punctuation">(</span><span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span><span class="token punctuation">;</span>
+    <span class="token comment">// bean初始化方法调用后被调用</span>
+    <span class="token class-name">Object</span> <span class="token function">postProcessAfterInitialization</span><span class="token punctuation">(</span><span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>运行顺序：</strong></p>
+<p>Spring IOC容器实例化Bean → 调用BeanPostProcessor的<code>postProcessBeforeInitialization</code>方法 → 调用bean实例的初始化方法 → 调用BeanPostProcessor的<code>postProcessAfterInitialization</code>方法 </p>
+<img src="/posts/1517/1.jpg" class title="BeanPostProcessor运行顺序">
+
+<p><strong>BeanPostProcessor实例</strong></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 后置处理器：初始化前后进行处理工作
+ * 将后置处理器加入到容器中
+ */</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyBeanPostProcessor</span> <span class="token keyword">implements</span> <span class="token class-name">BeanPostProcessor</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">postProcessBeforeInitialization</span><span class="token punctuation">(</span><span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"postProcessBeforeInitialization..."</span><span class="token operator">+</span>beanName<span class="token operator">+</span><span class="token string">"=>"</span><span class="token operator">+</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> bean<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">postProcessAfterInitialization</span><span class="token punctuation">(</span><span class="token class-name">Object</span> bean<span class="token punctuation">,</span> <span class="token class-name">String</span> beanName<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"postProcessAfterInitialization..."</span><span class="token operator">+</span>beanName<span class="token operator">+</span><span class="token string">"=>"</span><span class="token operator">+</span>bean<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> bean<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>BeanFactoryPostProcessor简介</strong></p>
+<p>bean工厂的bean属性处理容器，说通俗一些就是可以管理我们的bean工厂内所有的beandefinition（未实例化）数据，可以随心所欲的修改属性。 </p>
+<h3 id="属性赋值"><a href="#属性赋值" class="headerlink" title="属性赋值"></a><strong>属性赋值</strong></h3><h4 id="Value"><a href="#Value" class="headerlink" title="@Value"></a><strong>@Value</strong></h4><p>该注解的作用是将配置文件的属性读出来，有**@Value(“${}”)<strong>和</strong>@Value(“#{}”)**两种方式。 </p>
+<p><strong>${}：</strong>注入的是外部配置文件对应的property </p>
+<p><strong>#{}：</strong>SpEL表达式对应的内容 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token annotation punctuation">@NoArgsConstructo</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">&#123;</span>   
+   <span class="token comment">// 使用@Value赋值；</span>
+   <span class="token comment">// 1、基本数值</span>
+   <span class="token comment">// 2、可以写#&#123;&#125;</span>
+   <span class="token comment">// 3、可以写$&#123;&#125;；取出配置文件【properties】中的值（在运行环境变量里面的值）  </span>
+   <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span>
+   <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+   <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"#&#123;20-2&#125;"</span><span class="token punctuation">)</span>
+   <span class="token keyword">private</span> <span class="token class-name">Integer</span> age<span class="token punctuation">;</span>
+   <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"$&#123;person.nickName&#125;"</span><span class="token punctuation">)</span>
+   <span class="token keyword">private</span> <span class="token class-name">String</span> nickName<span class="token punctuation">;</span> 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="PropertySource"><a href="#PropertySource" class="headerlink" title="@PropertySource"></a><strong>@PropertySource</strong></h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 使用@PropertySource读取外部配置文件中的k/v保存到运行的环境变量中;</span>
+<span class="token comment">// 加载完外部的配置文件以后使用$&#123;&#125;取出配置文件的值</span>
+<span class="token annotation punctuation">@PropertySource</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">"classpath:/person.properties"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MainConfigOfPropertyValues</span> <span class="token punctuation">&#123;</span>
+   <span class="token annotation punctuation">@Bean</span>
+   <span class="token keyword">public</span> <span class="token class-name">Person</span> <span class="token function">person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h3><h4 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a><strong>@Autowired</strong></h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BookController</span> <span class="token punctuation">&#123;</span>   
+   <span class="token annotation punctuation">@Autowired</span>	<span class="token comment">// 自动注入属性</span>
+   <span class="token keyword">private</span> <span class="token class-name">BookService</span> bookService<span class="token punctuation">;</span>	
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Qualifier"><a href="#Qualifier" class="headerlink" title="@Qualifier"></a><strong>@Qualifier</strong></h4><p>限定哪个bean应该被自动注入 </p>
+<p>假设有两个bean定义为Person类的实例 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">&lt;</span>beanid<span class="token operator">=</span><span class="token string">"user1"</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"com.test.User"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>property name<span class="token operator">=</span><span class="token string">"name"</span>value<span class="token operator">=</span><span class="token string">"zhangsan"</span><span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>bean<span class="token operator">></span>
+ 
+<span class="token operator">&lt;</span>beanid<span class="token operator">=</span><span class="token string">"user2"</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"com.test.User"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>property name<span class="token operator">=</span><span class="token string">"name"</span>value<span class="token operator">=</span><span class="token string">"lisi"</span><span class="token operator">/</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>bean<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后注入属性：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Staff</span><span class="token punctuation">&#123;</span>    
+    <span class="token annotation punctuation">@Autowired</span>    
+    <span class="token keyword">private</span> user user<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Spring 知道哪个bean应该自动注入吗？不。当运行上面的例子时，抛出如下异常:</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Caused</span> by<span class="token operator">:</span> <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span></span>NoSuchBeanDefinitionException</span><span class="token operator">:</span><span class="token class-name">No</span> unique bean of type <span class="token punctuation">[</span><span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>test<span class="token punctuation">.</span></span>User</span><span class="token punctuation">]</span> is defined<span class="token operator">:</span>expected single matching bean but found2<span class="token operator">:</span> <span class="token punctuation">[</span>user1<span class="token punctuation">,</span> user2<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>要解决以上问题，需要使用<code>@Quanlifier</code>注解告诉Spring 哪个bean应该被Autowired。 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Staff</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"user1"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">User</span> user<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Primary"><a href="#Primary" class="headerlink" title="@Primary"></a><strong>@Primary</strong></h4><p>在Spring中使用注解<code>@Autowired</code>， 默认是根据类型Type来自动注入的。但有些特殊情况，同一个接口可能会有几种不同的实现类，而默认只会采取其中一种，@Primary 的作用就出来了。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 有一个Singer接口</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Singer</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token class-name">String</span> lyrics<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Singer接口有两个实现类</span>
+<span class="token annotation punctuation">@Component</span> 
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MetalSinger</span> <span class="token keyword">implements</span> <span class="token class-name">Singer</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token class-name">String</span> lyrics<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"I am singing with DIO voice: "</span> <span class="token operator">+</span> lyrics<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OperaSinger</span> <span class="token keyword">implements</span> <span class="token class-name">Singer</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token class-name">String</span> lyrics<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"I am singing in Bocelli voice: "</span><span class="token operator">+</span>lyrics<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 注入</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SingerServiceImpl</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Logger</span> logger <span class="token operator">=</span> <span class="token class-name">LoggerFactory</span><span class="token punctuation">.</span><span class="token function">getLogger</span><span class="token punctuation">(</span><span class="token class-name">SingerServiceImpl</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token annotation punctuation">@Autowired</span>
+	<span class="token keyword">private</span> <span class="token class-name">Singer</span> singer<span class="token punctuation">;</span>
+     
+	<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> singer<span class="token punctuation">.</span><span class="token function">sing</span><span class="token punctuation">(</span><span class="token string">"song lyrics"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>报错：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span></span>NoUniqueBeanDefinitionException</span><span class="token operator">:</span> <span class="token class-name">No</span> qualifying bean of type <span class="token punctuation">[</span><span class="token class-name"><span class="token namespace">main<span class="token punctuation">.</span>service<span class="token punctuation">.</span></span>Singer</span><span class="token punctuation">]</span> is defined<span class="token operator">:</span> expected single matching bean but found <span class="token number">2</span><span class="token operator">:</span> metalSinger<span class="token punctuation">,</span>operaSinger<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>原因：</p>
+<p>Spring 根据类型无法选择到底注入哪一个。这个时候**@Primay** 可以闪亮登场了。 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Primary</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OperaSinger</span> <span class="token keyword">implements</span> <span class="token class-name">Singer</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token class-name">String</span> lyrics<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"I am singing in Bocelli voice: "</span> <span class="token operator">+</span> lyrics<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当然也可以使用上面提到的@Qualifier注解</p>
+<h4 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a><strong>@Resource</strong></h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span> 
+<span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"metalSinger"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MetalSinger</span> <span class="token keyword">implements</span> <span class="token class-name">Singer</span><span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token class-name">String</span> lyrics<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"I am singing with DIO voice: "</span><span class="token operator">+</span>lyrics<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+ 
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"opreaSinger"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OperaSinger</span> <span class="token keyword">implements</span> <span class="token class-name">Singer</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">sing</span><span class="token punctuation">(</span><span class="token class-name">String</span> lyrics<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token string">"I am singing in Bocelli voice: "</span><span class="token operator">+</span>lyrics<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Inject"><a href="#Inject" class="headerlink" title="@Inject"></a><strong>@Inject</strong></h4><link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media="all">
                 
             </div>
             <hr/>
@@ -1886,7 +2049,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">81.9k</span>
+                        class="white-color">82.8k</span>
             
             
             
