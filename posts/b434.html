@@ -481,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.6k
+                    8.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    32 分
                 </div>
                 
 
@@ -925,46 +925,196 @@
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Singleton</span> singleton1 <span class="token operator">=</span> <span class="token class-name">Singleton</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">Singleton</span> singleton2 <span class="token operator">=</span> <span class="token class-name">Singleton</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><strong>第三种解决思路是</strong>：将参数放到另外一个全局变量中。具体的代码实现如下。Config 是一个存储了 paramA 和 paramB 值的全局变量。里面的值既可以像下面的代码那样通过静态常量来定义，也可以从配置文件中加载得到。<strong>实际上，这种方式是最值得推荐的。</strong></p>
+<p><strong>第三种解决思路是</strong>：将参数放到另外一个全局变量中。具体的代码实现如下。<code>Config</code>是一个存储了 paramA 和 paramB 值的全局变量。里面的值既可以像下面的代码那样通过静态常量来定义，也可以从配置文件中加载得到。<strong>实际上，这种方式是最值得推荐的。</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Config</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PARAM_A <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PARAM_B <span class="token operator">=</span> <span class="token number">245</span><span class="token punctuation">;</span>
+  	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PARAM_A <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+  	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> PARAM_B <span class="token operator">=</span> <span class="token number">245</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> paramA<span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> paramB<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> paramA<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> paramB<span class="token punctuation">;</span>
 
-  <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>paramA <span class="token operator">=</span> <span class="token class-name">Config</span><span class="token punctuation">.</span>PARAM_A<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>paramB <span class="token operator">=</span> <span class="token class-name">Config</span><span class="token punctuation">.</span>PARAM_B<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">this</span><span class="token punctuation">.</span>paramA <span class="token operator">=</span> <span class="token class-name">Config</span><span class="token punctuation">.</span>PARAM_A<span class="token punctuation">;</span>
+    	<span class="token keyword">this</span><span class="token punctuation">.</span>paramB <span class="token operator">=</span> <span class="token class-name">Config</span><span class="token punctuation">.</span>PARAM_B<span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
 
-  <span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
+  	<span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      		instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token punctuation">&#125;</span>
+    	<span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="替代方案"><a href="#替代方案" class="headerlink" title="替代方案"></a><strong>替代方案</strong></h3><p>刚刚提到了单例的很多问题，如果不用单例，怎么才能保证这个类的对象全局唯一呢？为了保证全局唯一，除了使用单例，还可以用静态方法来实现。这也是项目开发中经常用到的一种实现思路。比如，<code>ID</code>唯一递增生成器的例子，用静态方法实现一下，就是下面这个样子： </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 静态方法实现方式</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IdGenerator</span> <span class="token punctuation">&#123;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">AtomicLong</span> id <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+    	<span class="token keyword">return</span> id<span class="token punctuation">.</span><span class="token function">incrementAndGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 使用举例</span>
+<span class="token keyword">long</span> id <span class="token operator">=</span> <span class="token class-name">IdGenerator</span><span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>不过，静态方法这种实现思路，并不能解决之前提到的问题。实际上，它比单例更加不灵活，比如，它无法支持延迟加载。再来看看有没有其他办法。实际上，单例除了之前讲到的使用方法之外，还有另外一种使用方法。具体的代码如下所示： </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 1. 老的使用方式</span>
+<span class="token keyword">public</span> <span class="token function">demofunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  	<span class="token comment">// ...</span>
+  	<span class="token keyword">long</span> id <span class="token operator">=</span> <span class="token class-name">IdGenerator</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token comment">// ...</span>
+<span class="token punctuation">&#125;</span>
 
+<span class="token comment">// 2. 新的使用方式：依赖注入</span>
+<span class="token keyword">public</span> <span class="token function">demofunction</span><span class="token punctuation">(</span><span class="token class-name">IdGenerator</span> idGenerator<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  	<span class="token keyword">long</span> id <span class="token operator">=</span> idGenerator<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 外部调用demofunction()的时候，传入idGenerator</span>
+<span class="token class-name">IdGenerator</span> idGenerator <span class="token operator">=</span> <span class="token class-name">IdGenerator</span><span class="token punctuation">.</span><span class="token function">getInsance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">demofunction</span><span class="token punctuation">(</span>idGenerator<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ol>
+<li>基于新的使用方式，将单例生成的对象，作为参数传递给函数（也可以通过构造函数传递给类的成员变量），可以解决单例隐藏类之间依赖关系的问题。不过，对于单例存在的其他问题，比如对 OOP 特性、扩展性、可测性不友好等问题，还是无法解决。</li>
+<li>所以，如果要完全解决这些问题，可能要从根上寻找其他方式来实现全局唯一类。实际上，类对象的全局唯一性可以通过多种不同的方式来保证。既可以通过单例模式来强制保证，也可以通过工厂模式、IOC 容器（比如 Spring IOC 容器）来保证，还可以通过程序员自己来保证（自己在编写代码的时候自己保证不要创建两个类对象）。这就类似  Java 中内存对象的释放由 JVM 来负责，而 C++ 中由程序员自己负责，道理是一样的。</li>
+<li>对于替代方案工厂模式、IOC 容器的详细讲解，放到后面讲解。</li>
+</ol>
+<h3 id="如何理解单例模式中的唯一性？"><a href="#如何理解单例模式中的唯一性？" class="headerlink" title="如何理解单例模式中的唯一性？"></a><strong>如何理解单例模式中的唯一性？</strong></h3><ol>
+<li>首先重新看一下单例的定义：“一个类只允许创建唯一一个对象（或者实例），那这个类就是一个单例类，这种设计模式就叫作单例设计模式，简称单例模式。</li>
+<li>定义中提到，“一个类只允许创建唯一一个对象”。那对象的唯一性的<strong>作用范围</strong>是什么呢？是指线程内只允许创建一个对象，还是指进程内只允许创建一个对象？答案是后者，也就是说，单例模式创建的对象是进程唯一的。</li>
+<li>我们编写的代码，通过编译、链接，组织在一起，就构成了一个操作系统可以执行的文件，也就是我们平时所说的“可执行文件”（比如 Windows 下的 exe 文件）。可执行文件实际上就是代码被翻译成操作系统可理解的一组指令，完全可以简单地理解为就是代码本身。</li>
+<li>当使用命令行或者双击运行这个可执行文件的时候，操作系统会启动一个进程，将这个执行文件从磁盘加载到自己的进程地址空间（可以理解操作系统为进程分配的内存存储区，用来存储代码和数据）。接着，进程就一条一条地执行可执行文件中包含的代码。比如，当进程读到代码中的<code>User user = new User();</code>这条语句的时候，它就在自己的地址空间中创建一个<code>user</code>临时变量和一个 User  对象。进程之间是不共享地址空间的，如果在一个进程中创建另外一个进程（比如，代码中有一个<code>fork()</code>语句，进程执行到这条语句的时候会创建一个新的进程），操作系统会给新进程分配新的地址空间，并且将老进程地址空间的所有内容，重新拷贝一份到新进程的地址空间中，这些内容包括代码、数据（比如 user 临时变量、User 对象）。</li>
+<li>所以，单例类在老进程中存在且只能存在一个对象，在新进程中也会存在且只能存在一个对象。而且，这两个对象并不是同一个对象，这也就说，单例类中对象的唯一性的作用范围是进程内的，在进程间是不唯一的。</li>
+</ol>
+<h3 id="如何实现线程唯一的单例？"><a href="#如何实现线程唯一的单例？" class="headerlink" title="如何实现线程唯一的单例？"></a><strong>如何实现线程唯一的单例？</strong></h3><ol>
+<li><p>刚刚讲了单例类对象是进程唯一的，一个进程只能有一个单例对象。那如何实现一个线程唯一的单例呢？</p>
+</li>
+<li><p>先来看一什么是线程唯一的单例，以及“线程唯一”和“进程唯一”的区别。</p>
+</li>
+<li><p>“进程唯一”指的是进程内唯一，进程间不唯一。类比一下，“线程唯一”指的是线程内唯一，线程间可以不唯一。实际上，“进程唯一”还代表了线程内、线程间都唯一，这也是“进程唯一”和“线程唯一”的区别之处。这段话听起来有点像绕口令，下面举个例子来解释一下。</p>
+</li>
+<li><p>假设<code>IdGenerator</code>是一个线程唯一的单例类。在线程 A 内可以创建一个单例对象 a。因为线程内唯一，在线程 A 内就不能再创建新的<code>IdGenerator</code>对象了，而线程间可以不唯一，所以，在另外一个线程 B 内，还可以重新创建一个新的单例对象 b。</p>
+</li>
+<li><p>尽管概念理解起来比较复杂，但线程唯一单例的代码实现很简单，如下所示。在代码中，通过一个<code>HashMap</code>来存储对象，其中 key 是线程 ID，value  是对象。这样就可以做到<strong>不同的线程对应不同的对象</strong>，同一个线程只能对应一个对象。实际上，Java 语言本身提供了<code>ThreadLocal</code>工具类，可以更加轻松地实现线程唯一单例。不过，<code>ThreadLocal</code>底层实现原理也是基于下面代码中所示的 HashMap。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IdGenerator</span> <span class="token punctuation">&#123;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">AtomicLong</span> id <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+    <span class="token comment">// 每个线程都有一个实例</span>
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">ConcurrentHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">,</span> <span class="token class-name">IdGenerator</span><span class="token punctuation">></span></span> instances <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	
 
+  	<span class="token keyword">private</span> <span class="token class-name">IdGenerator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
 
+  	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">IdGenerator</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token class-name">Long</span> currentThreadId <span class="token operator">=</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	instances<span class="token punctuation">.</span><span class="token function">putIfAbsent</span><span class="token punctuation">(</span>currentThreadId<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">IdGenerator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token keyword">return</span> instances<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>currentThreadId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
 
+	<span class="token keyword">public</span> <span class="token keyword">long</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">return</span> id<span class="token punctuation">.</span><span class="token function">incrementAndGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="如何实现集群环境下的单例？"><a href="#如何实现集群环境下的单例？" class="headerlink" title="如何实现集群环境下的单例？"></a><strong>如何实现集群环境下的单例？</strong></h3><ol>
+<li><p>刚刚讲了“进程唯一”的单例和“线程唯一”的单例，现在再来看下，“集群唯一”的单例。</p>
+</li>
+<li><p>先来解释一下，什么是“集群唯一”的单例。</p>
+</li>
+<li><p>还是将它跟“进程唯一”、“线程唯一”做个对比。“进程唯一”指的是进程内唯一、进程间不唯一。“线程唯一”指的是线程内唯一、线程间不唯一。<strong>集群相当于多个进程构成的一个集合</strong>，“集群唯一”就相当于是进程内唯一、进程间也唯一。也就是说，<strong>不同的进程间共享同一个对象，不能创建同一个类的多个对象</strong>。</p>
+</li>
+<li><p>经典的单例模式是进程内唯一的，那如何实现一个进程间也唯一的单例呢？如果严格按照不同的进程间共享同一个对象来实现，那集群唯一的单例实现起来就有点难度了。</p>
+</li>
+<li><p>具体来说，需要把这个单例对象序列化并存储到外部共享存储区（比如文件）。进程在使用这个单例对象的时候，需要先从外部共享存储区中将它读取到内存，并反序列化成对象，然后再使用，使用完成之后还需要再存储回外部共享存储区。</p>
+</li>
+<li><p>为了保证任何时刻在进程间都只有一份对象存在，一个进程在获取到对象之后，需要对对象加锁，避免其他进程再将其获取。在进程使用完这个对象之后，还需要显式地将对象从内存中删除，并且释放对对象锁。按照这个思路，用伪代码实现了一下这个过程，具体如下所示：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IdGenerator</span> <span class="token punctuation">&#123;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">AtomicLong</span> id <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">IdGenerator</span> instance<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">SharedObjectStorage</span> storage <span class="token operator">=</span> <span class="token class-name">FileSharedObjectStorage</span><span class="token punctuation">(</span><span class="token comment">/*入参省略，比如文件地址*/</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">DistributedLock</span> lock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DistributedLock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  	<span class="token keyword">private</span> <span class="token class-name">IdGenerator</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
 
+  	<span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">static</span> <span class="token class-name">IdGenerator</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+    	<span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      		lock<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 上锁</span>
+      		instance <span class="token operator">=</span> storage<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token class-name">IdGenerator</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token punctuation">&#125;</span>
+    	<span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
+  
+  	<span class="token keyword">public</span> synchroinzed <span class="token keyword">void</span> <span class="token function">freeInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	storage<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token class-name">IdGeneator</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 释放对象</span>
+    	lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 解锁</span>
+  	<span class="token punctuation">&#125;</span>
+  
+  	<span class="token keyword">public</span> <span class="token keyword">long</span> <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+    	<span class="token keyword">return</span> id<span class="token punctuation">.</span><span class="token function">incrementAndGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
+<span class="token comment">// IdGenerator使用举例</span>
+<span class="token class-name">IdGenerator</span> idGeneator <span class="token operator">=</span> <span class="token class-name">IdGenerator</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> id <span class="token operator">=</span> idGenerator<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">IdGenerator</span><span class="token punctuation">.</span><span class="token function">freeInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="如何实现一个多例模式？"><a href="#如何实现一个多例模式？" class="headerlink" title="如何实现一个多例模式？"></a><strong>如何实现一个多例模式？</strong></h3><p>跟单例模式概念相对应的是多例模式。那如何实现一个多例模式呢？“单例”指的是，一个类只能创建一个对象。对应地，“多例”指的就是，一个类可以创建多个对象，但是个数是有限制的，比如只能创建 3 个对象。如果用代码来简单示例一下的话，就是下面这个样子： </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BackendServer</span> <span class="token punctuation">&#123;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">long</span> serverNo<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> serverAddress<span class="token punctuation">;</span>
 
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> SERVER_COUNT <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Long</span><span class="token punctuation">,</span> <span class="token class-name">BackendServer</span><span class="token punctuation">></span></span> serverInstances <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+  	<span class="token keyword">static</span> <span class="token punctuation">&#123;</span>
+        serverInstances<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BackendServer</span><span class="token punctuation">(</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token string">"192.134.22.138:8080"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        serverInstances<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">2L</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BackendServer</span><span class="token punctuation">(</span><span class="token number">2L</span><span class="token punctuation">,</span> <span class="token string">"192.134.22.139:8080"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        serverInstances<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token number">3L</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">BackendServer</span><span class="token punctuation">(</span><span class="token number">3L</span><span class="token punctuation">,</span> <span class="token string">"192.134.22.140:8080"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
 
+    <span class="token comment">// 有参构造</span>
+  	<span class="token keyword">private</span> <span class="token class-name">BackendServer</span><span class="token punctuation">(</span><span class="token keyword">long</span> serverNo<span class="token punctuation">,</span> <span class="token class-name">String</span> serverAddress<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">this</span><span class="token punctuation">.</span>serverNo <span class="token operator">=</span> serverNo<span class="token punctuation">;</span>
+    	<span class="token keyword">this</span><span class="token punctuation">.</span>serverAddress <span class="token operator">=</span> serverAddress<span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
 
+  	<span class="token keyword">public</span> <span class="token class-name">BackendServer</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token keyword">long</span> serverNo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token keyword">return</span> serverInstances<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>serverNo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
 
+  	<span class="token keyword">public</span> <span class="token class-name">BackendServer</span> <span class="token function">getRandomInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Random</span> r <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> no <span class="token operator">=</span> r<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>SERVER_COUNT<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> serverInstances<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>no<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>实际上，对于多例模式，还有一种理解方式：同一类型的只能创建一个对象，不同类型的可以创建多个对象。这里的“类型”如何理解呢？还是通过一个例子来解释一下，具体代码如下所示。在代码中，<code>loggerName</code>就是刚刚说的“类型”，同一个<code>loggerName</code>获取到的对象实例是相同的，不同的<code>loggerName</code>获取到的对象实例是不同的。 </p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Logger</span> <span class="token punctuation">&#123;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">ConcurrentHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Logger</span><span class="token punctuation">></span></span> instances <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentHashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">Logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
 
+  	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Logger</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token class-name">String</span> loggerName<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// HashMap不允许存重复值</span>
+    	instances<span class="token punctuation">.</span><span class="token function">putIfAbsent</span><span class="token punctuation">(</span>loggerName<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token keyword">return</span> instances<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>loggerName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
+
+  	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token comment">// ...</span>
+  	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// l1 == l2, l1 != l3</span>
+<span class="token class-name">Logger</span> l1 <span class="token operator">=</span> <span class="token class-name">Logger</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token string">"User.class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Logger</span> l2 <span class="token operator">=</span> <span class="token class-name">Logger</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token string">"User.class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Logger</span> l3 <span class="token operator">=</span> <span class="token class-name">Logger</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token string">"Order.class"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这种多例模式的理解方式有点类似工厂模式。它跟工厂模式的不同之处是，<strong>多例模式创建的对象都是同一个类的对象</strong>，而工厂模式创建的是不同子类的对象。实际上，它还有点类似享元模式。除此之外，枚举类型也相当于多例模式，一个类型只能对应一个对象，一个类可以创建多个对象。</p>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media="all">
                 
             </div>
@@ -1582,7 +1732,7 @@ new Valine({
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍单例模式
+                            介绍单例模式及其问题、替代方案等
                         
                     </div>
                     <div class="publish-info">
@@ -1858,7 +2008,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">79.1k</span>
+                        class="white-color">81.9k</span>
             
             
             
