@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="4 工厂、建造者、原型模式, Java,MySql,Redis,Spring,React,Vue.js等">
+    <meta name="keywords" content="4 工厂&amp;建造者&amp;原型模式, Java,MySql,Redis,Spring,React,Vue.js等">
     <meta name="description" content="专注于Java开发，分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>4 工厂、建造者、原型模式 | Pranntの博客</title>
+    <title>4 工厂&amp;建造者&amp;原型模式 | Pranntの博客</title>
 
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/guixinchn/image/blog/favicon.png">
 
@@ -325,7 +325,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">4 工厂、建造者、原型模式</h1>
+                    <h1 class="description center-align post-title">4 工厂&amp;建造者&amp;原型模式</h1>
                 </div>
             </div>
         </div>
@@ -481,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    12.6k
+                    12.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    50 分
+                    49 分
                 </div>
                 
 
@@ -514,9 +514,7 @@
                 <div class="note info">本文将介绍工厂模式、建造者模式、原型模式</div> 
 
 
-
 <h2 id="工厂模式【常用】"><a href="#工厂模式【常用】" class="headerlink" title="工厂模式【常用】"></a>工厂模式【常用】</h2><div class="note info no-icon"><strong>工厂模式很重要，后面的很多架构设计都是工厂模式联合其它设计模式使用。</strong></div>  
-
 
 
 <ol>
@@ -587,7 +585,7 @@
 	<span class="token keyword">return</span> parser<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>为了让类的职责更加单一(<strong>设计模式原则中的单一职责</strong>，)、代码更加清晰，还可以进一步将<code>createParser()</code>函数剥离到一个独立的类中，让这个类只负责对象的创建。而这个类就是现在要讲的简单工厂模式类。具体的代码如下所示： </p>
+<p>为了让类的职责更加单一(<strong>设计模式原则中的单一职责</strong>)、代码更加清晰，还可以进一步将<code>createParser()</code>函数剥离到一个独立的类中，让这个类只负责对象的创建。而这个类就是现在要讲的简单工厂模式类。具体的代码如下所示： </p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 简单工厂模式的第一种实现方法</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RuleConfigSource</span> <span class="token punctuation">&#123;</span>
   	<span class="token keyword">public</span> <span class="token class-name">RuleConfig</span> <span class="token function">load</span><span class="token punctuation">(</span><span class="token class-name">String</span> ruleConfigFilePath<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -835,8 +833,7 @@ PropertiesSystemConfigParser<br>
 <li>除此之外，<code>DI</code>容器负责的事情要比单纯的工厂模式要多。比如，它还包括配置的解析、对象生命周期的管理等。</li>
 </ol>
 <h4 id="DI-容器的核心功能有哪些？"><a href="#DI-容器的核心功能有哪些？" class="headerlink" title="DI 容器的核心功能有哪些？"></a><strong>DI 容器的核心功能有哪些？</strong></h4><p>总结一下，一个简单的<code>DI</code>容器的核心功能一般有三个：配置解析、对象创建和对象生命周期管理。 </p>
-<div class="note info"><strong>&nbsp;&nbsp;&nbsp;&nbsp;首先来看配置解析。</strong></div>  
-
+<div class="note info"><strong>首先来看配置解析。</strong></div>  
 
 
 <ol>
@@ -878,16 +875,14 @@ PropertiesSystemConfigParser<br>
 
 
 
-<div class="note info"><strong>&nbsp;&nbsp;&nbsp;&nbsp;其次，再来看对象创建。</strong></div> 
-
+<div class="note info"><strong>其次，再来看对象创建。</strong></div> 
 
 
 <ol>
 <li>在<code>DI</code>容器中，如果给每个类都对应创建一个工厂类，那项目中类的个数会成倍增加，这会增加代码的维护成本。要解决这个问题并不难。只需要将所有类对象的创建都放到一个工厂类中完成就可以了，比如<code>BeansFactory</code>。</li>
 <li>如果要创建的类对象非常多，BeansFactory 中的代码会不会线性膨胀（代码量跟创建对象的个数成正比）呢？实际上并不会。下面讲到<code>DI</code>容器的具体实现时，会讲<code>反射</code>机制，它能在程序运行的过程中，动态地加载类、创建对象，不需要事先在代码中写死要创建哪些对象。所以，不管是创建一个对象还是十个对象，<code>BeansFactory</code>工厂类代码都是一样的。</li>
 </ol>
-<div class="note info"><strong>&nbsp;&nbsp;&nbsp;&nbsp;最后，来看对象的生命周期管理。</strong></div> 
-
+<div class="note info"><strong>最后，来看对象的生命周期管理。</strong></div> 
 
 
 <ol>
@@ -1093,7 +1088,7 @@ PropertiesSystemConfigParser<br>
 <li><p>在平时的开发中，创建一个对象最常用的方式是，使用<code>new</code>关键字调用类的构造函数来完成。那么什么情况下这种方式就不适用了，需要采用建造者模式来创建对象呢？</p>
 </li>
 <li><p>假设有这样一道面试题：需要定义一个资源池配置类<code>ResourcePoolConfig</code>。这里的资源池，可以简单理解为线程池、连接池、对象池等。在这个资源池配置类中，有以下几个成员变量，也就是可配置项。现在，请你编写代码实现这个 <code>ResourcePoolConfig</code>类。</p>
-<img src="/posts/undefined/1.jpg" class title="资源池配置类中的成员变量"></li>
+<img src="/posts/9afd/1.jpg" class title="资源池配置类中的成员变量"></li>
 </ol>
 <p>只要稍微有点开发经验，那实现这样一个类对你来说并不是件难事。最常见、最容易想到的实现思路如下代码所示。因为  <code>maxTotal</code>、<code>maxIdle</code>、<code>minIdle</code>不是必填变量，所以在创建<code>ResourcePoolConfig</code>对象的时候，通过往构造函数中给这几个参数传递<code>null</code>值，来表示使用默认值。 </p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ResourcePoolConfig</span> <span class="token punctuation">&#123;</span>
@@ -1283,8 +1278,7 @@ r<span class="token punctuation">.</span><span class="token function">setHeight<
 
 
 
-<div class="note info no-icon"><strong>&nbsp;&nbsp;&nbsp;&nbsp;这里是说，长方形必须同时具备宽、高两个属性才是一个有效的长方形。只有其中一个属性，这个长方形对象就没有意义，是无效的。</strong></div>  
-
+<div class="note info no-icon"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里是说，长方形必须同时具备宽、高两个属性才是一个有效的长方形。只有其中一个属性，这个长方形对象就没有意义，是无效的。</strong></div>  
 
 
 <ol>
@@ -1296,23 +1290,20 @@ r<span class="token punctuation">.</span><span class="token function">setHeight<
 <li>实际上，工厂模式是用来创建<strong>不同但是相关类型</strong>的对象（继承同一父类或者接口的一组子类），由给定的参数来决定创建哪种类型的对象。建造者模式是用来<strong>创建一种类型的复杂对象</strong>，通过设置不同的可选参数，“定制化”地创建不同的对象。</li>
 </ol>
 <p>网上有一个经典的例子很好地解释了两者的区别: </p>
-<div class="note info no-icon"><strong>&nbsp;&nbsp;&nbsp;&nbsp;顾客走进一家餐馆点餐，利用工厂模式，根据用户不同的选择来制作不同的食物，比如披萨、汉堡、沙拉。对于披萨来说，用户又有各种配料可以定制，比如奶酪、西红柿、起司，通过建造者模式根据用户选择的不同配料来制作披萨。</strong></div>  
-
+<div class="note info no-icon"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;顾客走进一家餐馆点餐，利用工厂模式，根据用户不同的选择来制作不同的食物，比如披萨、汉堡、沙拉。对于披萨来说，用户又有各种配料可以定制，比如奶酪、西红柿、起司，通过建造者模式根据用户选择的不同配料来制作披萨。</strong></div>  
 
 
 <p>实际上，我们也不要太学院派，非得把工厂模式、建造者模式分得那么清楚，我们需要知道的是，每个模式为什么这么设计，能解决什么问题。只有了解了这些最本质的东西，才能不生搬硬套，才能灵活应用，甚至可以混用各种模式创造出新的模式，来解决特定场景的问题。 </p>
 <h2 id="原型模式【不常用】"><a href="#原型模式【不常用】" class="headerlink" title="原型模式【不常用】"></a><strong>原型模式【不常用】</strong></h2><p><strong>原型模式</strong>和具体某一语言的语法机制无关，以下通过一个<code>clone</code>散列表的例子来搞清楚：原型模式的应用场景，以及它的两种实现方式：深拷贝和浅拷贝。</p>
 <h3 id="原型模式的原理与应用"><a href="#原型模式的原理与应用" class="headerlink" title="原型模式的原理与应用"></a><strong>原型模式的原理与应用</strong></h3><p>如果对象的创建成本比较大，而同一个类的不同对象之间差别不大（大部分字段都相同），在这种情况下，可以利用对已有对象（原型）进行复制（或者叫拷贝）的方式来创建新对象，以达到节省创建时间的目的。这种基于原型来创建对象的方式就叫作原型设计模式（Prototype Design Pattern），简称原型模式。 </p>
-<div class="note info no-icon"><strong>&nbsp;&nbsp;&nbsp;&nbsp;何为“对象的创建成本比较大”？</strong></div>  
-
+<div class="note info no-icon"><strong>何为“对象的创建成本比较大”？</strong></div>  
 
 
 <ol>
 <li>实际上，创建对象包含的申请内存、给成员变量赋值这一过程，本身并不会花费太多时间，或者说对于大部分业务系统来说，这点时间完全是可以忽略的。应用一个复杂的模式，只得到一点点的性能提升，这就是所谓的过度设计，得不偿失。</li>
 <li><strong>但是，</strong>如果对象中的数据需要经过复杂的计算才能得到（比如排序、计算哈希值），或者需要从 RPC、网络、数据库、文件系统等非常慢速的 IO 中读取，这种情况下就可以利用原型模式，从其他已有对象中直接拷贝得到，而不用每次在创建新对象的时候，都重复执行这些耗时的操作。</li>
 </ol>
-<div class="note info no-icon"><strong>&nbsp;&nbsp;&nbsp;&nbsp;接下来通过例子来解释。</strong></div>  
-
+<div class="note info no-icon"><strong>接下来通过例子来解释。</strong></div>  
 
 
 <ol>
@@ -1321,7 +1312,7 @@ r<span class="token punctuation">.</span><span class="token function">setHeight<
 <li><p>Java可以直接使用语言中提供的<code>HashMap</code>容器来实现。其中，<code>HashMap</code>的<code>key</code>为搜索关键词，<code>value</code>为关键词详细信息（比如搜索次数）。只需要将数据从数据库中读取出来，放入<code>HashMap</code>就可以了。</p>
 </li>
 <li><p>不过，还有另外一个系统 B，专门用来分析搜索日志，定期（比如间隔 10 分钟）批量地更新数据库中的数据，并且标记为新的数据版本。比如，下面的示例图对 v2 版本的数据进行更新，得到 v3 版本的数据。假设只有更新和新添关键词，没有删除关键词的行为。</p>
-<img src="/posts/undefined/2.jpg" class title="更新v2版本，得到v3版本"></li>
+<img src="/posts/9afd/2.jpg" class title="更新v2版本，得到v3版本"></li>
 <li><p>为了保证系统 A 中数据的实时性（不一定非常实时，但数据也不能太旧），系统 A 需要定期根据数据库中的数据，更新内存中的索引和数据。</p>
 </li>
 <li><p>该如何实现这个需求呢？我们只需要在系统 A 中，记录当前数据的版本 Va 对应的更新时间 Ta，从数据库中捞出更新时间大于 Ta 的所有搜索关键词，也就是找出 Va  版本与最新版本数据的“差集”，然后针对差集中的每个关键词进行处理。如果它已经在散列表中存在了，就更新相应的搜索次数、更新时间等信息；如果它在散列表中不存在，就将它插入到散列表中。</p>
@@ -1427,13 +1418,12 @@ r<span class="token punctuation">.</span><span class="token function">setHeight<
 <h3 id="原型模式的实现方式：深拷贝和浅拷贝"><a href="#原型模式的实现方式：深拷贝和浅拷贝" class="headerlink" title="原型模式的实现方式：深拷贝和浅拷贝"></a><strong>原型模式的实现方式：深拷贝和浅拷贝</strong></h3><div class="note info no-icon">&nbsp;&nbsp;&nbsp;&nbsp;<strong>关于深拷贝浅拷贝，<a target="_blank" rel="noopener" href="https://blog.csdn.net/baiye_xing/article/details/71788741">请参考文章：</a></strong></div>  
 
 
-
 <blockquote>
 <p><strong>我自己的总结：</strong></p>
 <p><strong>浅拷贝：对一个对象进行拷贝时，这个对象对应的类里的成员变量。</strong></p>
 <ul>
 <li>对于数据类型是基本数据类型的成员变量，浅拷贝会直接进行值拷贝，也就是将该属性值复制一份给新的对象。因为是两份不同的数据，所以对其中一个对象的该成员变量值进行修改，不会影响另一个对象拷贝得到的数据</li>
-<li>对于数据类型是引用数据类型的成员变量(也就是子对象，或者数组啥的)，也就是只是将该成员变量的引用值（引用拷贝【并发引用传递，Java本质还是值传递】）复制一份给新的对象。因为实际上两个对象的该成员变量都指向同一个实例。在这种情况下，在一个对象中修改该成员变量会影响到另一个对象的该成员变量值。</li>
+<li>对于数据类型是引用数据类型的成员变量(也就是子对象，或者数组等)，也就是只是将该成员变量的引用值（引用拷贝【并发引用传递，Java本质还是值传递】）复制一份给新的对象。因为实际上两个对象的该成员变量都指向同一个实例。在这种情况下，在一个对象中修改该成员变量会影响到另一个对象的该成员变量值。</li>
 </ul>
 <ol>
 <li><strong>深拷贝</strong>：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。</li>
@@ -1445,106 +1435,103 @@ r<span class="token punctuation">.</span><span class="token function">setHeight<
 <li>利用序列化。【先对对象进行序列化，紧接着马上反序列化出 】</li>
 </ol>
 </blockquote>
-<p>我们来看，在内存中，用散列表组织的搜索关键词信息是如何存储的。我画了一张示意图，大致结构如下所示。从图中我们可以发现，散列表索引中，每个结点存储的 key 是搜索关键词，value 是 SearchWord 对象的内存地址。SearchWord 对象本身存储在散列表之外的内存空间中。 </p>
-<img src="/posts/undefined/3.jpg" class title="TODO">
+<p>在内存中，用散列表组织的搜索关键词信息是如何存储的。从图中可以发现，散列表索引中，每个结点存储的<code>key</code>是搜索关键词，<code>value</code>是<code>SearchWord</code>对象的内存地址。<code>SearchWord</code>对象本身存储在散列表之外的内存空间中。 </p>
+<img src="/posts/9afd/3.jpg" class title="关键词信息的存储结构">
 
 <p>浅拷贝和深拷贝的区别在于，浅拷贝只会复制图中的索引（散列表），不会复制数据（SearchWord  对象）本身。相反，深拷贝不仅仅会复制索引，还会复制数据本身。浅拷贝得到的对象（newKeywords）跟原始对象（currentKeywords）共享数据（SearchWord 对象），而深拷贝得到的是一份完完全全独立的对象。具体的对比如下图所示： </p>
-<img src="/posts/undefined/4.jpg" class title="TODO">
+<img src="/posts/9afd/4.jpg" class title="深拷贝与浅拷贝">
 
 <ol>
-<li>在 Java 语言中，Object 类的 clone() 方法执行的就是我们刚刚说的浅拷贝。它只会拷贝对象中的基本数据类型的数据（比如，int、long），以及引用对象（SearchWord）的内存地址，不会递归地拷贝引用对象本身。</li>
-<li>在上面的代码中，我们通过调用 HashMap 上的 clone() 浅拷贝方法来实现原型模式。当我们通过 newKeywords 更新 SearchWord  对象的时候（比如，更新“设计模式”这个搜索关键词的访问次数），newKeywords 和 currentKeywords 因为指向相同的一组  SearchWord 对象，就会导致 currentKeywords 中指向的  SearchWord，有的是老版本的，有的是新版本的，就没法满足我们之前的需求：currentKeywords  中的数据在任何时刻都是同一个版本的，不存在介于老版本与新版本之间的中间状态。</li>
+<li>在 Java 语言中，<code>Object</code>类的<code>clone()</code>方法执行的就是刚刚说的浅拷贝。它只会拷贝对象中的基本数据类型的数据（比如，int、long），以及引用对象（SearchWord）的内存地址，不会递归地拷贝引用对象本身。</li>
+<li>上面的代码通过调用<code>HashMap</code>上的<code>clone()</code>浅拷贝方法来实现原型模式。当通过<code>newKeywords</code>更新<code>SearchWord</code>对象时（比如，更新“设计模式”这个搜索关键词的访问次数），<code>newKeywords</code>和<code>currentKeywords</code>因为指向相同的一组  <code>SearchWord</code>对象，就会导致<code>currentKeywords</code>中指向的<code>SearchWord</code>，有的是老版本，有的是新版本，没法满足之前的需求：<code>currentKeywords</code>中的数据在任何时刻都是同一个版本的，不存在介于老版本与新版本之间的中间状态。</li>
 <li>现在，我们又该如何来解决这个问题呢？</li>
-<li>我们可以将浅拷贝替换为深拷贝。newKeywords 不仅仅复制 currentKeywords 的索引，还把 SearchWord 对象也复制一份出来，这样 newKeywords 和  currentKeywords 就指向不同的 SearchWord 对象，也就不存在更新 newKeywords 的数据会导致  currentKeywords 的数据也被更新的问题了。</li>
-<li>那如何实现深拷贝呢？总结一下的话，有下面两种方法。</li>
+<li>可以将浅拷贝替换为深拷贝。<code>newKeywords</code>不仅仅复制<code>currentKeywords</code>的索引，还把<code>SearchWord</code>对象也复制一份出来，这样<code>newKeywords</code>和<code>currentKeywords</code>就指向不同的<code>SearchWord</code>对象，也就不存在更新<code>newKeywords</code>的数据会导致<code>currentKeywords</code>的数据也被更新的问题了。</li>
+<li>那如何实现深拷贝呢？总结一下，有下面两种方法。</li>
 </ol>
 <p>第一种方法：递归拷贝对象、对象的引用对象以及引用对象的引用对象……直到要拷贝的对象只包含基本数据类型数据，没有引用对象为止。根据这个思路对之前的代码进行重构。重构之后的代码如下所示：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">private</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> currentKeywords<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token keyword">long</span> lastUpdateTime <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> currentKeywords<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">long</span> lastUpdateTime <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// Deep copy</span>
-    <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> newKeywords <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">HashMap<span class="token punctuation">.</span>Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> e <span class="token operator">:</span> currentKeywords<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token class-name">SearchWord</span> searchWord <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token class-name">SearchWord</span> newSearchWord <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SearchWord</span><span class="token punctuation">(</span>
-              searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> searchWord<span class="token punctuation">.</span><span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      newKeywords<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> newSearchWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+  	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token comment">// Deep copy</span>
+    	<span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> newKeywords <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">HashMap<span class="token punctuation">.</span>Entry</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> e <span class="token operator">:</span> currentKeywords<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      		<span class="token class-name">SearchWord</span> searchWord <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      		<span class="token class-name">SearchWord</span> newSearchWord <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SearchWord</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> searchWord<span class="token punctuation">.</span><span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			newKeywords<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> newSearchWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
 
-    <span class="token comment">// 从数据库中取出更新时间>lastUpdateTime的数据，放入到newKeywords中</span>
-    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> toBeUpdatedSearchWords <span class="token operator">=</span> <span class="token function">getSearchWords</span><span class="token punctuation">(</span>lastUpdateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">long</span> maxNewUpdatedTime <span class="token operator">=</span> lastUpdateTime<span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">SearchWord</span> searchWord <span class="token operator">:</span> toBeUpdatedSearchWords<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> maxNewUpdatedTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        maxNewUpdatedTime <span class="token operator">=</span> searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>newKeywords<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token class-name">SearchWord</span> oldSearchWord <span class="token operator">=</span> newKeywords<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        oldSearchWord<span class="token punctuation">.</span><span class="token function">setCount</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        oldSearchWord<span class="token punctuation">.</span><span class="token function">setLastUpdateTime</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-        newKeywords<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> searchWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
+    	<span class="token comment">// 从数据库中取出更新时间 > lastUpdateTime的数据，放入到newKeywords中</span>
+    	<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> toBeUpdatedSearchWords <span class="token operator">=</span> <span class="token function">getSearchWords</span><span class="token punctuation">(</span>lastUpdateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token keyword">long</span> maxNewUpdatedTime <span class="token operator">=</span> lastUpdateTime<span class="token punctuation">;</span>
+    	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">SearchWord</span> searchWord <span class="token operator">:</span> toBeUpdatedSearchWords<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      		<span class="token keyword">if</span> <span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> maxNewUpdatedTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        		maxNewUpdatedTime <span class="token operator">=</span> searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      		<span class="token punctuation">&#125;</span>
+      		<span class="token keyword">if</span> <span class="token punctuation">(</span>newKeywords<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        		<span class="token class-name">SearchWord</span> oldSearchWord <span class="token operator">=</span> newKeywords<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        		oldSearchWord<span class="token punctuation">.</span><span class="token function">setCount</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        		oldSearchWord<span class="token punctuation">.</span><span class="token function">setLastUpdateTime</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      		<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        		newKeywords<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> searchWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      		<span class="token punctuation">&#125;</span>
+    	<span class="token punctuation">&#125;</span>
+    	lastUpdateTime <span class="token operator">=</span> maxNewUpdatedTime<span class="token punctuation">;</span>
+    	currentKeywords <span class="token operator">=</span> newKeywords<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
 
-    lastUpdateTime <span class="token operator">=</span> maxNewUpdatedTime<span class="token punctuation">;</span>
-    currentKeywords <span class="token operator">=</span> newKeywords<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-
-  <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> <span class="token function">getSearchWords</span><span class="token punctuation">(</span><span class="token keyword">long</span> lastUpdateTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// TODO: 从数据库中取出更新时间>lastUpdateTime的数据</span>
-    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  	<span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> <span class="token function">getSearchWords</span><span class="token punctuation">(</span><span class="token keyword">long</span> lastUpdateTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token comment">// TODO: 从数据库中取出更新时间>lastUpdateTime的数据</span>
+    	<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>第二种方法：先将对象序列化，然后再反序列化成新的对象。具体的示例代码如下所示： </p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span><span class="token class-name">Object</span> object<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token class-name">ByteArrayOutputStream</span> bo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token class-name">ObjectOutputStream</span> oo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span>bo<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  oo<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token class-name">ByteArrayOutputStream</span> bo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token class-name">ObjectOutputStream</span> oo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectOutputStream</span><span class="token punctuation">(</span>bo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	oo<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
   
-  <span class="token class-name">ByteArrayInputStream</span> bi <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayInputStream</span><span class="token punctuation">(</span>bo<span class="token punctuation">.</span><span class="token function">toByteArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token class-name">ObjectInputStream</span> oi <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span>bi<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token class-name">ByteArrayInputStream</span> bi <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ByteArrayInputStream</span><span class="token punctuation">(</span>bo<span class="token punctuation">.</span><span class="token function">toByteArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token class-name">ObjectInputStream</span> oi <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectInputStream</span><span class="token punctuation">(</span>bi<span class="token punctuation">)</span><span class="token punctuation">;</span>
   
-  <span class="token keyword">return</span> oi<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token keyword">return</span> oi<span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol>
 <li>刚刚的两种实现方法，不管采用哪种，深拷贝都要比浅拷贝耗时、耗内存空间。针对我们这个应用场景，有没有更快、更省内存的实现方式呢？</li>
-<li>我们可以先采用浅拷贝的方式创建 newKeywords。对于需要更新的 SearchWord 对象，我们再使用深度拷贝的方式创建一份新的对象，替换 newKeywords  中的老对象。毕竟需要更新的数据是很少的。这种方式即利用了浅拷贝节省时间、空间的优点，又能保证 currentKeywords  中的中数据都是老版本的数据。具体的代码实现如下所示。这也是标题中讲到的，在我们这个应用场景下，最快速 clone 散列表的方式。</li>
+<li>可以先采用浅拷贝的方式创建<code>newKeywords</code>。对于需要更新的<code>SearchWord</code>对象，再使用深度拷贝的方式创建一份新的对象，替换<code>newKeywords</code>中的老对象。毕竟需要更新的数据是很少的。这种方式即利用了浅拷贝节省时间、空间的优点，又能保证<code>currentKeywords</code>中的数据都是老版本的数据。具体的代码实现如下所示。这也是标题中讲到的，在我们这个应用场景下，最快速<code>clone</code>散列表的方式。</li>
 </ol>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Demo</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">private</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> currentKeywords<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token keyword">long</span> lastUpdateTime <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> currentKeywords<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">long</span> lastUpdateTime <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// Shallow copy</span>
-    <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> newKeywords <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> currentKeywords<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token comment">// Shallow copy</span>
+    	<span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> newKeywords <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">SearchWord</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> currentKeywords<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="token comment">// 从数据库中取出更新时间>lastUpdateTime的数据，放入到newKeywords中</span>
-    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> toBeUpdatedSearchWords <span class="token operator">=</span> <span class="token function">getSearchWords</span><span class="token punctuation">(</span>lastUpdateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">long</span> maxNewUpdatedTime <span class="token operator">=</span> lastUpdateTime<span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">SearchWord</span> searchWord <span class="token operator">:</span> toBeUpdatedSearchWords<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> maxNewUpdatedTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        maxNewUpdatedTime <span class="token operator">=</span> searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>newKeywords<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        newKeywords<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">&#125;</span>
-      newKeywords<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> searchWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
+    	<span class="token comment">// 从数据库中取出更新时间 > lastUpdateTime的数据，放入到newKeywords中</span>
+    	<span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> toBeUpdatedSearchWords <span class="token operator">=</span> <span class="token function">getSearchWords</span><span class="token punctuation">(</span>lastUpdateTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token keyword">long</span> maxNewUpdatedTime <span class="token operator">=</span> lastUpdateTime<span class="token punctuation">;</span>
+    	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">SearchWord</span> searchWord <span class="token operator">:</span> toBeUpdatedSearchWords<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      		<span class="token keyword">if</span> <span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> maxNewUpdatedTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        		maxNewUpdatedTime <span class="token operator">=</span> searchWord<span class="token punctuation">.</span><span class="token function">getLastUpdateTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      		<span class="token punctuation">&#125;</span>
+      		<span class="token keyword">if</span> <span class="token punctuation">(</span>newKeywords<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        		newKeywords<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      		<span class="token punctuation">&#125;</span>
+      		newKeywords<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>searchWord<span class="token punctuation">.</span><span class="token function">getKeyword</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> searchWord<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token punctuation">&#125;</span>
+    	lastUpdateTime <span class="token operator">=</span> maxNewUpdatedTime<span class="token punctuation">;</span>
+    	currentKeywords <span class="token operator">=</span> newKeywords<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
 
-    lastUpdateTime <span class="token operator">=</span> maxNewUpdatedTime<span class="token punctuation">;</span>
-    currentKeywords <span class="token operator">=</span> newKeywords<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-
-  <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> <span class="token function">getSearchWords</span><span class="token punctuation">(</span><span class="token keyword">long</span> lastUpdateTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// TODO: 从数据库中取出更新时间>lastUpdateTime的数据</span>
-    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  	<span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">SearchWord</span><span class="token punctuation">></span></span> <span class="token function">getSearchWords</span><span class="token punctuation">(</span><span class="token keyword">long</span> lastUpdateTime<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token comment">// TODO: 从数据库中取出更新时间 > lastUpdateTime的数据</span>
+    	<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -2177,9 +2164,9 @@ new Valine({
                 <a href="/posts/9afd.html">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/prannt/blogphoto/raw/master/img/29.jpg" class="responsive-img" alt="4 工厂、建造者、原型模式">
+                        <img src="https://gitee.com/prannt/blogphoto/raw/master/img/29.jpg" class="responsive-img" alt="4 工厂&amp;建造者&amp;原型模式">
                         
-                        <span class="card-title">4 工厂、建造者、原型模式</span>
+                        <span class="card-title">4 工厂&amp;建造者&amp;原型模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -2461,7 +2448,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">95.7k</span>
+                        class="white-color">95.6k</span>
             
             
             

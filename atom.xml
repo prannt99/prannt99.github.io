@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-22T16:43:08.093Z</updated>
+  <updated>2021-12-23T06:40:31.860Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>4 工厂、建造者、原型模式</title>
+    <title>4 工厂&amp;建造者&amp;原型模式</title>
     <link href="https://prannt99.github.io/posts/9afd.html"/>
     <id>https://prannt99.github.io/posts/9afd.html</id>
     <published>2021-12-22T11:24:29.000Z</published>
-    <updated>2021-12-22T16:43:08.093Z</updated>
+    <updated>2021-12-23T06:40:31.860Z</updated>
     
     
       
@@ -29,7 +29,6 @@
         
         
     <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文将介绍工厂模式、建造者模式、原型模式&lt;/div&gt; 
-
 
 
 &lt;h2 id=&quot;工厂模式【常用】&quot;&gt;&lt;a href=&quot;#工厂模式【常用】&quot; class=&quot;headerlink&quot;</summary>
