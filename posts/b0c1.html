@@ -529,17 +529,17 @@
 </li>
 <li><p>再举一个更加贴近实际的例子。在一个社交产品中，用下面的<code>UserInfo</code>类来记录用户的信息。那么，<code>UserInfo</code>类的设计是否满足单一职责原则呢？</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserInfo</span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">private</span> <span class="token keyword">long</span> userId<span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> email<span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> telephone<span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token keyword">long</span> createTime<span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token keyword">long</span> lastLoginTime<span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> avatarUrl<span class="token punctuation">;</span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> provinceOfAddress<span class="token punctuation">;</span> <span class="token comment">// 省</span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> cityOfAddress<span class="token punctuation">;</span> 	<span class="token comment">// 市</span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> regionOfAddress<span class="token punctuation">;</span> 	<span class="token comment">// 区 </span>
-  <span class="token keyword">private</span> <span class="token class-name">String</span> detailedAddress<span class="token punctuation">;</span> 	<span class="token comment">// 详细地址</span>
+  	<span class="token keyword">private</span> <span class="token keyword">long</span> userId<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> email<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> telephone<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">long</span> createTime<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token keyword">long</span> lastLoginTime<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> avatarUrl<span class="token punctuation">;</span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> provinceOfAddress<span class="token punctuation">;</span> <span class="token comment">// 省</span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> cityOfAddress<span class="token punctuation">;</span> 	<span class="token comment">// 市</span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> regionOfAddress<span class="token punctuation">;</span> 	<span class="token comment">// 区 </span>
+  	<span class="token keyword">private</span> <span class="token class-name">String</span> detailedAddress<span class="token punctuation">;</span> 	<span class="token comment">// 详细地址</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>对于这个问题，有两种不同的观点。一种观点是，<code>UserInfo</code>类包含的都是跟用户相关的信息，所有的属性和方法都隶属于用户这样一个业务模型，满足单一职责原则；另一种观点是，地址信息在 UserInfo 类中，所占的比重比较高，可以继续拆分成独立的<code>UserAddress</code>类，<code>UserInfo</code>只保留除 Address 之外的其他信息，拆分之后的两个类的职责更加单一。</p>
 </li>
@@ -857,13 +857,12 @@
 <li>实际上，开闭原则讲的就是代码的扩展性问题，是判断一段代码是否易扩展的“金标准”。如果某段代码在应对未来需求变化的时候，能够做到“对扩展开放、对修改关闭”，那就说明这段代码的扩展性比较好。所以，问如何才能做到“对扩展开放、对修改关闭”，也就粗略地等同于在问，如何才能写出扩展性好的代码。</li>
 </ol>
 <div class="note info no-icon"><strong>在讲具体的方法论之前，先来看一些更加偏向顶层的指导思想。为了尽量写出扩展性好的代码，要时刻具备扩展意识、抽象意识、封装意识。这些“潜意识”可能比任何开发技巧都重要。</strong></div> 
+1. 在写代码的时候后，要多花点时间往前多思考一下，这段代码未来可能有哪些需求变更、如何设计代码结构，事先留好扩展点，以便在未来需求变更的时候，不需要改动代码整体结构、做到最小代码改动的情况下，新的代码能够很灵活地插入到扩展点上，做到“对扩展开放、对修改关闭”。
+2. 还有，在识别出代码可变部分和不可变部分之后，要将可变部分封装起来，隔离变化，提供抽象化的不可变接口，给上层系统使用。当具体的实现发生变化的时候，只需要基于相同的抽象接口，扩展一个新的实现，替换掉老的实现即可，上游系统的代码几乎不需要修改。
 
-<ol>
-<li>在写代码的时候后，要多花点时间往前多思考一下，这段代码未来可能有哪些需求变更、如何设计代码结构，事先留好扩展点，以便在未来需求变更的时候，不需要改动代码整体结构、做到最小代码改动的情况下，新的代码能够很灵活地插入到扩展点上，做到“对扩展开放、对修改关闭”。</li>
-<li>还有，在识别出代码可变部分和不可变部分之后，要将可变部分封装起来，隔离变化，提供抽象化的不可变接口，给上层系统使用。当具体的实现发生变化的时候，只需要基于相同的抽象接口，扩展一个新的实现，替换掉老的实现即可，上游系统的代码几乎不需要修改。</li>
-</ol>
+
+
 <div class="note info no-icon"><strong>刚刚讲了实现开闭原则的一些偏向顶层的指导思想，现在再来看下，支持开闭原则的一些更加具体的方法论。</strong></div> 
-
 
 
 <ol>
@@ -2256,7 +2255,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">95.6k</span>
+                        class="white-color">111.5k</span>
             
             
             
