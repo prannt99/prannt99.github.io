@@ -514,7 +514,6 @@
                 <div class="note info">本文介绍结构型设计模中不常用的三种设计模式，分别为：门面模式、组合模式和享元模式。</div> 
 
 
-
 <h2 id="门面模式-外观模式-【不常用】"><a href="#门面模式-外观模式-【不常用】" class="headerlink" title="门面模式(外观模式)【不常用】"></a><strong>门面模式(外观模式)【不常用】</strong></h2><ol>
 <li>门面模式的原理和实现都特别简单，应用场景也比较明确，主要在接口设计方面使用。</li>
 <li>如果你平时的工作涉及接口开发，不知道你有没有遇到关于接口粒度的问题呢？</li>
@@ -558,7 +557,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="传统方案"><a href="#传统方案" class="headerlink" title="传统方案"></a><strong>传统方案</strong></h4><img src="/posts/undefined/1.jpg" class title="组件家庭影院的传统方案">
+<h4 id="传统方案"><a href="#传统方案" class="headerlink" title="传统方案"></a><strong>传统方案</strong></h4><img src="/posts/3ef9/1.jpg" class title="组件家庭影院的传统方案">
 
 <ol>
 <li>在<code>ClientTest</code>的<code>main</code>方法中，创建各个子系统的对象，并直接去调用子系统(对象)相关方法，会造成调用过程混乱，没有清晰的过程，不利于在<code>ClientTest</code>中维护对子系统的操作</li>
@@ -989,7 +988,7 @@
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/posts/undefined/2.jpg" class title="目录、文件层次图">
+<img src="/posts/3ef9/2.jpg" class title="目录、文件层次图">
 
 <ol>
 <li>对照这个例子，再重新看一下组合模式的定义：“将一组对象（文件和目录）组织成树形结构，以表示一种‘部分 - 整体’的层次结构（目录与子目录的嵌套结构）。组合模式让客户端可以统一单个对象（文件）和组合对象（目录）的处理逻辑（递归遍历）。”</li>
@@ -999,7 +998,7 @@
 <li><p>刚刚讲了文件系统的例子，对于组合模式，这里再举一个例子。搞懂了这两个例子，基本上就算掌握了组合模式。在实际的项目中，遇到类似的可以表示成树形结构的业务场景，只要“照葫芦画瓢”去设计就可以了。</p>
 </li>
 <li><p>假设要开发一个 OA 系统（办公自动化系统）。公司的组织结构包含部门和员工两种数据类型。其中，部门又可以包含子部门和员工。在数据库中的表结构如下所示：</p>
-<img src="/posts/undefined/3.jpg" class title="部门表和员工表示意图"></li>
+<img src="/posts/3ef9/3.jpg" class title="部门表和员工表示意图"></li>
 <li><p>希望在内存中构建整个公司的人员架构图（部门、子部门、员工的隶属关系），并且提供接口计算出部门的薪资成本（隶属于这个部门的所有员工的薪资和）。</p>
 </li>
 <li><p>部门包含子部门和员工，这是一种嵌套结构，可以表示成树型数据结构。计算每个部门的薪资开支的需求，也可以通过在树上的遍历算法来实现。所以，从这个角度来看，这个应用场景可以使用组合模式来设计。</p>
