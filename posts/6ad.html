@@ -1,0 +1,2312 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="5 讲师管理模块前端开发, Java,MySql,Redis,Spring,React,Vue.js等">
+    <meta name="description" content="专注于Java开发，分享知识">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>5 讲师管理模块前端开发 | Pranntの博客</title>
+
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/guixinchn/image/blog/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?aaa6c944b0ed07922901d7fc571a171d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Pranntの博客" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/guixinchn/image/blog/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Pranntの博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于我</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-link" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/guixinchn/image/blog/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Pranntの博客</div>
+        <div class="logo-desc">
+            
+            专注于Java开发，分享知识
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于我
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-link"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/prannt99/prannt99.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>超神奇~
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/prannt99/prannt99.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="超神奇~" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/prannt/blogphoto/raw/master/img/32.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">5 讲师管理模块前端开发</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        background-color: rgb(255, 255, 255,0.5);
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .5), 0 5px 15px rgba(0, 0, 0, .5), 0 2px 5px -5px rgba(0, 0, 0, .5) !important;
+    }
+
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+		color: rgb(47,144,185) !important;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+	#toc-content {
+		height: calc(100vh - 300px);
+        overflow: scroll;
+	}
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #a7535a;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #1e131d;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+		bottom: 120px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                谷粒学院项目
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-12-24
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    15 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a><strong>一、概述</strong></h2><div class="note info no-icon"><strong>首先，把后台管理系统的登录功能改造成本地（临时），后面会把登录添加到权限框架SpringSecurity</strong></div> 
+
+
+
+
+
+
+
+<ol>
+<li><p>系统登录默认使用这个地址： <a target="_blank" rel="noopener" href="https://easy-mock.com/mock/5950a2419adc231f356a6636/vue-admin/user/login">https://easy-mock.com/mock/5950a2419adc231f356a6636/vue-admin/user/login</a></p>
+</li>
+<li><p>把登录请求地址改造为本地：<a target="_blank" rel="noopener" href="http://localhost:8001/">http://localhost:8001</a></p>
+</li>
+<li><p>修改配置文件中的请求地址</p>
+<ul>
+<li><p>在config文件夹里有dev.env.js，修改：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token constant">BASE_API</span><span class="token operator">:</span> <span class="token string">'"http://localhost:8001"'</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>进行登录调用两个方法，login登录操作方法，info登录之后获取用户信息的方法</p>
+<ul>
+<li>login返回token值</li>
+<li>info返回roles、name、avatar（头像）</li>
+</ul>
+</li>
+<li><p>开发接口</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 该代码位于service_edu模块的controller包中</span>
+<span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/eduservic/user"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EduLoginController</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 登录的方法</span>
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/login"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">R</span> <span class="token function">loin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">"token"</span><span class="token punctuation">,</span><span class="token string">"admin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 获取信息的方法</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/info"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">R</span> <span class="token function">info</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token class-name">R</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">"roles"</span><span class="token punctuation">,</span><span class="token string">"[admin]"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"admin"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token string">"avatar"</span><span class="token punctuation">,</span><span class="token string">"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>把前端文件src/login.js的url改为：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">url<span class="token operator">:</span> <span class="token string">'/eduservic/user/login'</span><span class="token punctuation">,</span>
+<span class="token comment">// 包括login()方法和getInfo()方法，logout()方法暂时不改</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>重启前端项目：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">npm run dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>最终测试出现了问题：跨域问题</p>
+<p>通过一个地址访问另一个地址，这个过程中如果有三个地方任何一个不一样，就会产生跨域问题</p>
+<ul>
+<li>访问协议：http    https</li>
+<li>IP地址：192.168.1.1    172.11.11.11</li>
+<li>端口号：9528    8001</li>
+</ul>
+</li>
+<li><p>跨越的解决方式</p>
+<ul>
+<li>在后端接口controller上添加注解（最常用）：@CrossOrigin</li>
+<li>使用网关解决（后面会讲到）</li>
+</ul>
+</li>
+<li><p>测试</p>
+<pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token header-name keyword">http:</span>//localhost:9529/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h2 id="二、框架使用过程"><a href="#二、框架使用过程" class="headerlink" title="二、框架使用过程"></a><strong>二、框架使用过程</strong></h2><ol>
+<li><p>添加路由（src/router/index.js），根据示例代码修改</p>
+</li>
+<li><p>点击某个路由，显示路由对应页面的内容</p>
+ <img src="/posts/6ad/1.png" class title="仅需修改红框里的内容">
+
+ <img src="/posts/6ad/2.png" class title="仅需修改红框里的内容"></li>
+<li><p>在api文件夹里创建js文件，定义接口地址和相关参数</p>
+</li>
+<li><p>在创建的vue页面中引入js文件，调用方法实现功能</p>
+<ul>
+<li>引入    import user from ‘…’</li>
+</ul>
+</li>
+<li><p>最后使用element-ui显示数据内容</p>
+</li>
+</ol>
+<h2 id="三、具体步骤"><a href="#三、具体步骤" class="headerlink" title="三、具体步骤"></a><strong>三、具体步骤</strong></h2><h3 id="1-讲师列表（分页条件查询）"><a href="#1-讲师列表（分页条件查询）" class="headerlink" title="1.讲师列表（分页条件查询）"></a><strong>1.讲师列表（分页条件查询）</strong></h3><ol>
+<li><p>添加路由（在src/router/index.js下）</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
+  path<span class="token operator">:</span> <span class="token string">'/teacher'</span><span class="token punctuation">,</span>
+  component<span class="token operator">:</span> Layout<span class="token punctuation">,</span>
+  redirect<span class="token operator">:</span> <span class="token string">'/teacher/table'</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">'讲师管理'</span><span class="token punctuation">,</span>
+  meta<span class="token operator">:</span> <span class="token punctuation">&#123;</span> title<span class="token operator">:</span> <span class="token string">'讲师管理'</span><span class="token punctuation">,</span> icon<span class="token operator">:</span> <span class="token string">'example'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  children<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+      path<span class="token operator">:</span> <span class="token string">'table'</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">'讲师列表'</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/edu/teacher/list'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      meta<span class="token operator">:</span> <span class="token punctuation">&#123;</span> title<span class="token operator">:</span> <span class="token string">'讲师列表'</span><span class="token punctuation">,</span> icon<span class="token operator">:</span> <span class="token string">'table'</span> <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#123;</span>
+      path<span class="token operator">:</span> <span class="token string">'save'</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">'添加讲师'</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/edu/teacher/save'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      meta<span class="token operator">:</span> <span class="token punctuation">&#123;</span> title<span class="token operator">:</span> <span class="token string">'添加讲师'</span><span class="token punctuation">,</span> icon<span class="token operator">:</span> <span class="token string">'tree'</span> <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>创建路由对应的页面</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在views/edu/teacher/list中：</span>
+<span class="token operator">&lt;</span>template<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"app-container"</span><span class="token operator">></span>
+        讲师列表
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+
+<span class="token comment">// 在views/edu/teacher/save：</span>
+<span class="token operator">&lt;</span>template<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"app-container"</span><span class="token operator">></span>
+        添加讲师
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在api文件夹中创建文件teacher.js，定义访问接口的地址</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">/**
+     * 1.讲师列表（条件查询分页）
+     * @param &#123;*&#125; current 当前页
+     * @param &#123;*&#125; limit 每页显示几条记录
+     * @param &#123;*&#125; teacherQuery 条件对象
+     * @returns 
+     */</span>
+    <span class="token function">getTeacherList</span><span class="token punctuation">(</span><span class="token parameter">current<span class="token punctuation">,</span>limit<span class="token punctuation">,</span>teacherQuery</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// url: '/table/list/' + current + "/" + "limit",</span>
+            url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/eduservice/edu-teacher/pageTeacherCondition/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>current<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>limit<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+            method<span class="token operator">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
+            <span class="token comment">// teacherQuery条件对象，后端使用@RequestBody获取数据</span>
+            <span class="token comment">// data表示把对象转换成json传递到接口里</span>
+            data<span class="token operator">:</span>teacherQuery
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在讲师列表页面（list.vue）调用定义的接口方法，得到接口的返回数据</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token comment">// 引入调用的teacher.js文件</span>
+<span class="token keyword">import</span> teacher <span class="token keyword">from</span> <span class="token string">'@/api/edu/teacher'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 核心代码</span>
+        <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>                 <span class="token comment">// 定义变量和初始值</span>
+            <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+                list<span class="token operator">:</span><span class="token keyword">null</span><span class="token punctuation">,</span>      <span class="token comment">// 查询之后接口返回的集合</span>
+                page<span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>         <span class="token comment">// 当前页</span>
+                limit<span class="token operator">:</span><span class="token number">10</span><span class="token punctuation">,</span>       <span class="token comment">// 每页显示的记录数</span>
+                total<span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>         <span class="token comment">// 总记录数</span>
+                teacherQuery<span class="token operator">:</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token comment">// 条件封装对象</span>
+
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>          <span class="token comment">// 页面渲染之前执行，调用methods定义的方法</span>
+            <span class="token comment">// 调用</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        methods<span class="token operator">:</span><span class="token punctuation">&#123;</span>           <span class="token comment">// 创建具体的方法，调用teacher.js定义的方法</span>
+            <span class="token comment">// 讲师列表的方法</span>
+            <span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+                teacher<span class="token punctuation">.</span><span class="token function">getTeacherListPage</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>page<span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>limit<span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>teacherQuery<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span><span class="token punctuation">&#123;</span><span class="token comment">// 请求成功</span>
+                    <span class="token comment">// response接口返回的数据</span>
+                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>     
+                <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">error</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>    <span class="token comment">// 请求失败</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>把请求接口获取到的数据在页面中显示</p>
+<p>使用组件 element-ui</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;template&gt;
+    &lt;div class&#x3D;&quot;app-container&quot;&gt;
+        讲师列表
+    &lt;!-- 表格 --&gt;
+    &lt;el-table
+      :data&#x3D;&quot;list&quot;
+      border
+      fit
+      highlight-current-row&gt;
+
+      &lt;el-table-column
+        label&#x3D;&quot;序号&quot;
+        width&#x3D;&quot;70&quot;
+        align&#x3D;&quot;center&quot;&gt;
+        &lt;template slot-scope&#x3D;&quot;scope&quot;&gt;
+          &#123;&#123; (page - 1) * limit + scope.$index + 1 &#125;&#125;
+        &lt;&#x2F;template&gt;
+      &lt;&#x2F;el-table-column&gt;
+
+      &lt;el-table-column prop&#x3D;&quot;name&quot; label&#x3D;&quot;名称&quot; width&#x3D;&quot;80&quot; &#x2F;&gt;
+
+      &lt;el-table-column label&#x3D;&quot;头衔&quot; width&#x3D;&quot;80&quot;&gt;
+        &lt;template slot-scope&#x3D;&quot;scope&quot;&gt;
+          &#123;&#123; scope.row.level&#x3D;&#x3D;&#x3D;1?&#39;高级讲师&#39;:&#39;首席讲师&#39; &#125;&#125;
+        &lt;&#x2F;template&gt;
+      &lt;&#x2F;el-table-column&gt;
+
+      &lt;el-table-column prop&#x3D;&quot;intro&quot; label&#x3D;&quot;资历&quot; &#x2F;&gt;
+
+      &lt;el-table-column prop&#x3D;&quot;gmtCreate&quot; label&#x3D;&quot;添加时间&quot; width&#x3D;&quot;160&quot;&#x2F;&gt;
+
+      &lt;el-table-column prop&#x3D;&quot;sort&quot; label&#x3D;&quot;排序&quot; width&#x3D;&quot;60&quot; &#x2F;&gt;
+
+      &lt;el-table-column label&#x3D;&quot;操作&quot; width&#x3D;&quot;200&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;template slot-scope&#x3D;&quot;scope&quot;&gt;
+          &lt;router-link :to&#x3D;&quot;&#39;&#x2F;teacher&#x2F;edit&#x2F;&#39;+scope.row.id&quot;&gt;
+            &lt;el-button type&#x3D;&quot;primary&quot; size&#x3D;&quot;mini&quot; icon&#x3D;&quot;el-icon-edit&quot;&gt;修改&lt;&#x2F;el-button&gt;
+          &lt;&#x2F;router-link&gt;
+          &lt;el-button type&#x3D;&quot;danger&quot; size&#x3D;&quot;mini&quot; icon&#x3D;&quot;el-icon-delete&quot; @click&#x3D;&quot;removeDataById(scope.row.id)&quot;&gt;删除&lt;&#x2F;el-button&gt;
+        &lt;&#x2F;template&gt;
+      &lt;&#x2F;el-table-column&gt;
+    &lt;&#x2F;el-table&gt;
+
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>分页功能</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;!--以下分页任选其一即可--&gt;    
+&lt;!--分页--&gt;
+    &lt;el-pagination
+    background
+    layout&#x3D;&quot;prev, pager, next&quot;
+    @current-change&#x3D;&quot;getList&quot;
+    style&#x3D;&quot;text-align:center&quot;
+    :current-page&#x3D;&quot;page&quot;
+    :page-size&#x3D;&quot;limit&quot;
+    :total&#x3D;&quot;total&quot;&gt;
+    &lt;&#x2F;el-pagination&gt;
+
+  &lt;!-- 分页2 --&gt;
+    &lt;el-pagination
+      :current-page&#x3D;&quot;page&quot;
+      :page-size&#x3D;&quot;limit&quot;
+      :total&#x3D;&quot;total&quot;
+      style&#x3D;&quot;padding: 30px 0; text-align: center;&quot;
+      layout&#x3D;&quot;total, prev, pager, next, jumper&quot;
+      @current-change&#x3D;&quot;getList&quot;
+    &#x2F;&gt;
+
+&lt;!--修改getList方法--&gt;
+getList(page&#x3D;1)&#123;...&#125;
+this.page&#x3D;page<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>讲师条件查询 + 分页</p>
+<p>使用组件 element-ui</p>
+<pre class="line-numbers language-vue" data-language="vue"><code class="language-vue">&lt;!--查询表单--&gt;
+    &lt;el-form :inline&#x3D;&quot;true&quot; class&#x3D;&quot;demo-form-inline&quot;&gt;
+      &lt;el-form-item&gt;
+        &lt;el-input v-model&#x3D;&quot;teacherQuery.name&quot; placeholder&#x3D;&quot;讲师名&quot;&#x2F;&gt;
+      &lt;&#x2F;el-form-item&gt;
+
+      &lt;el-form-item&gt;
+        &lt;el-select v-model&#x3D;&quot;teacherQuery.level&quot; clearable placeholder&#x3D;&quot;讲师头衔&quot;&gt;
+          &lt;el-option :value&#x3D;&quot;1&quot; label&#x3D;&quot;高级讲师&quot;&#x2F;&gt;
+          &lt;el-option :value&#x3D;&quot;2&quot; label&#x3D;&quot;首席讲师&quot;&#x2F;&gt;
+        &lt;&#x2F;el-select&gt;
+      &lt;&#x2F;el-form-item&gt;
+
+      &lt;el-form-item label&#x3D;&quot;添加时间&quot;&gt;
+        &lt;el-date-picker
+          v-model&#x3D;&quot;teacherQuery.begin&quot;
+          type&#x3D;&quot;datetime&quot;
+          placeholder&#x3D;&quot;选择开始时间&quot;
+          value-format&#x3D;&quot;yyyy-MM-dd HH:mm:ss&quot;
+          default-time&#x3D;&quot;00:00:00&quot;
+        &#x2F;&gt;
+      &lt;&#x2F;el-form-item&gt;
+      &lt;el-form-item&gt;
+        &lt;el-date-picker
+          v-model&#x3D;&quot;teacherQuery.end&quot;
+          type&#x3D;&quot;datetime&quot;
+          placeholder&#x3D;&quot;选择截止时间&quot;
+          value-format&#x3D;&quot;yyyy-MM-dd HH:mm:ss&quot;
+          default-time&#x3D;&quot;00:00:00&quot;
+        &#x2F;&gt;
+      &lt;&#x2F;el-form-item&gt;
+
+      &lt;el-button type&#x3D;&quot;primary&quot; icon&#x3D;&quot;el-icon-search&quot; @click&#x3D;&quot;getList()&quot;&gt;查询&lt;&#x2F;el-button&gt;
+      &lt;el-button type&#x3D;&quot;default&quot; @click&#x3D;&quot;resetData()&quot;&gt;清空&lt;&#x2F;el-button&gt;
+    &lt;&#x2F;el-form&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>清空功能</p>
+<ul>
+<li><p>清空表单输入条件</p>
+</li>
+<li><p>查询所有的数据</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 清空的方法</span>
+<span class="token function">resetData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>    
+    <span class="token comment">// 表单输入项数据清空</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>teacherQuery <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token comment">// 查询所有讲师数据</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-讲师添加"><a href="#2-讲师添加" class="headerlink" title="2.讲师添加"></a><strong>2.讲师添加</strong></h3><ol>
+<li><p>点击添加讲师的按钮，进入表单进行添加</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"> <span class="token operator">&lt;</span>el<span class="token operator">-</span>form label<span class="token operator">-</span>width<span class="token operator">=</span><span class="token string">"120px"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item label<span class="token operator">=</span><span class="token string">"讲师名称"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>input v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"teacher.name"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item label<span class="token operator">=</span><span class="token string">"讲师排序"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>input<span class="token operator">-</span>number v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"teacher.sort"</span> controls<span class="token operator">-</span>position<span class="token operator">=</span><span class="token string">"right"</span> min<span class="token operator">=</span><span class="token string">"0"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item label<span class="token operator">=</span><span class="token string">"讲师头衔"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>select v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"teacher.level"</span> clearable placeholder<span class="token operator">=</span><span class="token string">"请选择"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>el<span class="token operator">-</span>option <span class="token operator">:</span>value<span class="token operator">=</span><span class="token string">"1"</span> label<span class="token operator">=</span><span class="token string">"高级讲师"</span><span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>el<span class="token operator">-</span>option <span class="token operator">:</span>value<span class="token operator">=</span><span class="token string">"2"</span> label<span class="token operator">=</span><span class="token string">"首席讲师"</span><span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>select<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item label<span class="token operator">=</span><span class="token string">"讲师资历"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>input v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"teacher.career"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item label<span class="token operator">=</span><span class="token string">"讲师简介"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>input v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"teacher.intro"</span> <span class="token operator">:</span>rows<span class="token operator">=</span><span class="token string">"10"</span> type<span class="token operator">=</span><span class="token string">"textarea"</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
+
+      <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 讲师头像：<span class="token constant">TODO</span> <span class="token operator">--</span><span class="token operator">></span>
+
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
+        <span class="token operator">&lt;</span>el<span class="token operator">-</span>button <span class="token operator">:</span>disabled<span class="token operator">=</span><span class="token string">"saveBtnDisabled"</span> type<span class="token operator">=</span><span class="token string">"primary"</span> @click<span class="token operator">=</span><span class="token string">"saveOrUpdate"</span><span class="token operator">></span>保存<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>form<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+            teacher<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+            name<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+            sort<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            level<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            career<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+            intro<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+            avatar<span class="token operator">:</span> <span class="token string">''</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            saveBtnDisabled<span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>   <span class="token comment">// 保存按钮是否禁用</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在表单页面点击保存，提交接口，添加到数据库中</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
+ * 添加讲师
+ * @param &#123;*&#125; teacher 
+ * @returns 
+ */</span>
+<span class="token function">addTeacher</span><span class="token punctuation">(</span><span class="token parameter">teacher</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/eduservice/teacher/addTeacher</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        method<span class="token operator">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
+        data<span class="token operator">:</span>teacher
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> teacherApi <span class="token keyword">from</span> <span class="token string">'@/api/edu/teacher'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+            teacher<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+            name<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+            sort<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            level<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            career<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+            intro<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+            avatar<span class="token operator">:</span> <span class="token string">''</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            saveBtnDisabled<span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>   <span class="token comment">// 保存按钮是否禁用</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+        <span class="token function">saveOrUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveTeacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+        <span class="token comment">// 添加讲师的方法</span>
+        <span class="token function">saveTeacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            teacherApi<span class="token punctuation">.</span><span class="token function">addTeacher</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>teacher<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 提示信息</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                    type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+                    message<span class="token operator">:</span> <span class="token string">'添加成功!'</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 回到列表页面，路由跳转（重定向）</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>path<span class="token operator">:</span><span class="token string">'/teacher/table'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>添加排序效果</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 排序</span>
+wrapper<span class="token punctuation">.</span><span class="token function">orderByDesc</span><span class="token punctuation">(</span><span class="token string">"gmt_create"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<p><strong>==3.讲师删除==</strong></p>
+<ol>
+<li><p>在每条记录后面添加删除按钮</p>
+</li>
+<li><p>在按钮上绑定删除事件</p>
+</li>
+<li><p>在绑定事件的方法传递删除讲师的id值</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">@click<span class="token operator">=</span>"<span class="token function">removeDataById</span><span class="token punctuation">(</span>scope<span class="token punctuation">.</span>row<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>在api文件夹的teacher.js定义删除接口的地址</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
+ * 根据id删除讲师
+ * @param &#123;*&#125; id 传入的讲师id
+ * @returns 
+ */</span>
+<span class="token function">deleteTeacherId</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/eduservice/teacher/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        method<span class="token operator">:</span> <span class="token string">'delete'</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>页面调用方法实现删除功能</p>
+<ul>
+<li><p>弹窗</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 删除讲师的方法</span>
+<span class="token function">removeDataById</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">// 弹窗，确认删除</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$confirm</span><span class="token punctuation">(</span><span class="token string">'此操作将永久删除讲师记录, 是否继续?'</span><span class="token punctuation">,</span> <span class="token string">'提示'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+        confirmButtonText<span class="token operator">:</span> <span class="token string">'确定'</span><span class="token punctuation">,</span>
+        cancelButtonText<span class="token operator">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">'warning'</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span> 
+            <span class="token comment">// 调用删除的方法</span>
+            teacher<span class="token punctuation">.</span><span class="token function">deleteTeacherId</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+                <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>     <span class="token comment">// 删除成功</span>
+                 <span class="token comment">// 提示信息</span>
+                      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                      type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+                      message<span class="token operator">:</span> <span class="token string">'删除成功!'</span>
+                  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token comment">// 回到列表页面</span>
+                  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+              <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+<p><strong>==4.讲师修改==</strong></p>
+<ol>
+<li><p>点击修改按钮进入表单页面，进行数据回显。根据讲师id查询数据显示</p>
+</li>
+<li><p>跳转路由跳转进入数据回显页面，在路由index页面添加路由</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">&#123;</span>
+  <span class="token comment">// 添加和修改使用同一个页面，:id相当于一个占位符，等于  where id = ?</span>
+  path<span class="token operator">:</span> <span class="token string">'edit/:id'</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">'EduTeacherEdit'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/edu/teacher/form'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  meta<span class="token operator">:</span> <span class="token punctuation">&#123;</span> title<span class="token operator">:</span> <span class="token string">'编辑讲师'</span><span class="token punctuation">,</span> noCache<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  hidden<span class="token operator">:</span><span class="token boolean">true</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在表单页面实现数据回显</p>
+<ul>
+<li><p>在teacher.js定义根据id查询接口</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
+ * 根据id查询讲师
+ * @param &#123;*&#125; id 
+ * @returns 
+ */</span>
+<span class="token function">getTeacherInfo</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/eduservice/teacher/getTeacher/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        method<span class="token operator">:</span> <span class="token string">'get'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在页面调用接口实现数据回显</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 根据讲师id查询的方法</span>
+<span class="token function">getInfo</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    teacherApi<span class="token punctuation">.</span><span class="token function">getTeacherInfo</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>teacher <span class="token operator">=</span> response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>teacher
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>调用根据id查询的方法</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 因为添加和修改都使用save页面，区分是添加还是修改，只有修改的时候查询数据回显</span>
+<span class="token comment">// 判断路径里是否有讲师的id值，如果有id值就做修改，如果没有就做添加</span>
+    <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+       <span class="token comment">// 判断路径是否有id值</span>
+       <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+         <span class="token comment">// 从路径获取id值</span>
+         <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id
+         <span class="token comment">// 调用根据id查询的方法</span>
+         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getInfo</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+       <span class="token punctuation">&#125;</span>   
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>最终修改实现</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 1.在api的teacher.js定义修改接口</span>
+    <span class="token comment">/**
+     * 修改讲师
+     * @param &#123;*&#125; teacher 
+     * @returns 
+     */</span>
+    <span class="token function">updateTeacherInfo</span><span class="token punctuation">(</span><span class="token parameter">teacher</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/eduservice/teacher/updateTeacher/</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+            method<span class="token operator">:</span> <span class="token string">'post'</span><span class="token punctuation">,</span>
+            data<span class="token operator">:</span>teacher
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 2.在页面调用修改的方法</span>
+        <span class="token comment">// 修改讲师的方法</span>
+        <span class="token function">updateTeacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+          teacherApi<span class="token punctuation">.</span><span class="token function">updateTeacherInfo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>teacher<span class="token punctuation">)</span>
+          <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">// 提示信息</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$message</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                    type<span class="token operator">:</span> <span class="token string">'success'</span><span class="token punctuation">,</span>
+                    message<span class="token operator">:</span> <span class="token string">'修改成功!'</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 回到列表页面，路由跳转（重定向）</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>path<span class="token operator">:</span><span class="token string">'/teacher/table'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            
+            
+            
+            <span class="token function">saveOrUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">// 判断是修改还是添加</span>
+            <span class="token comment">// 根据teacher是否有id进行判断，有id是修改，没有id则是添加</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>teacher<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+              <span class="token comment">// 添加</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">saveTeacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+              <span class="token comment">// 修改</span>
+              <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateTeacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>
+            
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>遇到问题</p>
+<ul>
+<li><p>第一次点击修改，进行数据回显</p>
+</li>
+<li><p>第二次再点击添加讲师，进入表单页面，但是问题出现：表单页面还是显示修改回显的数据，正确的效果应该是表单数据清空</p>
+</li>
+<li><p>解决方法：做添加讲师的时候，表单数据清空就可以了</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+   <span class="token comment">// 判断路径是否有id值，做修改操作</span>
+   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+     <span class="token comment">// 从路径获取id值</span>
+     <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id
+     <span class="token comment">// 调用根据id查询的方法</span>
+     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getInfo</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+   <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>   <span class="token comment">// 没有id值，做添加</span>
+      <span class="token comment">// 清空表单</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>teacher <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>   
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>上面的代码并没有解决问题，原因：多次路由跳转都到同一个页面，页面中的created()方法只会执行第一次，后面再进行跳转不会执行</p>
+</li>
+<li><p>最终的解决方案：使用vue监听</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 监听</span>
+watch<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+  <span class="token function">$route</span><span class="token punctuation">(</span><span class="token parameter">to<span class="token punctuation">,</span>form</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>   <span class="token comment">// 路由变化的方式，路由方式变化，方法执行</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+   
+    
+ <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+     
+    <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">// 判断路径是否有id值，做修改操作</span>
+   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+     <span class="token comment">// 从路径获取id值</span>
+     <span class="token keyword">const</span> id <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id
+     <span class="token comment">// 调用根据id查询的方法</span>
+     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getInfo</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+   <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>   <span class="token comment">// 没有id值，做添加</span>
+      <span class="token comment">// 清空表单</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>teacher <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>   
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" media="all">
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Prannt</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://prannt99.github.io/posts/6ad.html">https://prannt99.github.io/posts/6ad.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Prannt</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        height: auto;
+        cursor: pointer;
+    }
+	
+	.v[data-class=v] .vinput {
+     padding: 0px 0px;
+    }
+
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+      width: 32%;
+      border-bottom: 1px dashed #dedede;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+let metaPlaceholder = [{"nick":"昵称/QQ号(必填)"},{"mail":"邮箱(必填)"},{"link":"网址(https://)"}] ;
+//这里要换行
+new Valine({
+        el: '#vcomments',
+        enableQQ: true,
+        boolean: true,
+        appId: 'qpA2w07me41utCDIJNrGwfSO-gzGzoHsz',
+        appKey: 'vcjkzsL7qIo8lHItafNbRpev',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '留下你的足迹...',
+        requiredFields: ['nick','mail'], //设置必填项
+        // 设置Bilibili表情包地址
+        emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+        // 表情title和图片映射
+        emojiMaps: {
+        "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+        "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+        "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+        "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+        "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+        "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+        "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+        "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+        "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+        "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+        "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+        "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+        "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+        "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+        "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+        "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+        "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+        "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+        "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+        "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+        "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+        "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+        "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+        "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+        "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+        "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+        "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+        "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+        "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+        "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+        "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+        "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+        "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+        "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+        "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+        "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+        "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+        "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+        "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+        "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+        "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+        "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+        "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+        "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+        "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+        "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+        "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+        "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+        "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+        "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
+            // ... 更多表情
+        }
+
+    });
+
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('vsubmit')) {
+            const email = document.querySelector('input[type=email]');
+            const nick = document.querySelector('input[name=nick]');
+            const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            if (!email.value || !nick.value || !reg.test(email.value)) {
+                const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                const vmark = document.querySelector('.vmark');
+                vmark.innerHTML = str;
+                vmark.style.display = 'block';
+
+                e.stopPropagation();
+
+                setTimeout(function() {
+                    vmark.style.display = 'none';
+                    vmark.innerHTML = '';
+                }, 2500);
+            }
+        }
+        }, true);
+</script>
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">
+        <i class="fas fa-comments"></i>
+    </a>
+</div>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/6ad.html">
+                    <div class="card-image">
+                        
+                        <img src="https://gitee.com/prannt/blogphoto/raw/master/img/32.jpg" class="responsive-img" alt="5 讲师管理模块前端开发">
+                        
+                        <span class="card-title">5 讲师管理模块前端开发</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            谷粒学院第五天，讲师管理模块前端开发
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    谷粒学院项目
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/3ef9.html">
+                    <div class="card-image">
+                        
+                        <img src="https://gitee.com/prannt/blogphoto/raw/master/img/31.jpg" class="responsive-img" alt="6 外观&amp;组合&amp;享元模式">
+                        
+                        <span class="card-title">6 外观&amp;组合&amp;享元模式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文详细介绍代理、桥接、装饰器、适配器等四种设计模式
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <a href="/about" target="_blank">Prannt</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">124.2k</span>
+            
+            
+            
+                
+            
+            
+                <span>
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span>
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "12";
+                        var startDate = "11";
+                        var startHour = "23";
+                        var startMinute = "11";
+                        var startSecond = "11";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/prannt99/prannt99.github.io" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:876722023@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=876722023" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 876722023" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://gitee.com/prannt/blogphoto/raw/master/img/20.png" class="tooltipped" target="_blank" data-tooltip="微信联系我" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true,"react":{"opacity":0.7}}});</script></body>
+
+</html>
+
+<script type="text/javascript">
+    var OriginTitile=document.title,st;
+	document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+    })
+</script>
+
+
