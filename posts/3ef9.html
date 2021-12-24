@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    37 分
+                    38 分
                 </div>
                 
 
@@ -514,6 +514,7 @@
                 <div class="note info">本文介绍结构型设计模中不常用的三种设计模式，分别为：门面模式、组合模式和享元模式。</div> 
 
 
+
 <h2 id="门面模式-外观模式-【不常用】"><a href="#门面模式-外观模式-【不常用】" class="headerlink" title="门面模式(外观模式)【不常用】"></a><strong>门面模式(外观模式)【不常用】</strong></h2><ol>
 <li>门面模式的原理和实现都特别简单，应用场景也比较明确，主要在接口设计方面使用。</li>
 <li>如果你平时的工作涉及接口开发，不知道你有没有遇到关于接口粒度的问题呢？</li>
@@ -525,10 +526,9 @@
 <li>门面模式，也叫外观模式，英文全称是 Facade Design Pattern。在 GoF 的《设计模式》一书中，门面模式是这样定义的：</li>
 </ol>
 <div class="note info no-icon"><strong>Provide a unified interface to a set of interfaces in a subsystem. Facade Pattern defines a higher-level interface that makes the subsystem easier to use. </strong></div>
+2. 翻译成中文就是：门面模式为子系统提供一组统一的接口，定义一组高层接口让子系统更易用。
 
-<ol start="2">
-<li><p>翻译成中文就是：门面模式为子系统提供一组统一的接口，定义一组高层接口让子系统更易用。</p>
-</li>
+<ol start="3">
 <li><p>假设有一个系统 A，提供了 a、b、c、d 四个接口。系统 B 完成某个业务功能，需要调用 A 系统的 a、b、d 接口。利用门面模式，提供一个包裹 a、b、d 接口调用的门面接口 x，给系统 B 直接使用。</p>
 </li>
 <li><p>那么让系统 B 直接调用 a、b、d 感觉没有太大问题，为什么还要提供一个包裹 a、b、d 的接口 x 呢？</p>
@@ -558,7 +558,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="传统方案"><a href="#传统方案" class="headerlink" title="传统方案"></a><strong>传统方案</strong></h4><img src="/posts/0/1.jpg" class title="组件家庭影院的传统方案">
+<h4 id="传统方案"><a href="#传统方案" class="headerlink" title="传统方案"></a><strong>传统方案</strong></h4><img src="/posts/undefined/1.jpg" class title="组件家庭影院的传统方案">
 
 <ol>
 <li>在<code>ClientTest</code>的<code>main</code>方法中，创建各个子系统的对象，并直接去调用子系统(对象)相关方法，会造成调用过程混乱，没有清晰的过程，不利于在<code>ClientTest</code>中维护对子系统的操作</li>
@@ -785,10 +785,9 @@
 <li>在 GoF 的《设计模式》一书中，组合模式是这样定义的：</li>
 </ol>
 <div class="note info no-icon"><strong>Compose objects into tree structure to represent part-whole hierarchies.Composite lets client treat individual objects and compositions of objects uniformly. </strong></div>
+2. 翻译成中文就是：将一组对象组织成树形结构，以表示一种“部分 - 整体”的层次结构。组合让客户端（在很多设计模式书籍中，“客户端”代指代码的使用者）可以统一单个对象和组合对象的处理逻辑。
 
-<ol start="2">
-<li><p>翻译成中文就是：将一组对象组织成树形结构，以表示一种“部分 - 整体”的层次结构。组合让客户端（在很多设计模式书籍中，“客户端”代指代码的使用者）可以统一单个对象和组合对象的处理逻辑。</p>
-</li>
+<ol start="3">
 <li><p>假设有这样一个需求：设计一个类来表示文件系统中的目录，能方便地实现下面这些功能：</p>
 <ul>
 <li>动态地添加、删除某个目录下的子目录或文件；</li>
@@ -990,7 +989,7 @@
 	<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/posts/0/2.jpg" class title="目录、文件层次图">
+<img src="/posts/undefined/2.jpg" class title="目录、文件层次图">
 
 <ol>
 <li>对照这个例子，再重新看一下组合模式的定义：“将一组对象（文件和目录）组织成树形结构，以表示一种‘部分 - 整体’的层次结构（目录与子目录的嵌套结构）。组合模式让客户端可以统一单个对象（文件）和组合对象（目录）的处理逻辑（递归遍历）。”</li>
@@ -1000,7 +999,7 @@
 <li><p>刚刚讲了文件系统的例子，对于组合模式，这里再举一个例子。搞懂了这两个例子，基本上就算掌握了组合模式。在实际的项目中，遇到类似的可以表示成树形结构的业务场景，只要“照葫芦画瓢”去设计就可以了。</p>
 </li>
 <li><p>假设要开发一个 OA 系统（办公自动化系统）。公司的组织结构包含部门和员工两种数据类型。其中，部门又可以包含子部门和员工。在数据库中的表结构如下所示：</p>
-<img src="/posts/0/3.jpg" class title="部门表和员工表示意图"></li>
+<img src="/posts/undefined/3.jpg" class title="部门表和员工表示意图"></li>
 <li><p>希望在内存中构建整个公司的人员架构图（部门、子部门、员工的隶属关系），并且提供接口计算出部门的薪资成本（隶属于这个部门的所有员工的薪资和）。</p>
 </li>
 <li><p>部门包含子部门和员工，这是一种嵌套结构，可以表示成树型数据结构。计算每个部门的薪资开支的需求，也可以通过在树上的遍历算法来实现。所以，从这个角度来看，这个应用场景可以使用组合模式来设计。</p>
@@ -1414,7 +1413,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://prannt99.github.io/posts/0.html">https://prannt99.github.io/posts/0.html</a>
+                    <a href="https://prannt99.github.io/posts/3ef9.html">https://prannt99.github.io/posts/3ef9.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1994,7 +1993,7 @@ new Valine({
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/posts/0.html">
+                <a href="/posts/3ef9.html">
                     <div class="card-image">
                         
                         <img src="https://gitee.com/prannt/blogphoto/raw/master/img/31.jpg" class="responsive-img" alt="6 代理&amp;桥接&amp;装饰器&amp;适配器模式">
