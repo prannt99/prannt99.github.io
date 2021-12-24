@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-23T15:15:26.641Z</updated>
+  <updated>2021-12-24T06:48:42.711Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -17,22 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="https://prannt99.github.io/posts/0.html"/>
+    <id>https://prannt99.github.io/posts/0.html</id>
+    <published>2021-12-24T00:29:36.000Z</published>
+    <updated>2021-12-24T06:48:42.711Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文介绍结构型设计模中不常用的三种设计模式，分别为：门面模式、组合模式和享元模式。&lt;/div&gt; 
+
+
+
+&lt;h2 id=&quot;门面模式-外观模式-【不常用】&quot;&gt;&lt;a href=&quot;#门面模式-外观模式-【不常用】&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="设计模式" scheme="https://prannt99.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="设计模式" scheme="https://prannt99.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>5 代理&amp;桥接&amp;装饰器&amp;适配器模式</title>
     <link href="https://prannt99.github.io/posts/b9f3.html"/>
     <id>https://prannt99.github.io/posts/b9f3.html</id>
     <published>2021-12-23T06:49:45.000Z</published>
-    <updated>2021-12-23T15:15:26.641Z</updated>
+    <updated>2021-12-24T01:46:09.485Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文主要讲结构型设计模式，其实学习设计模式主要是为了后序看源码能看懂。创建型模式比较好理解，后面的结构型和行为型设计模式不是那么好理解。&lt;/div&gt; 
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文介绍结构型设计模式中常用的四种：代理模式、桥接模式、装饰器模式、适配器模式&lt;/div&gt; 
 
 
 
-&lt;h2 id=&quot;代理模式【常用】&quot;&gt;&lt;a href=&quot;#代理模式【常用】&quot;</summary>
+&lt;h2 id=&quot;代理模式【常用】&quot;&gt;&lt;a href=&quot;#代理模式【常用】&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -523,33 +552,6 @@
     
     
     <category term="Vue" scheme="https://prannt99.github.io/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>谷粒学院——pom.xml（更新中）</title>
-    <link href="https://prannt99.github.io/posts/a68f.html"/>
-    <id>https://prannt99.github.io/posts/a68f.html</id>
-    <published>2021-12-13T14:50:23.000Z</published>
-    <updated>2021-12-20T09:19:08.136Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;strong&gt;谷粒学院项目用到的所有依赖。由于依赖过多，因此专门写一篇资源博客记录。&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;父工程（guli-parent）：&quot;&gt;&lt;a href=&quot;#父工程（guli-parent）：&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="谷粒学院项目" scheme="https://prannt99.github.io/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-    <category term="Maven" scheme="https://prannt99.github.io/tags/Maven/"/>
     
   </entry>
   
