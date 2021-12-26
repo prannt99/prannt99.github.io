@@ -531,7 +531,7 @@
 <li>提供温度、气压和湿度的接口</li>
 <li>测量数据更新时，要能实时的通知给第三方</li>
 </ol>
-<h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a><strong>方案一</strong></h4><img src="/posts/undefined/1.jpg" class title="传统设计方案">
+<h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a><strong>方案一</strong></h4><img src="/posts/87d/1.jpg" class title="传统设计方案">
 
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * 类是核心
@@ -1111,7 +1111,7 @@
 <li>Guava EventBus 的功能我们已经讲清楚了，总体上来说，还是比较简单的。接下来，我们就重复造轮子，“山寨”一个 EventBus 出来。</li>
 <li>我们重点来看，EventBus 中两个核心函数 register() 和 post() 的实现原理。弄懂了它们，基本上就弄懂了整个 EventBus 框架。下面两张图是这两个函数的实现原理图。</li>
 </ol>
-<img src="/posts/undefined/2.jpg" class title="TODO">
+<img src="/posts/87d/2.jpg" class title="TODO">
 
 <ol start="3">
 <li><p>从图中我们可以看出，最关键的一个数据结构是 Observer 注册表，记录了消息类型和可接收消息函数的对应关系。当调用 register() 函数注册观察者的时候，EventBus 通过解析 @Subscribe 注解，生成 Observer 注册表。当调用 post() 函数发送消息的时候，EventBus 通过注册表找到相应的可接收消息的函数，然后通过 Java 的反射语法来动态地创建对象、执行函数。对于同步阻塞模式，EventBus 在一个线程内依次执行相应的函数。对于异步非阻塞模式，EventBus 通过一个线程池来执行相应的函数。</p>
