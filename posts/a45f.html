@@ -538,12 +538,12 @@
 <h3 id="1、面向流和缓冲流"><a href="#1、面向流和缓冲流" class="headerlink" title="1、面向流和缓冲流"></a>1、面向流和缓冲流</h3><p><strong>IO</strong></p>
 <p>传统IO在传输数据时，根据输入输出的不同需要分别建立不同的链接，而且传输的数据是以流的形式在链接上进行传输的。</p>
 <p>就像自来水要通过水管将自来水厂和家连接起来一样。</p>
- <img src="/posts/undefined/1.jpg" class title="传统IO传输数据">
+ <img src="/posts/a45f/1.jpg" class title="传统IO传输数据">
 
 <p><strong>NIO</strong></p>
 <p>NIO在传输数据时，会在输入输出端之间建立<strong>通道</strong>，然后将数据放入到<strong>缓冲区</strong>中。缓冲区通过通道来传输数据。</p>
 <p>通道就像是铁路，能够连通两个地点。缓冲区就像是火车，能够进行有效的数据传输</p>
- <img src="/posts/undefined/2.jpg" class title="NIO传输数据">
+ <img src="/posts/a45f/2.jpg" class title="NIO传输数据">
 
 <h2 id="二、通道与缓冲区"><a href="#二、通道与缓冲区" class="headerlink" title="二、通道与缓冲区"></a>二、通道与缓冲区</h2><p>Java NIO系统的核心在于：**通道(Channel)和缓冲区(Buffer)**。通道表示打开到 IO 设备(例如：文件、套接字)的连接。若需要使用 NIO 系统，需要获取用于连接 IO 设备的通道以及用于容纳数据的缓冲区。然后操作缓冲区，对数据进行处理。</p>
 <p>简而言之，<strong>通道负责传输，缓冲区负责存储</strong> </p>
@@ -565,7 +565,7 @@
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">final</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> hb<span class="token punctuation">;</span>                  <span class="token comment">// Non-null only for heap buffers</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>他们的继承关系如下</strong> </p>
-<img src="/posts/undefined/3.jpg" class title="各种类型的缓冲区继承图">
+<img src="/posts/a45f/3.jpg" class title="各种类型的缓冲区继承图">
 
 <h3 id="2、获取缓冲区"><a href="#2、获取缓冲区" class="headerlink" title="2、获取缓冲区"></a>2、获取缓冲区</h3><p>通过<strong>allocate()方法</strong>可以获取一个对应缓冲区的对象，它是缓冲区类的一个静态方法</p>
 <p>例</p>
@@ -591,7 +591,7 @@
 <li><code>put()</code>方法可以将一个数据放入到缓冲区中。</li>
 <li>进行该操作后，postition的值会+1，指向下一个可以放入的位置。<code>capacity = limit</code>为缓冲区容量的值。</li>
 </ul>
-<img src="/posts/undefined/4.jpg" class title="put()方法示意图">
+<img src="/posts/a45f/4.jpg" class title="put()方法示意图">
 
 <h4 id="flip-方法"><a href="#flip-方法" class="headerlink" title="flip()方法"></a>flip()方法</h4><ul>
 <li><code>flip()</code>方法会<strong>切换对缓冲区的操作模式</strong>，由<code>写 → 读</code>切换为<code>读 → 写</code></li>
@@ -601,25 +601,25 @@
 </ul>
 </li>
 </ul>
-<img src="/posts/undefined/5.jpg" class title="flip()方法读 → 写">
+<img src="/posts/a45f/5.jpg" class title="flip()方法读 → 写">
 
 <h4 id="get-方法"><a href="#get-方法" class="headerlink" title="get()方法"></a>get()方法</h4><ul>
 <li><code>get()</code>方法会读取缓冲区中的一个值</li>
 <li>进行该操作后，position会 +1，如果超过了limit则会抛出异常</li>
 </ul>
-<img src="/posts/undefined/6.jpg" class title="get()方法">
+<img src="/posts/a45f/6.jpg" class title="get()方法">
 
 <h4 id="rewind-方法"><a href="#rewind-方法" class="headerlink" title="rewind()方法"></a>rewind()方法</h4><ul>
 <li>该方法<strong>只能在读模式下使用</strong></li>
 <li>rewind()方法后，会恢复position、limit和capacity的值，变为进行get()前的值</li>
 </ul>
-<img src="/posts/undefined/7.jpg" class title="rewind()方法">
+<img src="/posts/a45f/7.jpg" class title="rewind()方法">
 
 <h4 id="clean-方法"><a href="#clean-方法" class="headerlink" title="clean()方法"></a>clean()方法</h4><ul>
 <li>clean()方法会将缓冲区中的各个属性恢复为最初的状态，position = 0, capacity = limit</li>
 <li><strong>此时缓冲区的数据依然存在</strong>，处于“被遗忘”状态，下次进行写操作时会覆盖这些数据</li>
 </ul>
-<img src="/posts/undefined/8.jpg" class title="clean()方法">
+<img src="/posts/a45f/8.jpg" class title="clean()方法">
 
 <h4 id="mark-和reset-方法"><a href="#mark-和reset-方法" class="headerlink" title="mark()和reset()方法"></a>mark()和reset()方法</h4><ul>
 <li>mark()方法会将postion的值保存到mark属性中</li>
@@ -1694,7 +1694,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">143.6k</span>
+                        class="white-color">157.7k</span>
             
             
             

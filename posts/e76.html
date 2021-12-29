@@ -522,7 +522,7 @@
 
 
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h3><p>在<code>JDK8</code>中，优化了<code>HashMap</code>的数据结构，引入了红黑树。即HashMap的数据结构：数组 + 链表 + 红黑树。HashMap变成了这样。 </p>
-<img src="/posts/undefined/1.jpg" class title="引入红黑树之后的HashMap">
+<img src="/posts/e76/1.jpg" class title="引入红黑树之后的HashMap">
 
 <h4 id="为什么要引入红黑树"><a href="#为什么要引入红黑树" class="headerlink" title="为什么要引入红黑树"></a>为什么要引入红黑树</h4><ol>
 <li><p>主要是为了提高<code>HashMap</code>的性能，即解决发生hash冲突后，因为链表过长而导致索引效率慢的问题</p>
@@ -801,7 +801,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>JDK8 hash的运算原理：高位参与低位运算，使得hash更加均匀。 </p>
-<img src="/posts/undefined/2.jpg" class title="hash的运算原理">
+<img src="/posts/e76/2.jpg" class title="hash的运算原理">
 
 <h3 id="resize"><a href="#resize" class="headerlink" title="resize()"></a>resize()</h3><p>这个方法改动比较大</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 该函数有2种使用情况：1、初始化哈希表 2、当前数组容量过小，需扩容   </span>
@@ -896,7 +896,7 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>JDK8扩容时，数据在数组下标的计算方式 </p>
-<img src="/posts/undefined/3.jpg" class title="数据在数组下标的计算方式">
+<img src="/posts/e76/3.jpg" class title="数据在数组下标的计算方式">
 
 <ul>
 <li><p><code>JDK8</code>根据此结论作出的新元素存储位置计算规则非常简单，提高了扩容效率。</p>
@@ -1601,53 +1601,40 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/e76.html">
+                <a href="/posts/4cad.html">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/prannt/blogphoto/raw/master/img/34.jpg" class="responsive-img" alt="深入理解HashMap(JDK 8)">
                         
-                        <span class="card-title">深入理解HashMap(JDK 8)</span>
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="7-8">
+                        
+                        <span class="card-title">7-8</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            HashMap底层原理(JDK 8)
+                            
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    谷粒学院项目
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AE%B9%E5%99%A8/">
-                        <span class="chip bg-color">容器</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1898,7 +1885,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">143.6k</span>
+                        class="white-color">157.7k</span>
             
             
             
