@@ -6,7 +6,7 @@
   <link href="https://prannt99.github.io/atom.xml" rel="self"/>
   
   <link href="https://prannt99.github.io/"/>
-  <updated>2021-12-29T06:33:19.973Z</updated>
+  <updated>2021-12-29T13:49:43.007Z</updated>
   <id>https://prannt99.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>面试题汇总1</title>
+    <link href="https://prannt99.github.io/posts/86fb.html"/>
+    <id>https://prannt99.github.io/posts/86fb.html</id>
+    <published>2021-12-29T06:49:45.000Z</published>
+    <updated>2021-12-29T13:49:43.007Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文介绍结构型设计模式中常用的四种：代理模式、桥接模式、装饰器模式、适配器模式&lt;/div&gt; 
+
+
+&lt;h2 id=&quot;12-29更新&quot;&gt;&lt;a href=&quot;#12-29更新&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="面试" scheme="https://prannt99.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>6 讲师、课程后端接口</title>
     <link href="https://prannt99.github.io/posts/156a.html"/>
     <id>https://prannt99.github.io/posts/156a.html</id>
     <published>2021-12-29T06:28:29.000Z</published>
-    <updated>2021-12-29T06:33:19.973Z</updated>
+    <updated>2021-12-29T13:45:57.056Z</updated>
     
     
       
@@ -46,7 +72,7 @@
     <link href="https://prannt99.github.io/posts/4cad.html"/>
     <id>https://prannt99.github.io/posts/4cad.html</id>
     <published>2021-12-29T06:28:29.000Z</published>
-    <updated>2021-12-29T13:45:32.378Z</updated>
+    <updated>2021-12-29T13:45:57.061Z</updated>
     
     
       
@@ -219,35 +245,6 @@
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="设计模式" scheme="https://prannt99.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-    <category term="设计模式" scheme="https://prannt99.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>5 代理&amp;桥接&amp;装饰器&amp;适配器模式</title>
-    <link href="https://prannt99.github.io/posts/b9f3.html"/>
-    <id>https://prannt99.github.io/posts/b9f3.html</id>
-    <published>2021-12-23T06:49:45.000Z</published>
-    <updated>2021-12-29T13:45:35.609Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;div class=&quot;note info&quot;&gt;本文介绍结构型设计模式中常用的四种：代理模式、桥接模式、装饰器模式、适配器模式&lt;/div&gt; 
-
-
-
-&lt;h2 id=&quot;12-29更新&quot;&gt;&lt;a href=&quot;#12-29更新&quot; class=&quot;headerlink&quot;</summary>
         
       
     

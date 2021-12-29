@@ -521,23 +521,23 @@
 <li>使用OSS，首先需要创建buckets</li>
 <li>点击文件管理可以上传文件</li>
 </ol>
- <img src="/posts/undefined/1.png" class title="阿里云流程1">
+ <img src="/posts/156a/1.png" class title="阿里云流程1">
 
- <img src="/posts/undefined/2.png" class title="阿里云流程2">
+ <img src="/posts/156a/2.png" class title="阿里云流程2">
 
- <img src="/posts/undefined/3.png" class title="阿里云流程3">
+ <img src="/posts/156a/3.png" class title="阿里云流程3">
 
 <h3 id="二、Java代码操作阿里云OSS，上传文件到阿里云OSS操作"><a href="#二、Java代码操作阿里云OSS，上传文件到阿里云OSS操作" class="headerlink" title="二、Java代码操作阿里云OSS，上传文件到阿里云OSS操作"></a>二、Java代码操作阿里云OSS，上传文件到阿里云OSS操作</h3><ol>
 <li><p>准备工作：创建操作阿里云OSS的许可证（阿里云颁发的id和密钥）</p>
- <img src="/posts/undefined/4.png" class title="阿里云流程4">
+ <img src="/posts/156a/4.png" class title="阿里云流程4">
 
- <img src="/posts/undefined/5.png" class title="阿里云流程5">
+ <img src="/posts/156a/5.png" class title="阿里云流程5">
 
- <img src="/posts/undefined/6.png" class title="阿里云流程6">
+ <img src="/posts/156a/6.png" class title="阿里云流程6">
 
- <img src="/posts/undefined/7.png" class title="阿里云流程7">
+ <img src="/posts/156a/7.png" class title="阿里云流程7">
 
- <img src="/posts/undefined/8.png" class title="阿里云流程8"></li>
+ <img src="/posts/156a/8.png" class title="阿里云流程8"></li>
 <li><p>新建service_oss子模块，在pom.xml中添加依赖</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
     <span class="token comment">&lt;!--阿里云OSS依赖--></span>
@@ -569,7 +569,7 @@
 <span class="token comment"># bucket可以在控制台创建，也可以使用java代码创建</span>
 <span class="token attr-name">aliyun.oss.file.bucketname</span><span class="token punctuation">=</span><span class="token attr-value">prannt-edu-1010</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>项目启动时报错：启动的时候去找数据库的配置了，但这个模块不需要操作数据库，只是做上传到oss功能</p>
- <img src="/posts/undefined/16.png" class title="启动报错">
+ <img src="/posts/156a/16.png" class title="启动报错">
 
 <p>解决方案：在启动类上添加属性，默认不加载数据库的配置：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span><span class="token punctuation">(</span>exclude <span class="token operator">=</span> <span class="token class-name">DataSourceAutoConfiguration</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
@@ -688,9 +688,9 @@ filename <span class="token operator">=</span> datePath <span class="token opera
 <li><p>Nginx：反向代理服务器，可以用来做<strong>请求转发、负载均衡、动静分离</strong></p>
 </li>
 <li><p>什么是请求转发？</p>
-<img src="/posts/undefined/9.png" class title="请求转发"></li>
+<img src="/posts/156a/9.png" class title="请求转发"></li>
 <li><p>什么是负载均衡？</p>
-<img src="/posts/undefined/10.png" class title="负载均衡"></li>
+<img src="/posts/156a/10.png" class title="负载均衡"></li>
 <li><p>什么是动静分离？</p>
 <p>把Java代码和页面分开进行部署</p>
 </li>
@@ -701,11 +701,11 @@ filename <span class="token operator">=</span> datePath <span class="token opera
 <li><p>配置nginx实现请求转发的功能</p>
 <ul>
 <li><p>找到nginx配置文件</p>
-<img src="/posts/undefined/11.png" class title="Nginx的配置文件"></li>
+<img src="/posts/156a/11.png" class title="Nginx的配置文件"></li>
 <li><p>在nginx.conf里进行配置</p>
-<img src="/posts/undefined/12.png" class title="修改Nginx的配置文件1">
+<img src="/posts/156a/12.png" class title="修改Nginx的配置文件1">
 
-<img src="/posts/undefined/13.png" class title="修改Nginx的配置文件2"></li>
+<img src="/posts/156a/13.png" class title="修改Nginx的配置文件2"></li>
 <li><p>前端（config/dev.env.js）中的端口号改成</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token constant">BASE_API</span><span class="token operator">:</span> <span class="token string">'"http://localhost:9001"'</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>重新启动nginx</p>
@@ -720,7 +720,7 @@ npm run dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 </ol>
 <h3 id="五、上传讲师头像前端实现"><a href="#五、上传讲师头像前端实现" class="headerlink" title="五、上传讲师头像前端实现"></a>五、上传讲师头像前端实现</h3><ol>
 <li><p>在讲师添加页面，创建上传组件，实现上传功能（使用element-ui中的组件）</p>
-<img src="/posts/undefined/14.png" class title="创建上传组件"></li>
+<img src="/posts/156a/14.png" class title="创建上传组件"></li>
 <li><p>在添加讲师页面使用这两个组件（以下几步都在save.vue中）</p>
 </li>
 <li><p>使用组件</p>
@@ -729,7 +729,7 @@ npm run dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 </li>
 </ol>
 <h2 id="添加课程分类的功能（使用EasyExcel读取excel内容添加数据）"><a href="#添加课程分类的功能（使用EasyExcel读取excel内容添加数据）" class="headerlink" title="添加课程分类的功能（使用EasyExcel读取excel内容添加数据）"></a>添加课程分类的功能（使用EasyExcel读取excel内容添加数据）</h2><h3 id="一、创建数据库表"><a href="#一、创建数据库表" class="headerlink" title="一、创建数据库表"></a>一、创建数据库表</h3><p>具体的<code>sql</code>语句见：**<a href="https://prannt99.github.io/posts/a1b9.html">谷粒学院sql</a>**</p>
-<img src="/posts/undefined/15.png" class title="二级分类示意图">
+<img src="/posts/156a/15.png" class title="二级分类示意图">
 
 <h3 id="二、EasyTask操作"><a href="#二、EasyTask操作" class="headerlink" title="二、EasyTask操作"></a>二、EasyTask操作</h3><ol>
 <li><p>在service_edu的test下进行测试</p>
@@ -1598,47 +1598,42 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/156a.html">
+                <a href="/posts/86fb.html">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/prannt/blogphoto/raw/master/img/35.jpg" class="responsive-img" alt="6 讲师、课程后端接口">
                         
-                        <span class="card-title">6 讲师、课程后端接口</span>
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="面试题汇总1">
+                        
+                        <span class="card-title">面试题汇总1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            谷粒学院第六天，讲师头像上传、Nginx的使用、添加课程分类
+                            面试题搜集
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%B0%B7%E7%B2%92%E5%AD%A6%E9%99%A2%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    谷粒学院项目
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Prannt
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%8E%A5%E5%8F%A3/">
-                        <span class="chip bg-color">接口</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
                     </a>
                     
                 </div>

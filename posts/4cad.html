@@ -509,7 +509,7 @@
             <div id="articleContent">
                 <h2 id="添加课程分类的前端实现"><a href="#添加课程分类的前端实现" class="headerlink" title="添加课程分类的前端实现"></a>添加课程分类的前端实现</h2><h3 id="一、添加课程分类路由"><a href="#一、添加课程分类路由" class="headerlink" title="一、添加课程分类路由"></a>一、添加课程分类路由</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 在router/index.js下添加代码</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
- <img src="/posts/undefined/1.png" class title="添加课程分类路由">
+ <img src="/posts/4cad/1.png" class title="添加课程分类路由">
 
 <h3 id="二、创建课程分类页面和添加课程页面-list-vue和save-vue-，修改路由对应的页面路径"><a href="#二、创建课程分类页面和添加课程页面-list-vue和save-vue-，修改路由对应的页面路径" class="headerlink" title="二、创建课程分类页面和添加课程页面(list.vue和save.vue)，修改路由对应的页面路径"></a>二、创建课程分类页面和添加课程页面(list.vue和save.vue)，修改路由对应的页面路径</h3><h3 id="三、在save页面添加上传组件"><a href="#三、在save页面添加上传组件" class="headerlink" title="三、在save页面添加上传组件"></a>三、在save页面添加上传组件</h3><h2 id="课程分类的列表显示功能（树形）"><a href="#课程分类的列表显示功能（树形）" class="headerlink" title="课程分类的列表显示功能（树形）"></a>课程分类的列表显示功能（树形）</h2><p>需要做的事情：创建接口，把分类按照要求的格式返回数据即可</p>
 <h3 id="一、针对返回数据创建对应的实体类，创建两个实体类：一级分类和二级分类"><a href="#一、针对返回数据创建对应的实体类，创建两个实体类：一级分类和二级分类" class="headerlink" title="一、针对返回数据创建对应的实体类，创建两个实体类：一级分类和二级分类"></a>一、针对返回数据创建对应的实体类，创建两个实体类：一级分类和二级分类</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 一级分类</span>
@@ -597,7 +597,7 @@ edu_chapter				## 课程章节表：存储课程的章节信息
 edu_video				## 课程小节表：存储章节里面的小节信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>具体的sql语句见：<a href="https://prannt99.github.io/posts/a1b9.html">谷粒学院sql</a></p>
-<img src="/posts/undefined/2.png" class title="表之间的关系">
+<img src="/posts/4cad/2.png" class title="表之间的关系">
 
 <p>1、使用代码生成器生成相关代码</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">strategy<span class="token punctuation">.</span><span class="token function">setInclude</span><span class="token punctuation">(</span><span class="token string">"edu_course"</span><span class="token punctuation">,</span><span class="token string">"edu_course_description"</span><span class="token punctuation">,</span><span class="token string">"edu_chapter"</span><span class="token punctuation">,</span><span class="token string">"edu_video"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
