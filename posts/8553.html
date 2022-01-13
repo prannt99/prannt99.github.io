@@ -512,26 +512,26 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="一、索引的本质"><a href="#一、索引的本质" class="headerlink" title="一、索引的本质"></a>一、索引的本质</h2><p>索引是帮助MySQL高效获取数据的<mark>排好序</mark>的<mark>数据结构</mark></p>
-<img src="/posts/undefined/1.jpg" class title="表">
+<img src="/posts/8553/1.jpg" class title="表">
 
 <p>假设要查找地址为<code>0x77</code>的这一行记录</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t <span class="token keyword">where</span> t<span class="token punctuation">.</span>col2 <span class="token operator">=</span> <span class="token number">89</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果不走索引，讲从第一行开始逐行查询，将查到的值与字段值相比对，要查很多次，效率很低（每查询一次就要与磁盘交互一次），走索引（图的右侧）之后，仅需查找两次。</p>
 <p>但是MySQL的索引并没有采用二叉树作为存储结构，假设把<code>col1</code>作为索引字段，<code>col1</code>的特点是从小到大依次递增，就会出现下面的情形：</p>
-<img src="/posts/undefined/2.jpg" class title="二叉树不分叉">
+<img src="/posts/8553/2.jpg" class title="二叉树不分叉">
 
 <p>二叉树查找<code>col1 = 6</code>需要六次，和不走索引一样。</p>
 <p>那采用红黑树作为索引结构可不可以呢？</p>
-<img src="/posts/undefined/3.jpg" class title="红黑树">
+<img src="/posts/8553/3.jpg" class title="红黑树">
 
 <p>红黑树查找<code>col1 = 6</code>需要三次</p>
 <p>但是MySQL的索引结构也没有使用红黑树，因为红黑树有个问题：<mark>树的高度太高</mark>，还是需要相当多的<code>磁盘I/O</code></p>
 <p>对红黑树进行改进：既然红黑树的<mark>树高</mark>成了瓶颈，那就采用<mark>扁平化</mark>思想，让树的高度变矮，每一行存储更多元素，就变成了<code>B树</code></p>
-<img src="/posts/undefined/4.jpg" class title="B - Tree">
+<img src="/posts/8553/4.jpg" class title="B - Tree">
 
 <p>但是MySQL并未采用<code>B - Tree</code>存储索引，而是继续改进，如下所示的<code>B+ Tree</code></p>
-<img src="/posts/undefined/5.jpg" class title="B+ Tree">
+<img src="/posts/8553/5.jpg" class title="B+ Tree">
 
 <p>B+ Tree的特点：</p>
 <ul>
@@ -542,7 +542,7 @@
 <li>注意：每一个节点中的数据横向比较基本不花时间</li>
 <li>叶节点上有双向链表，存放相邻文件的磁盘文件地址</li>
 </ul>
-<img src="/posts/undefined/6.jpg" class title="B+ Tree">
+<img src="/posts/8553/6.jpg" class title="B+ Tree">
 
 <p>现在再查找<code>col1 = 6</code>仅需两次</p>
 <p>计算一下每个节点都放满，B+树可以存多少元素？</p>
@@ -570,9 +570,9 @@
 <p>先判断查找字段是否有索引，如果有索引则去.MYI文件中从根节点开始定位到索引元素，然后根据索引地址来到.MYD文件中查找对应的那一行数据</p>
 <p>InnoDB存储引擎是把数据和索引设计在一个文件里的</p>
 <p><strong>聚集索引和非聚集索引</strong></p>
-<img src="/posts/undefined/7.jpg" class title="聚集索引">
+<img src="/posts/8553/7.jpg" class title="聚集索引">
 
-<img src="/posts/undefined/8.jpg" class title="非聚集索引">
+<img src="/posts/8553/8.jpg" class title="非聚集索引">
 
 <p>聚集索引：也叫聚簇索引，叶节点包含了整张表完整的数据记录（索引和数据放在一起）</p>
 <p>非聚集索引：索引在.MYI文件中，数据在.MYD文件中</p>
@@ -587,13 +587,13 @@
 <p>$$<br>n &gt;&gt; 3<br>$$</p>
 <p>也即：树的高度是由非叶子节点的分叉决定的，非叶子节点分叉越多，树的高度就越矮。</p>
 <p><strong>Hash索引</strong></p>
-<img src="/posts/undefined/9.jpg" class title="Hash索引">
+<img src="/posts/8553/9.jpg" class title="Hash索引">
 
 <p>每插入一个索引，会先计算这个字段的哈希值，假设<code>hash(Alice) = 2</code>，就会把该哈希值放入2的桶中，接着把索引放到桶上的链表中，并存储索引所在行的磁盘文件地址，哈希碰撞时往后放    </p>
 <p>优点：在不发生哈希碰撞时，哪怕表中有1亿条数据，只需要一次哈希运算就能定位到元素</p>
 <p>缺点：不支持范围查找</p>
 <p><strong>联合索引的底层存储结构（也是B+树）</strong></p>
-<img src="/posts/undefined/10.jpg" class title="Hash索引">
+<img src="/posts/8553/10.jpg" class title="Hash索引">
 
 
 

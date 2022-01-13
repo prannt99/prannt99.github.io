@@ -552,12 +552,12 @@
 </ul>
 <h3 id="1、组件说明"><a href="#1、组件说明" class="headerlink" title="1、组件说明"></a>1、组件说明</h3><p>下面的内容第一次听完全不懂，需要多理解，多反复。不光老师的笔记重要，老师说的话更重要。</p>
 <p>k8s的前身是伯格（<code>Borg</code>）系统，采用<code>Go语言</code>的编译版（或重构版）。因此下面的学习思路是：先学习伯格（Borg）系统，再学习k8s调度系统。</p>
-<img src="/posts/undefined/1.jpg" class title="图1 Google Borg架构">
+<img src="/posts/17e2/1.jpg" class title="图1 Google Borg架构">
 
 <p>上图可以看出：<code>Borg</code>系统由若干<code>BorgMaster</code>和<code>Borglet</code>组成，<code>BorgMaster</code>负责请求分发（整个集群的大脑），真正工作的节点是<code>Borglet</code>，比如：如果有对应容器要运行（比如有计算能力），是通过<code>Borglet</code>提供的。</p>
 <p>为了防止<code>BorgMaster</code>单节点故障，因此出现了很多副本（后面叠放的），并且副本数目是有讲究的。可以是1、2、4、6个吗？对于高可用集群来说，一般需要满足：副本数目最好是3、5、7、9个（即大于1的奇数个）。不能为1个，因为1个节点会产生单点故障，单数个是为了保证投票时必须倾向某一方。</p>
 <p>还可以发现图的最上方有几个访问方式：通过浏览器（web browsers）、命令行（command-line）、文件读取（borgcfg），在k8s中也会有这几种方式进行调度集群的管理。这三种方式会被接入到<code>BorgMaster</code>系统中，理解请求后再做分发。分发的概念很重要，即请求发送过来之后交给谁去处理，分发由<code>scheduler</code>（调度器）负责，所有任务到了<code>scheduler</code>之后会被分发到不同的节点去运行（注意：并不是<code>scheduler</code>和<code>Borglet</code>交互，而是<code>scheduler</code>把数据写入到<code>Paxos</code>中（<code>Paxos</code>是<code>Google</code>的键值对数据库），由<code>Paxos</code>存储。<code>Borglet</code>会实时地在<code>Paxos</code>数据库中进行监听，如果发现有对应请求了，则会把这一请求取出来（消费））。k8s与之类似。</p>
-<img src="/posts/undefined/2.jpg" class title="图2 k8s的架构图">
+<img src="/posts/17e2/2.jpg" class title="图2 k8s的架构图">
 
 <p>该架构图为C/S架构，一部分是<code>master</code>服务器（上面的红框），一部分是<code>node</code>结点（下面的红框）。<code>master</code>是领导者，<code>node</code>是工人（执行者）。</p>
 <p>领导者中包含：</p>
@@ -569,10 +569,10 @@
 <li><p><code>api server</code>：一切服务访问的入口。<code>scheduler</code>需要和<code>api server</code>交互，RC需要和<code>api server</code>交互，<code>kubectl</code>（命令行管理工具）需要和<code>api server</code>交互，<code>web UI</code>需要和<code>api server</code>交互，<code>etcd</code>也需要和<code>api server</code>交互。可以发现<code>api server</code>是非常繁忙的，为了减轻其压力，每个主键还可以在本地生成一定的缓存，并不需要每件事情都到<code>api server</code>中去申请。接下来<code>api server</code>会去操作<code>etcd</code>。</p>
 </li>
 <li><p><code>etcd</code>：<code>etcd</code>在k8s中扮演的角色类似于<code>Borg</code>系统中的<code>Paxos</code>数据库。<code>etcd</code>是采用<code>Go</code>语言编写的键值对数据库，在k8s中起到持久化的作用。<code>etcd</code>的官方将其定义为一个可信赖的分布式（扩容方便）键值存储（<code>k-v</code>结构）服务，它能够为整个分布式集群存储一些关键数据，协助分布式集群的正常运转（保存分布式集群的需要持久化的配置文件、配置信息，一旦集群死亡，就可以借助<code>etcd</code>里的信息进行数据恢复）。<code>etcd</code>的存储有两个版本，一个是<code>v2</code>版，一个是<code>v3</code>版。<code>v2</code>版会把所有数据写入到内存中，<code>v3</code>版会引入本地持久化操作（关机以后并不会造成数据损坏，会从本地磁盘进行恢复）。</p>
-<img src="/posts/undefined/3.jpg" class title="图3 etcd的两个版本">
+<img src="/posts/17e2/3.jpg" class title="图3 etcd的两个版本">
 
 <p><code>etcd</code>的内部架构是采用<code>HTTP</code>协议的C/S架构（k8s也是采用C/S架构），因为<code>HTTP</code>协议天生支持很多操作方式（如<code>put</code>、<code>get</code>等）。<code>Raft</code>是读写信息，为了防止信息损坏，还有一个<code>WAL</code>（预写日志），如果想对数据进行更改，首先生成一个日志（先存一下），并且定时对日志进行完整备份。实时把日志写入到磁盘中进行持久化。    </p>
-<img src="/posts/undefined/4.jpg" class title="图4 etcd的内部架构图"></li>
+<img src="/posts/17e2/4.jpg" class title="图4 etcd的内部架构图"></li>
 </ul>
 <p>执行者中包含：</p>
 <ul>
@@ -589,7 +589,7 @@
 <li><code>PROMETHEUS</code>：提供K8S集群的监控能力</li>
 <li><code>ELK</code>：提供 K8S 集群日志统一分析接入平台</li>
 </ul>
-<img src="/posts/undefined/5.jpg" class title="图5 k8s中的其他组件">
+<img src="/posts/17e2/5.jpg" class title="图5 k8s中的其他组件">
 
 
 
@@ -597,7 +597,7 @@
 <li><p>自主式Pod</p>
 <p>不是被控制器管理的<code>Pod</code>。</p>
 <p>对于传统的<code>docker</code>容器，在主机上运行的每一个容器都是独立存在的，通过名称空间进行隔离，每个容器都有自己的<code>ip</code>地址。但是在k8s移植时就不太容易了，比如想把一个没有在容器运行过的环境，把它迁移到k8s上，就比较难迁移。因为有些软件，比如<code>lamp</code>，<code>a</code>可能和<code>php</code>之间有联系，如果将他们分来，他们是不同的地址，还需要配他们的反向代理。</p>
-<img src="/posts/undefined/6.jpg" class title="图6 标准的docker容器">
+<img src="/posts/17e2/6.jpg" class title="图6 标准的docker容器">
 
 <p>有些组件应该在一起，并且还能够直接互相见面，也就是通过<code>localhost</code>可以直接访问到，但是如果采用标准的容器方案（图6），就不可以访问到，除非把两个不同的镜像封装在同一个容器内部，或者是第二个容器采用第一个容器的网络栈，但是安全性会有隐患。</p>
 <p>k8s给我们建立了<code>Pod</code>。先启动第一个容器。只要运行了<code>Pod</code>该容器就会被启动。假设在<code>Pod</code>里定义了两个容器，两个容器共用<code>pause</code>的网络栈（亦即这两个容器没有独立的<code>ip</code>地址，有的只是<code>Pod</code>的地址）。</p>
