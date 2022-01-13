@@ -512,14 +512,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <div class="note info">本文将介绍工厂模式、建造者模式、原型模式</div> 
+## 工厂模式【常用】
 
-<h2 id="工厂模式【常用】"><a href="#工厂模式【常用】" class="headerlink" title="工厂模式【常用】"></a>工厂模式【常用】</h2><div class="note info no-icon"><strong>工厂模式很重要，后面的很多架构设计都是工厂模式联合其它设计模式使用。</strong></div>  
 
-<ol>
-<li>一般情况下，工厂模式分为三种更加细分的类型：简单工厂、工厂方法和抽象工厂。不过，在 GoF 的《设计模式》一书中，将简单工厂模式看作是工厂方法模式的一种特例，所以工厂模式只被分成了工厂方法和抽象工厂两类。实际上，前面一种分类方法更加常见。因此，下面的介绍沿用第一种分类方法。</li>
-<li>在这三种细分的工厂模式中，简单工厂、工厂方法原理比较简单，在实际的项目中也比较常用。而抽象工厂的原理稍微复杂点，在实际的项目中相对也不常用。所以重点是前两种工厂模式。对于抽象工厂，稍微了解一下即可。</li>
-<li>除此之外，下面叙述的重点也不是原理和实现，因为这些都很简单，重点还是搞清楚应用场景：什么时候该用工厂模式？相对于直接 <code>new</code>来创建对象，用工厂模式来创建究竟有什么好处呢？</li>
-</ol>
+
+<div class="note info no-icon"><strong>工厂模式很重要，后面的很多架构设计都是工厂模式联合其它设计模式使用。</strong></div>  
+1. 一般情况下，工厂模式分为三种更加细分的类型：简单工厂、工厂方法和抽象工厂。不过，在 GoF 的《设计模式》一书中，将简单工厂模式看作是工厂方法模式的一种特例，所以工厂模式只被分成了工厂方法和抽象工厂两类。实际上，前面一种分类方法更加常见。因此，下面的介绍沿用第一种分类方法。
+2. 在这三种细分的工厂模式中，简单工厂、工厂方法原理比较简单，在实际的项目中也比较常用。而抽象工厂的原理稍微复杂点，在实际的项目中相对也不常用。所以重点是前两种工厂模式。对于抽象工厂，稍微了解一下即可。
+3. 除此之外，下面叙述的重点也不是原理和实现，因为这些都很简单，重点还是搞清楚应用场景：什么时候该用工厂模式？相对于直接 `new`来创建对象，用工厂模式来创建究竟有什么好处呢？
+
 <h3 id="简单工厂（Simple-Factory）"><a href="#简单工厂（Simple-Factory）" class="headerlink" title="简单工厂（Simple Factory）"></a><strong>简单工厂（Simple Factory）</strong></h3><p>什么是简单工厂模式？下面通过一个例子解释一下。</p>
 <p>在下面这段代码中，根据配置文件的后缀(json、xml、yaml、properties)，选择不同的解析器(JsonRuleConfigParser、XmlRuleConfigParser……)，将存储在文件中的配置解析成内存对象<code>RuleConfig</code>。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RuleConfigSource</span> <span class="token punctuation">&#123;</span>
@@ -832,12 +833,10 @@ PropertiesSystemConfigParser<br>
 </ol>
 <h4 id="DI-容器的核心功能有哪些？"><a href="#DI-容器的核心功能有哪些？" class="headerlink" title="DI 容器的核心功能有哪些？"></a><strong>DI 容器的核心功能有哪些？</strong></h4><p>总结一下，一个简单的<code>DI</code>容器的核心功能一般有三个：配置解析、对象创建和对象生命周期管理。 </p>
 <div class="note info"><strong>首先来看配置解析。</strong></div>  
+1. 在上面讲的工厂模式中，工厂类要创建哪个类对象是事先确定好的，并且是写死在工厂类代码中的。作为一个通用的框架来说，框架代码跟应用代码应该是高度解耦的，`DI`容器事先并不知道应用会创建哪些对象，不可能把某个应用要创建的对象写死在框架代码中。所以需要通过一种形式，让应用告知`DI`容器要创建哪些对象。
+2. 将需要由`DI`容器来创建的类对象和创建类对象的必要信息（使用哪个构造函数以及对应的构造函数参数都是什么等等），放到配置文件中。容器读取配置文件，根据配置文件提供的信息来创建对象。
+3. 下面是一个典型的 Spring 容器的配置文件。Spring 容器读取这个配置文件，解析出要创建的两个对象：`rateLimiter`和`redisCounter`，并且得到两者的依赖关系：`rateLimiter`依赖`redisCounter`。
 
-<ol>
-<li>在上面讲的工厂模式中，工厂类要创建哪个类对象是事先确定好的，并且是写死在工厂类代码中的。作为一个通用的框架来说，框架代码跟应用代码应该是高度解耦的，<code>DI</code>容器事先并不知道应用会创建哪些对象，不可能把某个应用要创建的对象写死在框架代码中。所以需要通过一种形式，让应用告知<code>DI</code>容器要创建哪些对象。</li>
-<li>将需要由<code>DI</code>容器来创建的类对象和创建类对象的必要信息（使用哪个构造函数以及对应的构造函数参数都是什么等等），放到配置文件中。容器读取配置文件，根据配置文件提供的信息来创建对象。</li>
-<li>下面是一个典型的 Spring 容器的配置文件。Spring 容器读取这个配置文件，解析出要创建的两个对象：<code>rateLimiter</code>和<code>redisCounter</code>，并且得到两者的依赖关系：<code>rateLimiter</code>依赖<code>redisCounter</code>。</li>
-</ol>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span><span class="token punctuation">></span></span>
 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>rateLimiter<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.xzg.RateLimiter<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>constructor-arg</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>redisCounter<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
@@ -873,18 +872,18 @@ PropertiesSystemConfigParser<br>
 
 
 <div class="note info"><strong>其次，再来看对象创建。</strong></div> 
+1. 在`DI`容器中，如果给每个类都对应创建一个工厂类，那项目中类的个数会成倍增加，这会增加代码的维护成本。要解决这个问题并不难。只需要将所有类对象的创建都放到一个工厂类中完成就可以了，比如`BeansFactory`。
+2. 如果要创建的类对象非常多，BeansFactory 中的代码会不会线性膨胀（代码量跟创建对象的个数成正比）呢？实际上并不会。下面讲到`DI`容器的具体实现时，会讲`反射`机制，它能在程序运行的过程中，动态地加载类、创建对象，不需要事先在代码中写死要创建哪些对象。所以，不管是创建一个对象还是十个对象，`BeansFactory`工厂类代码都是一样的。
 
-<ol>
-<li>在<code>DI</code>容器中，如果给每个类都对应创建一个工厂类，那项目中类的个数会成倍增加，这会增加代码的维护成本。要解决这个问题并不难。只需要将所有类对象的创建都放到一个工厂类中完成就可以了，比如<code>BeansFactory</code>。</li>
-<li>如果要创建的类对象非常多，BeansFactory 中的代码会不会线性膨胀（代码量跟创建对象的个数成正比）呢？实际上并不会。下面讲到<code>DI</code>容器的具体实现时，会讲<code>反射</code>机制，它能在程序运行的过程中，动态地加载类、创建对象，不需要事先在代码中写死要创建哪些对象。所以，不管是创建一个对象还是十个对象，<code>BeansFactory</code>工厂类代码都是一样的。</li>
-</ol>
+
+
 <div class="note info"><strong>最后，来看对象的生命周期管理。</strong></div> 
+1. 上面讲到，简单工厂模式有两种实现方式，一种是每次都返回新创建的对象，另一种是每次都返回同一个事先创建好的对象，也就是所谓的单例对象。在 Spring 框架中，可以通过配置`scope`属性来区分这两种不同类型的对象。`scope=prototype`表示返回新创建的对象，`scope=singleton`表示返回单例对象。
+2. 除此之外，还可以配置对象是否支持懒加载。如果`lazy-init = true`，对象在真正被使用到的时候（比如：`BeansFactory.getBean("userService")`）才被被创建；如果`lazy-init=false`，对象在应用启动的时候就事先创建好。
+3. 不仅如此，还可以配置对象的`init-method`和`destroy-method`方法，比如`init-method = loadProperties()`，`destroy-method = updateConfigFile()`。`DI`容器在创建好对象之后，会主动调用`init-method`属性指定的方法来初始化对象。在对象被最终销毁之前，`DI`容器会主动调用`destroy-method`属性指定的方法来做一些清理工作，比如释放数据库连接池、关闭文件。
 
-<ol>
-<li>上面讲到，简单工厂模式有两种实现方式，一种是每次都返回新创建的对象，另一种是每次都返回同一个事先创建好的对象，也就是所谓的单例对象。在 Spring 框架中，可以通过配置<code>scope</code>属性来区分这两种不同类型的对象。<code>scope=prototype</code>表示返回新创建的对象，<code>scope=singleton</code>表示返回单例对象。</li>
-<li>除此之外，还可以配置对象是否支持懒加载。如果<code>lazy-init = true</code>，对象在真正被使用到的时候（比如：<code>BeansFactory.getBean(&quot;userService&quot;)</code>）才被被创建；如果<code>lazy-init=false</code>，对象在应用启动的时候就事先创建好。</li>
-<li>不仅如此，还可以配置对象的<code>init-method</code>和<code>destroy-method</code>方法，比如<code>init-method = loadProperties()</code>，<code>destroy-method = updateConfigFile()</code>。<code>DI</code>容器在创建好对象之后，会主动调用<code>init-method</code>属性指定的方法来初始化对象。在对象被最终销毁之前，<code>DI</code>容器会主动调用<code>destroy-method</code>属性指定的方法来做一些清理工作，比如释放数据库连接池、关闭文件。</li>
-</ol>
+
+
 <h3 id="如何实现一个简单的-DI-容器？"><a href="#如何实现一个简单的-DI-容器？" class="headerlink" title="如何实现一个简单的 DI 容器？"></a><strong>如何实现一个简单的 DI 容器？</strong></h3><p>用 Java 语言来实现一个简单的<code>DI</code>容器，核心逻辑只需要包括两个部分：配置文件解析、根据配置文件通过<code>反射</code>语法来创建对象。 </p>
 <h4 id="最小原型设计"><a href="#最小原型设计" class="headerlink" title="最小原型设计"></a><strong>最小原型设计</strong></h4><p>因为主要涉及设计模式，所以只实现一个<code>DI</code>容器的最小原型。像<code>Spring</code>框架这样的<code>DI</code>容器，它支持的配置格式非常灵活和复杂。为了简化代码实现，重点讲解原理，在最小原型中，只支持下面配置文件中涉及的配置语法。 </p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span><span class="token punctuation">></span></span>
@@ -1274,32 +1273,31 @@ r<span class="token punctuation">.</span><span class="token function">setHeight<
 
 
 <div class="note info no-icon"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里是说，长方形必须同时具备宽、高两个属性才是一个有效的长方形。只有其中一个属性，这个长方形对象就没有意义，是无效的。</strong></div>  
+1. 为了避免这种无效状态的存在，就需要使用构造函数一次性初始化好所有的成员变量。如果构造函数参数过多，就需要考虑使用建造者模式，**先设置建造者的变量，然后再一次性地创建对象，让对象一直处于有效状态**。(建造者主要解决参数过多、参数检验、控制对象创建后不可变的问题)
+2. 实际上，如果并不是很关心对象是否有短暂的无效状态，也不是太在意对象是否是可变的。比如，对象只是用来映射数据库读出来的数据，那直接暴露`set()`方法来设置类的成员变量值是完全没问题的。而且，使用建造者模式来构建对象，代码实际上是有点重复的，`ResourcePoolConfig`类中的成员变量，要在`Builder`类中重新再定义一遍。
 
-<ol>
-<li>为了避免这种无效状态的存在，就需要使用构造函数一次性初始化好所有的成员变量。如果构造函数参数过多，就需要考虑使用建造者模式，<strong>先设置建造者的变量，然后再一次性地创建对象，让对象一直处于有效状态</strong>。(建造者主要解决参数过多、参数检验、控制对象创建后不可变的问题)</li>
-<li>实际上，如果并不是很关心对象是否有短暂的无效状态，也不是太在意对象是否是可变的。比如，对象只是用来映射数据库读出来的数据，那直接暴露<code>set()</code>方法来设置类的成员变量值是完全没问题的。而且，使用建造者模式来构建对象，代码实际上是有点重复的，<code>ResourcePoolConfig</code>类中的成员变量，要在<code>Builder</code>类中重新再定义一遍。</li>
-</ol>
 <h3 id="与工厂模式有何区别？"><a href="#与工厂模式有何区别？" class="headerlink" title="与工厂模式有何区别？"></a><strong>与工厂模式有何区别？</strong></h3><ol>
 <li>从上面的讲解中可以看出，建造者模式是让建造者类来负责对象的创建工作。工厂模式是由工厂类来负责对象创建的工作。那它们之间有什么区别呢？</li>
 <li>实际上，工厂模式是用来创建<strong>不同但是相关类型</strong>的对象（继承同一父类或者接口的一组子类），由给定的参数来决定创建哪种类型的对象。建造者模式是用来<strong>创建一种类型的复杂对象</strong>，通过设置不同的可选参数，“定制化”地创建不同的对象。</li>
 </ol>
 <p>网上有一个经典的例子很好地解释了两者的区别: </p>
 <div class="note info no-icon"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;顾客走进一家餐馆点餐，利用工厂模式，根据用户不同的选择来制作不同的食物，比如披萨、汉堡、沙拉。对于披萨来说，用户又有各种配料可以定制，比如奶酪、西红柿、起司，通过建造者模式根据用户选择的不同配料来制作披萨。</strong></div>  
+实际上，我们也不要太学院派，非得把工厂模式、建造者模式分得那么清楚，我们需要知道的是，每个模式为什么这么设计，能解决什么问题。只有了解了这些最本质的东西，才能不生搬硬套，才能灵活应用，甚至可以混用各种模式创造出新的模式，来解决特定场景的问题。 
 
-<p>实际上，我们也不要太学院派，非得把工厂模式、建造者模式分得那么清楚，我们需要知道的是，每个模式为什么这么设计，能解决什么问题。只有了解了这些最本质的东西，才能不生搬硬套，才能灵活应用，甚至可以混用各种模式创造出新的模式，来解决特定场景的问题。 </p>
+
+
 <h2 id="原型模式【不常用】"><a href="#原型模式【不常用】" class="headerlink" title="原型模式【不常用】"></a><strong>原型模式【不常用】</strong></h2><p><strong>原型模式</strong>和具体某一语言的语法机制无关，以下通过一个<code>clone</code>散列表的例子来搞清楚：原型模式的应用场景，以及它的两种实现方式：深拷贝和浅拷贝。</p>
 <h3 id="原型模式的原理与应用"><a href="#原型模式的原理与应用" class="headerlink" title="原型模式的原理与应用"></a><strong>原型模式的原理与应用</strong></h3><p>如果对象的创建成本比较大，而同一个类的不同对象之间差别不大（大部分字段都相同），在这种情况下，可以利用对已有对象（原型）进行复制（或者叫拷贝）的方式来创建新对象，以达到节省创建时间的目的。这种基于原型来创建对象的方式就叫作原型设计模式（Prototype Design Pattern），简称原型模式。 </p>
 <div class="note info no-icon"><strong>何为“对象的创建成本比较大”？</strong></div>  
+1. 实际上，创建对象包含的申请内存、给成员变量赋值这一过程，本身并不会花费太多时间，或者说对于大部分业务系统来说，这点时间完全是可以忽略的。应用一个复杂的模式，只得到一点点的性能提升，这就是所谓的过度设计，得不偿失。
+2. **但是，**如果对象中的数据需要经过复杂的计算才能得到（比如排序、计算哈希值），或者需要从 RPC、网络、数据库、文件系统等非常慢速的 IO 中读取，这种情况下就可以利用原型模式，从其他已有对象中直接拷贝得到，而不用每次在创建新对象的时候，都重复执行这些耗时的操作。
 
-<ol>
-<li>实际上，创建对象包含的申请内存、给成员变量赋值这一过程，本身并不会花费太多时间，或者说对于大部分业务系统来说，这点时间完全是可以忽略的。应用一个复杂的模式，只得到一点点的性能提升，这就是所谓的过度设计，得不偿失。</li>
-<li><strong>但是，</strong>如果对象中的数据需要经过复杂的计算才能得到（比如排序、计算哈希值），或者需要从 RPC、网络、数据库、文件系统等非常慢速的 IO 中读取，这种情况下就可以利用原型模式，从其他已有对象中直接拷贝得到，而不用每次在创建新对象的时候，都重复执行这些耗时的操作。</li>
-</ol>
+
+
 <div class="note info no-icon"><strong>接下来通过例子来解释。</strong></div>  
+1. 假设数据库中存储了大约 10 万条“搜索关键词”信息，每条信息包含关键词、关键词被搜索的次数、信息最近被更新的时间等。系统 A 在启动时会加载这份数据到内存中，用于处理某些其他的业务需求。为了方便快速地查找某个关键词对应的信息，给关键词建立一个散列表索引。
 
-<ol>
-<li><p>假设数据库中存储了大约 10 万条“搜索关键词”信息，每条信息包含关键词、关键词被搜索的次数、信息最近被更新的时间等。系统 A 在启动时会加载这份数据到内存中，用于处理某些其他的业务需求。为了方便快速地查找某个关键词对应的信息，给关键词建立一个散列表索引。</p>
-</li>
+<ol start="2">
 <li><p>Java可以直接使用语言中提供的<code>HashMap</code>容器来实现。其中，<code>HashMap</code>的<code>key</code>为搜索关键词，<code>value</code>为关键词详细信息（比如搜索次数）。只需要将数据从数据库中读取出来，放入<code>HashMap</code>就可以了。</p>
 </li>
 <li><p>不过，还有另外一个系统 B，专门用来分析搜索日志，定期（比如间隔 10 分钟）批量地更新数据库中的数据，并且标记为新的数据版本。比如，下面的示例图对 v2 版本的数据进行更新，得到 v3 版本的数据。假设只有更新和新添关键词，没有删除关键词的行为。</p>
@@ -1407,24 +1405,21 @@ r<span class="token punctuation">.</span><span class="token function">setHeight<
 </li>
 </ol>
 <h3 id="原型模式的实现方式：深拷贝和浅拷贝"><a href="#原型模式的实现方式：深拷贝和浅拷贝" class="headerlink" title="原型模式的实现方式：深拷贝和浅拷贝"></a><strong>原型模式的实现方式：深拷贝和浅拷贝</strong></h3><div class="note info no-icon">&nbsp;&nbsp;&nbsp;&nbsp;<strong>关于深拷贝浅拷贝，<a target="_blank" rel="noopener" href="https://blog.csdn.net/baiye_xing/article/details/71788741">请参考文章：</a></strong></div>  
+> **我自己的总结：**
+>
+> **浅拷贝：对一个对象进行拷贝时，这个对象对应的类里的成员变量。**
+>
+> - 对于数据类型是基本数据类型的成员变量，浅拷贝会直接进行值拷贝，也就是将该属性值复制一份给新的对象。因为是两份不同的数据，所以对其中一个对象的该成员变量值进行修改，不会影响另一个对象拷贝得到的数据
+> - 对于数据类型是引用数据类型的成员变量(也就是子对象，或者数组等)，也就是只是将该成员变量的引用值（引用拷贝【并发引用传递，Java本质还是值传递】）复制一份给新的对象。因为实际上两个对象的该成员变量都指向同一个实例。在这种情况下，在一个对象中修改该成员变量会影响到另一个对象的该成员变量值。
+>
+> 1. **深拷贝**：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。
+> 2. 也就是说浅拷贝对于子对象只是拷贝了引用值，并没有真正的拷贝整个对象。
+>
+> **深拷贝实现思路：**
+>
+> 1. 对于每个子对象都实现Cloneable 接口，并重写clone方法。最后在最顶层的类的重写的 clone 方法中调用所有子对象的 clone 方法即可实现深拷贝。【简单的说就是：每一层的每个子对象都进行浅拷贝=深拷贝】
+> 2. 利用序列化。【先对对象进行序列化，紧接着马上反序列化出 】
 
-<blockquote>
-<p><strong>我自己的总结：</strong></p>
-<p><strong>浅拷贝：对一个对象进行拷贝时，这个对象对应的类里的成员变量。</strong></p>
-<ul>
-<li>对于数据类型是基本数据类型的成员变量，浅拷贝会直接进行值拷贝，也就是将该属性值复制一份给新的对象。因为是两份不同的数据，所以对其中一个对象的该成员变量值进行修改，不会影响另一个对象拷贝得到的数据</li>
-<li>对于数据类型是引用数据类型的成员变量(也就是子对象，或者数组等)，也就是只是将该成员变量的引用值（引用拷贝【并发引用传递，Java本质还是值传递】）复制一份给新的对象。因为实际上两个对象的该成员变量都指向同一个实例。在这种情况下，在一个对象中修改该成员变量会影响到另一个对象的该成员变量值。</li>
-</ul>
-<ol>
-<li><strong>深拷贝</strong>：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。</li>
-<li>也就是说浅拷贝对于子对象只是拷贝了引用值，并没有真正的拷贝整个对象。</li>
-</ol>
-<p><strong>深拷贝实现思路：</strong></p>
-<ol>
-<li>对于每个子对象都实现Cloneable 接口，并重写clone方法。最后在最顶层的类的重写的 clone 方法中调用所有子对象的 clone 方法即可实现深拷贝。【简单的说就是：每一层的每个子对象都进行浅拷贝=深拷贝】</li>
-<li>利用序列化。【先对对象进行序列化，紧接着马上反序列化出 】</li>
-</ol>
-</blockquote>
 <p>在内存中，用散列表组织的搜索关键词信息是如何存储的。从图中可以发现，散列表索引中，每个结点存储的<code>key</code>是搜索关键词，<code>value</code>是<code>SearchWord</code>对象的内存地址。<code>SearchWord</code>对象本身存储在散列表之外的内存空间中。 </p>
 <img src="/posts/9afd/3.jpg" class title="关键词信息的存储结构">
 
@@ -2428,7 +2423,7 @@ new Valine({
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <a href="/about" target="_blank">Prannt</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -2436,7 +2431,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">157.7k</span>
+                        class="white-color">165.3k</span>
             
             
             

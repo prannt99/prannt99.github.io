@@ -509,7 +509,7 @@
 <p>（2）如果线程数大于核心线程数，就将多余的线程放入任务队列（阻塞队列）中</p>
 <p>（3）当任务队列（阻塞队列）满的时候，就启动最大线程数.</p>
 <p>（4）当最大线程数也达到后，就将启动拒绝策略。</p>
-<img src="/posts/undefined/1.png" class title="线程池的工作流程">
+<img src="/posts/86fb/1.png" class title="线程池的工作流程">
 
 <h4 id="四种拒绝策略"><a href="#四种拒绝策略" class="headerlink" title="四种拒绝策略"></a>四种拒绝策略</h4><p>1.ThreadPoolExecutor.AbortPolicy </p>
 <p>线程池的<strong>默认拒绝策略</strong>为AbortPolicy，即丢弃任务并抛出RejectedExecutionException异常（即后面提交的请求不会放入队列也不会直接消费并抛出异常）；</p>
@@ -532,7 +532,7 @@
 <h3 id="重写和重载的区别"><a href="#重写和重载的区别" class="headerlink" title="重写和重载的区别"></a>重写和重载的区别</h3><p>重载是发生在同一个类中，具有相同的方法名，但是有不同的参数，参数的个数不一样、参数的位置不一样，这就叫重载，常见的就比如构造方法，有有参构造和无参构造。 </p>
 <p>重写是发生在当子类继承父类时，对父类中的一些方法根据自己的需求进行重写操作。</p>
 <h3 id="线程的状态及转移"><a href="#线程的状态及转移" class="headerlink" title="线程的状态及转移"></a>线程的状态及转移</h3><p>Java中线程生命周期分为新建（New）、运行（Runnable）、阻塞（Blocked）、无限期等待（Waiting）、限期等待（Time Waiting）和结束（Terminated）这6种状态。 </p>
-<img src="/posts/undefined/2.jpg" class title="线程的状态">
+<img src="/posts/86fb/2.jpg" class title="线程的状态">
 
 
 
@@ -587,9 +587,9 @@
 <p> (c)将key和value封装为Node插入到链表或红黑树后，在判断是否需要扩容，如果需要扩容，就结束put方法。</p>
 <p><strong>追问：HashMap源码中在计算hash值的时候为什么要右移16位？</strong> </p>
 <p>回答：我的理解是让元素在HashMap中更加均匀的分布，具体的可以看下图，下图是《阿里调优手册》里说的。 </p>
-<img src="/posts/undefined/5.jpg" class title="描述">
+<img src="/posts/86fb/5.jpg" class title="描述">
 
-<img src="/posts/undefined/6.jpg" class title="描述（接上图）">
+<img src="/posts/86fb/6.jpg" class title="描述（接上图）">
 
 <h3 id="CAS操作原理与实现"><a href="#CAS操作原理与实现" class="headerlink" title="CAS操作原理与实现"></a>CAS操作原理与实现</h3><p>CAS指Compare and swap比较和替换是设计并发算法时用到的一种技术，CAS指令有三个操作数，分别是内存位置（在Java中可以简单的理解为变量的内存地址，用V表示），旧的预期值（用A表示）和准备设置的新值（用B表示）。CAS指令在执行的时候，当且仅当V符合A时，处理器才会用B更新V的值，否则它就不会执行更新。 </p>
 <p><strong>CAS带来的问题是什么？如何解决的？</strong></p>
@@ -602,7 +602,7 @@
 <p>4、每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信</p>
 <p>5、TCP首部开销20字节;UDP的首部开销小，只有8个字节</p>
 <p>6、TCP的逻辑通信信道是全双工的可靠信道，UDP则是不可靠信道 </p>
-<img src="/posts/undefined/4.jpg" class title="TCP和UDP对比">
+<img src="/posts/86fb/4.jpg" class title="TCP和UDP对比">
 
 <p><strong>追问：TCP和UDP的使用场景？</strong></p>
 <p>某些情况下 UDP 确是一种最有效的工作方式（一般用于即时通信），比如： QQ 语音、 QQ 视频 、直播等等。</p>
@@ -1417,30 +1417,29 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/86fb.html">
+                <a href="/posts/8553.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="面试题汇总1">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="MySQL调优">
                         
-                        <span class="card-title">面试题汇总1</span>
+                        <span class="card-title">MySQL调优</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            面试题搜集
+                            
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-31
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1448,15 +1447,6 @@ new Valine({
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
-                        <span class="chip bg-color">面试</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1698,7 +1688,7 @@ new Valine({
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <a href="/about" target="_blank">Prannt</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -1706,7 +1696,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">157.7k</span>
+                        class="white-color">165.3k</span>
             
             
             
