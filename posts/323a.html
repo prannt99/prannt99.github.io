@@ -511,7 +511,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                 <img src="/posts/undefined/1.jpg" class title="shiro官方图标">
+                 <img src="/posts/323a/1.jpg" class title="shiro官方图标">
 
 <p>shiro官方文档：<a target="_blank" rel="noopener" href="https://shiro.apache.org/reference.html">传送门</a></p>
 <h2 id="1-权限的管理"><a href="#1-权限的管理" class="headerlink" title="1. 权限的管理"></a>1. 权限的管理</h2><p>目前<strong>主流的</strong>解决权限管理的方案：①Apache基金会开源的Shiro框架；②Spring技术栈中的SpringSecurity</p>
@@ -524,7 +524,7 @@
 <p>Shiro 是一个功能强大且易于使用的Java安全框架，它执行身份验证、授权、加密和会话管理。使用Shiro易于理解的API，您可以快速轻松地保护任何应用程序—从最小的移动应用程序到最大的web和企业应用程序。</p>
 </blockquote>
 <p>Shiro是apache旗下一个开源框架，它将软件系统的安全认证相关的功能抽取出来，实现用户身份认证，权限授权、加密、会话管理等功能，组成了一个通用的安全认证框架。 </p>
-<h2 id="3-shiro的核心架构"><a href="#3-shiro的核心架构" class="headerlink" title="3.shiro的核心架构"></a>3.shiro的核心架构</h2> <img src="/posts/undefined/2.jpg" class title="shiro架构图">
+<h2 id="3-shiro的核心架构"><a href="#3-shiro的核心架构" class="headerlink" title="3.shiro的核心架构"></a>3.shiro的核心架构</h2> <img src="/posts/323a/2.jpg" class title="shiro架构图">
 
 <h3 id="3-1-简介"><a href="#3-1-简介" class="headerlink" title="3.1 简介"></a>3.1 简介</h3><h4 id="3-1-1-Subject"><a href="#3-1-1-Subject" class="headerlink" title="3.1.1 Subject"></a>3.1.1 Subject</h4><p><code>Subject</code>即主体，外部应用与<code>subject</code>进行交互，<code>subject</code>记录了当前操作用户，将用户的概念理解为当前操作的主体，可能是一个通过浏览器请求的用户，也可能是一个运行的程序。</p>
 <p><code>Subject</code>在<code>shiro</code>中是一个接口，接口中定义了很多认证授相关的方法，外部程序通过<code>subject</code>进行认证授，而<code>subject</code>是通过<code>SecurityManager</code>安全管理器进行认证授权。</p>
@@ -551,9 +551,9 @@
 <p>是只有主体自己知道的安全信息，如密码、证书等。 </p>
 </li>
 </ul>
-<h3 id="4-3-认证流程"><a href="#4-3-认证流程" class="headerlink" title="4.3 认证流程"></a>4.3 认证流程</h3> <img src="/posts/undefined/3.jpg" class title="用户认证流程">
+<h3 id="4-3-认证流程"><a href="#4-3-认证流程" class="headerlink" title="4.3 认证流程"></a>4.3 认证流程</h3> <img src="/posts/323a/3.jpg" class title="用户认证流程">
 
-<h3 id="4-4-认证的开发"><a href="#4-4-认证的开发" class="headerlink" title="4.4 认证的开发"></a>4.4 认证的开发</h3><h4 id="4-4-1-创建项目并引入依赖"><a href="#4-4-1-创建项目并引入依赖" class="headerlink" title="4.4.1 创建项目并引入依赖"></a>4.4.1 创建项目并引入依赖</h4> <img src="/posts/undefined/4.jpg" class title="新建maven工程">
+<h3 id="4-4-认证的开发"><a href="#4-4-认证的开发" class="headerlink" title="4.4 认证的开发"></a>4.4 认证的开发</h3><h4 id="4-4-1-创建项目并引入依赖"><a href="#4-4-1-创建项目并引入依赖" class="headerlink" title="4.4.1 创建项目并引入依赖"></a>4.4.1 创建项目并引入依赖</h4> <img src="/posts/323a/4.jpg" class title="新建maven工程">
 
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.shiro<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -819,7 +819,7 @@ prannt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <p><code>Who，即主体(Subject)</code>，主体需要访问系统中的资源。</p>
 <p><code>What，即资源(Resource)</code>，如系统菜单、页面、按钮、类方法、系统商品信息等。资源包括<code>资源类型</code>和<code>资源实例</code>，比如<code>商品信息为资源类型</code>，类型为<code>t01</code>的商品为<code>资源实例</code>，编号<code>为001</code>的商品信息也属于<code>资源实例</code>。</p>
 <p><code>How，权限/许可(Permission)</code>，规定了主体对资源的操作许可，<strong>权限离开资源没有意义</strong>，如用户查询权限、用户添加权限、某个类方法的调用权限、编号为001用户的修改权限等，通过权限可知主体对哪些资源都有哪些操作许可。</p>
-<h3 id="5-3-授权流程"><a href="#5-3-授权流程" class="headerlink" title="5.3 授权流程"></a>5.3 授权流程</h3> <img src="/posts/undefined/5.jpg" class title="认证和授权的过程">
+<h3 id="5-3-授权流程"><a href="#5-3-授权流程" class="headerlink" title="5.3 授权流程"></a>5.3 授权流程</h3> <img src="/posts/323a/5.jpg" class title="认证和授权的过程">
 
 <h3 id="5-4-授权方式"><a href="#5-4-授权方式" class="headerlink" title="5.4 授权方式"></a>5.4 授权方式</h3><h4 id="5-4-1-基于角色的访问控制"><a href="#5-4-1-基于角色的访问控制" class="headerlink" title="5.4.1 基于角色的访问控制"></a>5.4.1 基于角色的访问控制</h4><p>RBAC基于角色的访问控制（Role-Based Access Control）是以角色为中心进行访问控制 </p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 伪代码</span>
@@ -974,9 +974,9 @@ prannt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="6-整合SpringBoot项目实战"><a href="#6-整合SpringBoot项目实战" class="headerlink" title="6. 整合SpringBoot项目实战"></a>6. 整合SpringBoot项目实战</h2><h3 id="6-1-整合思路"><a href="#6-1-整合思路" class="headerlink" title="6.1 整合思路"></a>6.1 整合思路</h3> <img src="/posts/undefined/6.jpg" class title="SpringBoot整合Shiro的思路">
+<h2 id="6-整合SpringBoot项目实战"><a href="#6-整合SpringBoot项目实战" class="headerlink" title="6. 整合SpringBoot项目实战"></a>6. 整合SpringBoot项目实战</h2><h3 id="6-1-整合思路"><a href="#6-1-整合思路" class="headerlink" title="6.1 整合思路"></a>6.1 整合思路</h3> <img src="/posts/323a/6.jpg" class title="SpringBoot整合Shiro的思路">
 
-<h3 id="6-2-环境配置"><a href="#6-2-环境配置" class="headerlink" title="6.2 环境配置"></a>6.2 环境配置</h3><h4 id="6-2-1-创建项目"><a href="#6-2-1-创建项目" class="headerlink" title="6.2.1 创建项目"></a>6.2.1 创建项目</h4> <img src="/posts/undefined/8.jpg" class title="项目结构">
+<h3 id="6-2-环境配置"><a href="#6-2-环境配置" class="headerlink" title="6.2 环境配置"></a>6.2 环境配置</h3><h4 id="6-2-1-创建项目"><a href="#6-2-1-创建项目" class="headerlink" title="6.2.1 创建项目"></a>6.2.1 创建项目</h4> <img src="/posts/323a/8.jpg" class title="项目结构">
 
 <p>就是个普通的<code>SpringBoot</code>工程。在<code>main</code>目录下创建目录<code>webapp</code>，在其中新建<code>index.jsp</code>文件，输入<code>!</code>然后<code>tab</code>可以生成<code>jsp</code>模板，在<code>body</code>中写<code>hello world</code>。</p>
 <h4 id="6-2-2-引入依赖"><a href="#6-2-2-引入依赖" class="headerlink" title="6.2.2 引入依赖"></a>6.2.2 引入依赖</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token comment">&lt;!--引入JSP解析依赖--></span>
@@ -1006,7 +1006,7 @@ prannt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <span class="token attr-name">spring.mvc.view.suffix</span><span class="token punctuation">=</span><span class="token attr-value">.jsp</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="6-2-4-修改配置"><a href="#6-2-4-修改配置" class="headerlink" title="6.2.4 修改配置"></a>6.2.4 修改配置</h4><p>JSP 与IDEA 与SpringBoot存在一定的<strong>不兼容</strong>，修改此配置即可解决 </p>
-<img src="/posts/undefined/7.jpg" class title="修改配置">
+<img src="/posts/323a/7.jpg" class title="修改配置">
 
 <blockquote>
 <p>本工程使用<code>SpringBoot 2.4.3</code>，不需要此步骤，可以直接访问到页面。</p>
@@ -1840,7 +1840,7 @@ prannt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li><code>@RequiresPermissions()</code>注解用于判断权限字符串，例如：<code>@RequiresPermissions(&quot;user:update:01&quot;)</code></li>
 </ul>
 <h4 id="6-7-2-连接数据库"><a href="#6-7-2-连接数据库" class="headerlink" title="6.7.2 连接数据库"></a>6.7.2 连接数据库</h4><h5 id="6-7-2-1-数据库设计思路"><a href="#6-7-2-1-数据库设计思路" class="headerlink" title="6.7.2.1 数据库设计思路"></a>6.7.2.1 数据库设计思路</h5><p>用户表和角色表之间是多对多的关系（一个用户可能对应多个角色，一个角色可能同时被多个用户绑定），角色表和权限表之间也是多对多的关系（一个角色可能有多个权限，一个权限可能被多个角色使用）。数据库在处理多对多关系的时候，需要转换成两个一对多去处理。所以真正在做处理的时候，需要引入中间表（用户角色表和角色权限表），中间表是多的一方。具体流程如下图所示：</p>
-<img src="/posts/undefined/9.jpg" class title="数据库设计思路">
+<img src="/posts/323a/9.jpg" class title="数据库设计思路">
 
 <h5 id="6-7-2-2-sql脚本"><a href="#6-7-2-2-sql脚本" class="headerlink" title="6.7.2.2 sql脚本"></a>6.7.2.2 sql脚本</h5><p>根据以上分析，设计表的sql语句如下：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- ----------------------------</span>
@@ -1899,7 +1899,7 @@ prannt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="6-7-2-3-获取角色信息"><a href="#6-7-2-3-获取角色信息" class="headerlink" title="6.7.2.3 获取角色信息"></a>6.7.2.3 获取角色信息</h5><p><strong>①在数据库中插入数据</strong></p>
- <img src="/posts/undefined/10.jpg" class title="表中插入数据">
+ <img src="/posts/323a/10.jpg" class title="表中插入数据">
 
 <p><strong>②实体类</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>
@@ -2653,50 +2653,36 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/323a.html">
+                <a href="/posts/cb3b.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Shiro学习笔记">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="实习日志TODO">
                         
-                        <span class="card-title">Shiro学习笔记</span>
+                        <span class="card-title">实习日志TODO</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            shiro学习记录
+                            
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-28
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Prannt
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/shiro/">
-                        <span class="chip bg-color">shiro</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -2708,19 +2694,19 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/0.html">
+                <a href="/posts/bbe.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="实习日志5">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">实习日志5</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            这里有东西被加密了，需要输入密码查看哦。
                         
                     </div>
                     <div class="publish-info">
@@ -2734,6 +2720,14 @@ new Valine({
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%9E%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">实习笔记</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -2935,7 +2929,7 @@ new Valine({
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">177k</span>
+                        class="white-color">211.9k</span>
             
             
             
